@@ -4,6 +4,7 @@ from fastapi import Depends, FastAPI
 from sqlalchemy import func, select, text
 from sqlalchemy.orm import Session
 
+from app import metrics
 from app.auth import hash_password
 from app.config import get_settings
 from app.db import SessionLocal, get_session
@@ -45,6 +46,7 @@ for module in (auth, companies, contacts, deals, activities, dashboard, backups)
     app.include_router(module.router)
 app.include_router(implementation.router)
 app.include_router(implementation.internal)
+metrics.install(app)
 
 
 @app.get("/api/health")
