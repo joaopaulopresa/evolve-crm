@@ -8,7 +8,7 @@ from app.auth import hash_password
 from app.config import get_settings
 from app.db import SessionLocal, get_session
 from app.models import User
-from app.routers import activities, auth, companies, contacts, deals
+from app.routers import activities, auth, companies, contacts, dashboard, deals
 
 
 def ensure_admin_exists() -> None:
@@ -35,7 +35,7 @@ async def lifespan(_: FastAPI):
 
 app = FastAPI(title="Evolve CRM API", lifespan=lifespan)
 
-for module in (auth, companies, contacts, deals, activities):
+for module in (auth, companies, contacts, deals, activities, dashboard):
     app.include_router(module.router)
 
 
