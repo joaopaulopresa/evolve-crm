@@ -5,3 +5,8 @@ services:
     environment:
       ENVIRONMENT: preview
       SEED_DEMO_DATA: "true"
+  # Previews hold only fictional data: no backups.
+  minio:
+    profiles: [never]
+  backup:
+    profiles: [never]

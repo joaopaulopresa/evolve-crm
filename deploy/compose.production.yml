@@ -17,6 +17,18 @@ services:
         aliases: [crm-api]
   web:
     restart: unless-stopped
+  minio:
+    restart: unless-stopped
+  backup:
+    restart: unless-stopped
+    environment:
+      ENVIRONMENT: production
+
+volumes:
+  # The factory's bare repository: in local mode it is the only copy of the code.
+  repo-git:
+    name: evolve-factory_repo-git
+    external: true
 
 networks:
   control:

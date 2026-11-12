@@ -30,6 +30,10 @@ services:
       ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@evolve.test}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin123}
       SEED_DEMO_DATA: ${SEED_DEMO_DATA:-true}
+      S3_ENDPOINT: ${S3_ENDPOINT:-http://minio:9000}
+      S3_BUCKET: ${S3_BUCKET:-evolve-backups}
+      S3_ACCESS_KEY: ${MINIO_ROOT_USER:-evolve}
+      S3_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-evolve-backups}
     depends_on:
       db:
         condition: service_healthy
@@ -48,5 +52,46 @@ services:
     ports:
       - "${WEB_PORT:-8080}:80"
 
+  # Backups: MinIO stores them, the backup service takes them (database dump and git bundle)
+  # on a schedule and before every production deploy. See backup/backup.sh.
+  minio:
+    image: cgr.dev/chainguard/minio:latest-dev
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-evolve}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-evolve-backups}
+    volumes:
+      - minio-data:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  backup:
+    image: evolve-crm-backup:${IMAGE_TAG:-dev}
+    build: ./backup
+    depends_on:
+      db:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    environment:
+      PGURL: postgresql://crm:${POSTGRES_PASSWORD:-crm}@db:5432/crm
+      ENVIRONMENT: ${ENVIRONMENT:-development}
+      S3_ENDPOINT: ${S3_ENDPOINT:-http://minio:9000}
+      S3_BUCKET: ${S3_BUCKET:-evolve-backups}
+      S3_ACCESS_KEY: ${MINIO_ROOT_USER:-evolve}
+      S3_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-evolve-backups}
+      BACKUP_CRON: ${BACKUP_CRON:-0 */6 * * *}
+      RETENTION_DAYS: ${RETENTION_DAYS:-30}
+      # /srv/git/repo.git in local mode (the factory's bare repository), the GitHub URL in
+      # github mode. In development there is no repository to back up and the step is skipped.
+      GIT_SOURCE: ${GIT_SOURCE:-/srv/git/repo.git}
+    volumes:
+      - repo-git:/srv/git:ro
+
 volumes:
   db-data:
+  minio-data:
+  repo-git:
