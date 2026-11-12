@@ -7,10 +7,14 @@ never heard of. Migrations are required to be backward compatible, so the right 
 is to leave the schema alone and start.
 """
 
+import os
+
 from alembic import command
 from alembic.config import Config
 from alembic.runtime.migration import MigrationContext
 from alembic.script import ScriptDirectory
+
+from sqlalchemy import text
 
 from app.db import engine
 
@@ -32,5 +36,18 @@ def migrate() -> bool:
     return True
 
 
+def enable_reader_login() -> None:
+    """The read-only role is created by a migration without a way to log in. The crm-data
+    server needs one: give the role this installation's password (CRM_READER_PASSWORD)."""
+    password = os.environ.get("CRM_READER_PASSWORD")
+    if not password:
+        return
+    with engine.begin() as connection:
+        if connection.scalar(text("SELECT 1 FROM pg_roles WHERE rolname = 'crm_reader'")):
+            quoted = password.replace("'", "''")
+            connection.execute(text(f"ALTER ROLE crm_reader LOGIN PASSWORD '{quoted}'"))
+
+
 if __name__ == "__main__":
     migrate()
+    enable_reader_login()
