@@ -25,7 +25,9 @@ class Repo:
         self.git("init", "-q", "-b", "main")
         self.git("config", "user.email", "test@example.test")
         self.git("config", "user.name", "Test")
-        self.commit({"api/app/models.py": "x = 1\n", "api/migrations/versions/001_initial.py": "a = 1\n"})
+        self.commit(
+            {"api/app/models.py": "x = 1\n", "api/migrations/versions/001_initial.py": "a = 1\n"}
+        )
         self.base = self.git("rev-parse", "HEAD")
 
     def git(self, *args: str) -> str:
@@ -60,7 +62,9 @@ def repo(tmp_path) -> Repo:
 
 
 def test_ordinary_code_changes_pass_the_path_check(repo):
-    head = repo.commit({"api/app/models.py": "x = 2\n", "web/src/pages/Contacts.tsx": "export {}\n"})
+    head = repo.commit(
+        {"api/app/models.py": "x = 2\n", "web/src/pages/Contacts.tsx": "export {}\n"}
+    )
 
     result = repo.run("check_paths.sh", head)
 
@@ -96,7 +100,9 @@ def test_protected_paths_are_rejected(repo, path):
 
 def test_additive_migration_passes(repo):
     upgrade = 'op.add_column("contacts", sa.Column("lead_source", sa.String(40), nullable=True))'
-    head = repo.commit({"api/migrations/versions/002_lead_source.py": MIGRATION.format(upgrade=upgrade)})
+    head = repo.commit(
+        {"api/migrations/versions/002_lead_source.py": MIGRATION.format(upgrade=upgrade)}
+    )
 
     result = repo.run("check_migrations.py", head)
 
@@ -133,7 +139,9 @@ def test_not_null_column_with_a_server_default_passes(repo):
         'op.add_column("contacts", sa.Column("lead_source", sa.String(40), '
         'nullable=False, server_default="unknown"))'
     )
-    head = repo.commit({"api/migrations/versions/002_lead_source.py": MIGRATION.format(upgrade=upgrade)})
+    head = repo.commit(
+        {"api/migrations/versions/002_lead_source.py": MIGRATION.format(upgrade=upgrade)}
+    )
 
     assert repo.run("check_migrations.py", head).returncode == 0
 

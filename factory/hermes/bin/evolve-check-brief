@@ -1,0 +1,53 @@
+#!/opt/evolve/venv/bin/python
+"""Ask the running builder for the marker on the last line of its brief (AGENTS.md).
+
+A context file that is too large is cut silently, so "the file is on disk" does not prove the
+model sees all of it. Run inside the builder container:
+
+    docker compose -f docker-compose.factory.yml exec hermes-builder evolve-check-brief
+"""
+
+import json
+import os
+import sys
+import time
+import urllib.request
+
+MARKER = "EVOLVE-BRIEF-END-7Q2"
+BASE = "http://127.0.0.1:8642"
+HEADERS = {
+    "Authorization": f"Bearer {os.environ['API_SERVER_KEY']}",
+    "Content-Type": "application/json",
+}
+
+
+def call(method: str, path: str, body: dict | None = None) -> dict:
+    data = json.dumps(body).encode() if body else None
+    request = urllib.request.Request(BASE + path, data=data, headers=HEADERS, method=method)
+    with urllib.request.urlopen(request, timeout=60) as response:
+        return json.load(response)
+
+
+run = call(
+    "POST",
+    "/v1/runs",
+    {
+        "input": "Do not use any tool. Your project instructions end with a line that starts "
+        "with 'Brief marker'. Reply with only the code at the end of that line. If you cannot "
+        "see such a line, reply with exactly: NOT VISIBLE",
+        "session_id": f"brief-check-{int(time.time())}",
+    },
+)
+deadline = time.time() + 180
+while time.time() < deadline:
+    result = call("GET", f"/v1/runs/{run['run_id']}")
+    if result["status"] in ("completed", "failed", "cancelled", "interrupted"):
+        break
+    time.sleep(2)
+
+output = result.get("output") or ""
+if MARKER in output:
+    print(f"OK: the end of the brief reaches the model ({MARKER}).")
+    sys.exit(0)
+print(f"FAIL: expected {MARKER}, the model answered: {output!r} (status {result['status']})")
+sys.exit(1)
