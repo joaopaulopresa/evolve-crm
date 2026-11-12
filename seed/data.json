@@ -1,0 +1,6799 @@
+{
+ "generated_with": "deepseek/deepseek-v4.1-flash-1017",
+ "seed": 42,
+ "users": [
+  {
+   "email": "admin@evolve.test",
+   "name": "Morgan Reyes",
+   "role": "admin"
+  },
+  {
+   "email": "priya@evolve.test",
+   "name": "Priya Raman",
+   "role": "user"
+  },
+  {
+   "email": "daniel@evolve.test",
+   "name": "Daniel Costa",
+   "role": "user"
+  },
+  {
+   "email": "hannah@evolve.test",
+   "name": "Hannah Weiss",
+   "role": "user"
+  },
+  {
+   "email": "tomas@evolve.test",
+   "name": "Tomas Lindqvist",
+   "role": "user"
+  }
+ ],
+ "companies": [
+  {
+   "name": "NordHaven Freightworks",
+   "industry": "Logistics",
+   "city": "Rotterdam",
+   "country": "Netherlands",
+   "website": "https://nordhavenfreightworks.example"
+  },
+  {
+   "name": "Cobalt Ridge Medical Supply",
+   "industry": "Healthcare",
+   "city": "Denver",
+   "country": "United States",
+   "website": "https://cobaltridgemedicalsupply.example"
+  },
+  {
+   "name": "Lumen & Loom Retail Group",
+   "industry": "Retail",
+   "city": "Manchester",
+   "country": "United Kingdom",
+   "website": "https://lumenloomretailgroup.example"
+  },
+  {
+   "name": "Arcturian Precision Components",
+   "industry": "Manufacturing",
+   "city": "Tampere",
+   "country": "Finland",
+   "website": "https://arcturianprecisioncomponents.example"
+  },
+  {
+   "name": "Meridian Ledger Partners",
+   "industry": "Finance",
+   "city": "Toronto",
+   "country": "Canada",
+   "website": "https://meridianledgerpartners.example"
+  },
+  {
+   "name": "BrightPath Learning Systems",
+   "industry": "Education",
+   "city": "Austin",
+   "country": "United States",
+   "website": "https://brightpathlearningsystems.example"
+  },
+  {
+   "name": "Solstice Grid Services",
+   "industry": "Energy",
+   "city": "Adelaide",
+   "country": "Australia",
+   "website": "https://solsticegridservices.example"
+  },
+  {
+   "name": "Harborstone Hospitality Group",
+   "industry": "Hospitality",
+   "city": "Lisbon",
+   "country": "Portugal",
+   "website": "https://harborstonehospitalitygroup.example"
+  },
+  {
+   "name": "GraniteLine Construction",
+   "industry": "Construction",
+   "city": "Calgary",
+   "country": "Canada",
+   "website": "https://granitelineconstruction.example"
+  },
+  {
+   "name": "SignalCrest Media",
+   "industry": "Media",
+   "city": "Dublin",
+   "country": "Ireland",
+   "website": "https://signalcrestmedia.example"
+  },
+  {
+   "name": "Kestrel Route Systems",
+   "industry": "Logistics",
+   "city": "Singapore",
+   "country": "Singapore",
+   "website": "https://kestrelroutesystems.example"
+  },
+  {
+   "name": "Aster Health Diagnostics",
+   "industry": "Healthcare",
+   "city": "Basel",
+   "country": "Switzerland",
+   "website": "https://asterhealthdiagnostics.example"
+  },
+  {
+   "name": "Verdal Retail Collective",
+   "industry": "Retail",
+   "city": "Oslo",
+   "country": "Norway",
+   "website": "https://verdalretailcollective.example"
+  },
+  {
+   "name": "Ironleaf Fabrication",
+   "industry": "Manufacturing",
+   "city": "Pune",
+   "country": "India",
+   "website": "https://ironleaffabrication.example"
+  },
+  {
+   "name": "Northvale Ledger Advisory",
+   "industry": "Finance",
+   "city": "Chicago",
+   "country": "United States",
+   "website": "https://northvaleledgeradvisory.example"
+  },
+  {
+   "name": "ScholarNest Education",
+   "industry": "Education",
+   "city": "Melbourne",
+   "country": "Australia",
+   "website": "https://scholarnesteducation.example"
+  },
+  {
+   "name": "TerraVolt Energy Solutions",
+   "industry": "Energy",
+   "city": "Santiago",
+   "country": "Chile",
+   "website": "https://terravoltenergysolutions.example"
+  },
+  {
+   "name": "Copper Lantern Hotels",
+   "industry": "Hospitality",
+   "city": "Prague",
+   "country": "Czechia",
+   "website": "https://copperlanternhotels.example"
+  },
+  {
+   "name": "Stonebridge Buildworks",
+   "industry": "Construction",
+   "city": "Auckland",
+   "country": "New Zealand",
+   "website": "https://stonebridgebuildworks.example"
+  },
+  {
+   "name": "EchoFrame Studios",
+   "industry": "Media",
+   "city": "Vancouver",
+   "country": "Canada",
+   "website": "https://echoframestudios.example"
+  },
+  {
+   "name": "BlueMeridian Logistics",
+   "industry": "Logistics",
+   "city": "Hamburg",
+   "country": "Germany",
+   "website": "https://bluemeridianlogistics.example"
+  },
+  {
+   "name": "Clearpine Care Networks",
+   "industry": "Healthcare",
+   "city": "Stockholm",
+   "country": "Sweden",
+   "website": "https://clearpinecarenetworks.example"
+  },
+  {
+   "name": "MarketWoven Retail",
+   "industry": "Retail",
+   "city": "Cape Town",
+   "country": "South Africa",
+   "website": "https://marketwovenretail.example"
+  },
+  {
+   "name": "TitanForge Industrial",
+   "industry": "Manufacturing",
+   "city": "Monterrey",
+   "country": "Mexico",
+   "website": "https://titanforgeindustrial.example"
+  },
+  {
+   "name": "LedgerSpring Finance",
+   "industry": "Finance",
+   "city": "Zurich",
+   "country": "Switzerland",
+   "website": "https://ledgerspringfinance.example"
+  },
+  {
+   "name": "CampusBridge Learning",
+   "industry": "Education",
+   "city": "Kuala Lumpur",
+   "country": "Malaysia",
+   "website": "https://campusbridgelearning.example"
+  },
+  {
+   "name": "HelioRidge Power",
+   "industry": "Energy",
+   "city": "Nairobi",
+   "country": "Kenya",
+   "website": "https://helioridgepower.example"
+  },
+  {
+   "name": "Waterside Inns",
+   "industry": "Hospitality",
+   "city": "Edinburgh",
+   "country": "United Kingdom",
+   "website": "https://watersideinns.example"
+  },
+  {
+   "name": "RedOak Civil Works",
+   "industry": "Construction",
+   "city": "Portland",
+   "country": "United States",
+   "website": "https://redoakcivilworks.example"
+  },
+  {
+   "name": "ParcelPilot Logistics",
+   "industry": "Logistics",
+   "city": "Dubai",
+   "country": "United Arab Emirates",
+   "website": "https://parcelpilotlogistics.example"
+  },
+  {
+   "name": "Vireo Health Partners",
+   "industry": "Healthcare",
+   "city": "Copenhagen",
+   "country": "Denmark",
+   "website": "https://vireohealthpartners.example"
+  },
+  {
+   "name": "UrbanThread Retail",
+   "industry": "Retail",
+   "city": "Seoul",
+   "country": "South Korea",
+   "website": "https://urbanthreadretail.example"
+  },
+  {
+   "name": "Apexion Manufacturing",
+   "industry": "Manufacturing",
+   "city": "Gothenburg",
+   "country": "Sweden",
+   "website": "https://apexionmanufacturing.example"
+  },
+  {
+   "name": "Crestline Risk Advisors",
+   "industry": "Finance",
+   "city": "Amsterdam",
+   "country": "Netherlands",
+   "website": "https://crestlineriskadvisors.example"
+  },
+  {
+   "name": "LearnForge Academy Services",
+   "industry": "Education",
+   "city": "Dublin",
+   "country": "Ireland",
+   "website": "https://learnforgeacademyservices.example"
+  },
+  {
+   "name": "GreenAxis Renewables",
+   "industry": "Energy",
+   "city": "Wellington",
+   "country": "New Zealand",
+   "website": "https://greenaxisrenewables.example"
+  },
+  {
+   "name": "Hearth & Harbor Resorts",
+   "industry": "Hospitality",
+   "city": "Barcelona",
+   "country": "Spain",
+   "website": "https://hearthharborresorts.example"
+  },
+  {
+   "name": "SummitCraft Builders",
+   "industry": "Construction",
+   "city": "Johannesburg",
+   "country": "South Africa",
+   "website": "https://summitcraftbuilders.example"
+  },
+  {
+   "name": "PixelHarbor Media",
+   "industry": "Media",
+   "city": "Tokyo",
+   "country": "Japan",
+   "website": "https://pixelharbormedia.example"
+  },
+  {
+   "name": "Cargolane Logistics",
+   "industry": "Logistics",
+   "city": "Antwerp",
+   "country": "Belgium",
+   "website": "https://cargolanelogistics.example"
+  }
+ ],
+ "contacts": [
+  {
+   "company": 0,
+   "first_name": "Sanne",
+   "last_name": "de Vries",
+   "job_title": "Procurement Manager",
+   "email": "sanne.devries@nordhavenfreightworks.example",
+   "phone": "+1 555 0181"
+  },
+  {
+   "company": 0,
+   "first_name": "Jeroen",
+   "last_name": "Bakker",
+   "job_title": "Operations Director",
+   "email": "jeroen.bakker@nordhavenfreightworks.example",
+   "phone": "+1 555 0114"
+  },
+  {
+   "company": 0,
+   "first_name": "Noor",
+   "last_name": "van den Berg",
+   "job_title": "Fleet Coordinator",
+   "email": "noor.vandenberg@nordhavenfreightworks.example",
+   "phone": "+1 555 0103"
+  },
+  {
+   "company": 0,
+   "first_name": "Thijs",
+   "last_name": "Visser",
+   "job_title": "Logistics Planner",
+   "email": "thijs.visser@nordhavenfreightworks.example",
+   "phone": "+1 555 0194"
+  },
+  {
+   "company": 1,
+   "first_name": "Danielle",
+   "last_name": "Hargrove",
+   "job_title": "Supply Chain Director",
+   "email": "danielle.hargrove@cobaltridgemedicalsupply.example",
+   "phone": "+1 555 0135"
+  },
+  {
+   "company": 1,
+   "first_name": "Marcus",
+   "last_name": "Chen",
+   "job_title": "Procurement Manager",
+   "email": "marcus.chen@cobaltridgemedicalsupply.example",
+   "phone": "+1 555 0131"
+  },
+  {
+   "company": 1,
+   "first_name": "Priya",
+   "last_name": "Raman",
+   "job_title": "Operations Manager",
+   "email": "priya.raman@cobaltridgemedicalsupply.example",
+   "phone": "+1 555 0128"
+  },
+  {
+   "company": 1,
+   "first_name": "Elena",
+   "last_name": "Morales",
+   "job_title": "Clinical Contracts Lead",
+   "email": "elena.morales@cobaltridgemedicalsupply.example",
+   "phone": "+1 555 0117"
+  },
+  {
+   "company": 2,
+   "first_name": "Harriet",
+   "last_name": "Winslow",
+   "job_title": "Buying Director",
+   "email": "harriet.winslow@lumenloomretailgroup.example",
+   "phone": "+1 555 0194"
+  },
+  {
+   "company": 2,
+   "first_name": "Oliver",
+   "last_name": "Bramley",
+   "job_title": "Merchandising Manager",
+   "email": "oliver.bramley@lumenloomretailgroup.example",
+   "phone": "+1 555 0113"
+  },
+  {
+   "company": 2,
+   "first_name": "Freya",
+   "last_name": "Ashcombe",
+   "job_title": "Store Operations Lead",
+   "email": "freya.ashcombe@lumenloomretailgroup.example",
+   "phone": "+1 555 0186"
+  },
+  {
+   "company": 2,
+   "first_name": "George",
+   "last_name": "Pemberton",
+   "job_title": "Supply Chain Coordinator",
+   "email": "george.pemberton@lumenloomretailgroup.example",
+   "phone": "+1 555 0194"
+  },
+  {
+   "company": 3,
+   "first_name": "Tuomas",
+   "last_name": "Korhonen",
+   "job_title": "Procurement Lead",
+   "email": "tuomas.korhonen@arcturianprecisioncomponents.example",
+   "phone": "+1 555 0169"
+  },
+  {
+   "company": 3,
+   "first_name": "Aino",
+   "last_name": "Virtanen",
+   "job_title": "Production Manager",
+   "email": "aino.virtanen@arcturianprecisioncomponents.example",
+   "phone": "+1 555 0111"
+  },
+  {
+   "company": 3,
+   "first_name": "Mikko",
+   "last_name": "Laine",
+   "job_title": "Quality Director",
+   "email": "mikko.laine@arcturianprecisioncomponents.example",
+   "phone": "+1 555 0175"
+  },
+  {
+   "company": 3,
+   "first_name": "Eeva",
+   "last_name": "Nieminen",
+   "job_title": "Supply Chain Planner",
+   "email": "eeva.nieminen@arcturianprecisioncomponents.example",
+   "phone": "+1 555 0154"
+  },
+  {
+   "company": 4,
+   "first_name": "Claire",
+   "last_name": "Bélanger",
+   "job_title": "Procurement Manager",
+   "email": "claire.blanger@meridianledgerpartners.example",
+   "phone": "+1 555 0104"
+  },
+  {
+   "company": 4,
+   "first_name": "Nathan",
+   "last_name": "Fraser",
+   "job_title": "Finance Director",
+   "email": "nathan.fraser@meridianledgerpartners.example",
+   "phone": "+1 555 0103"
+  },
+  {
+   "company": 4,
+   "first_name": "Sophie",
+   "last_name": "Tremblay",
+   "job_title": "Partner Operations Lead",
+   "email": "sophie.tremblay@meridianledgerpartners.example",
+   "phone": "+1 555 0111"
+  },
+  {
+   "company": 4,
+   "first_name": "Evan",
+   "last_name": "MacLeod",
+   "job_title": "IT Procurement Analyst",
+   "email": "evan.macleod@meridianledgerpartners.example",
+   "phone": "+1 555 0127"
+  },
+  {
+   "company": 5,
+   "first_name": "Renee",
+   "last_name": "Calder",
+   "job_title": "Director of Procurement",
+   "email": "renee.calder@brightpathlearningsystems.example",
+   "phone": "+1 555 0129"
+  },
+  {
+   "company": 5,
+   "first_name": "Terrence",
+   "last_name": "Boyd",
+   "job_title": "IT Director",
+   "email": "terrence.boyd@brightpathlearningsystems.example",
+   "phone": "+1 555 0164"
+  },
+  {
+   "company": 5,
+   "first_name": "Maya",
+   "last_name": "Lindstrom",
+   "job_title": "Curriculum Operations Manager",
+   "email": "maya.lindstrom@brightpathlearningsystems.example",
+   "phone": "+1 555 0177"
+  },
+  {
+   "company": 5,
+   "first_name": "Caleb",
+   "last_name": "Ortiz",
+   "job_title": "Vendor Manager",
+   "email": "caleb.ortiz@brightpathlearningsystems.example",
+   "phone": "+1 555 0103"
+  },
+  {
+   "company": 6,
+   "first_name": "Matilda",
+   "last_name": "Hargreaves",
+   "job_title": "Grid Operations Manager",
+   "email": "matilda.hargreaves@solsticegridservices.example",
+   "phone": "+1 555 0171"
+  },
+  {
+   "company": 6,
+   "first_name": "Lachlan",
+   "last_name": "Reid",
+   "job_title": "Procurement Lead",
+   "email": "lachlan.reid@solsticegridservices.example",
+   "phone": "+1 555 0125"
+  },
+  {
+   "company": 6,
+   "first_name": "Bronwyn",
+   "last_name": "Cartwright",
+   "job_title": "Asset Director",
+   "email": "bronwyn.cartwright@solsticegridservices.example",
+   "phone": "+1 555 0191"
+  },
+  {
+   "company": 6,
+   "first_name": "Hamish",
+   "last_name": "Porter",
+   "job_title": "Maintenance Planner",
+   "email": "hamish.porter@solsticegridservices.example",
+   "phone": "+1 555 0183"
+  },
+  {
+   "company": 7,
+   "first_name": "João",
+   "last_name": "Ferreira",
+   "job_title": "Procurement Manager",
+   "email": "joo.ferreira@harborstonehospitalitygroup.example",
+   "phone": "+1 555 0189"
+  },
+  {
+   "company": 7,
+   "first_name": "Mariana",
+   "last_name": "Costa",
+   "job_title": "Hotel Operations Director",
+   "email": "mariana.costa@harborstonehospitalitygroup.example",
+   "phone": "+1 555 0169"
+  },
+  {
+   "company": 7,
+   "first_name": "Rui",
+   "last_name": "Almeida",
+   "job_title": "Facilities Manager",
+   "email": "rui.almeida@harborstonehospitalitygroup.example",
+   "phone": "+1 555 0153"
+  },
+  {
+   "company": 7,
+   "first_name": "Inês",
+   "last_name": "Pereira",
+   "job_title": "Supply Chain Coordinator",
+   "email": "ins.pereira@harborstonehospitalitygroup.example",
+   "phone": "+1 555 0128"
+  },
+  {
+   "company": 8,
+   "first_name": "Liam",
+   "last_name": "Donnelly",
+   "job_title": "Procurement Manager",
+   "email": "liam.donnelly@granitelineconstruction.example",
+   "phone": "+1 555 0157"
+  },
+  {
+   "company": 8,
+   "first_name": "Sophie",
+   "last_name": "Gagnon",
+   "job_title": "Project Director",
+   "email": "sophie.gagnon@granitelineconstruction.example",
+   "phone": "+1 555 0175"
+  },
+  {
+   "company": 8,
+   "first_name": "Ethan",
+   "last_name": "Whitfield",
+   "job_title": "Site Operations Lead",
+   "email": "ethan.whitfield@granitelineconstruction.example",
+   "phone": "+1 555 0135"
+  },
+  {
+   "company": 8,
+   "first_name": "Chloé",
+   "last_name": "Lavoie",
+   "job_title": "Estimating Manager",
+   "email": "chlo.lavoie@granitelineconstruction.example",
+   "phone": "+1 555 0100"
+  },
+  {
+   "company": 9,
+   "first_name": "Ciara",
+   "last_name": "Ó Braonáin",
+   "job_title": "Procurement Manager",
+   "email": "ciara.braonin@signalcrestmedia.example",
+   "phone": "+1 555 0197"
+  },
+  {
+   "company": 9,
+   "first_name": "Declan",
+   "last_name": "Murphy",
+   "job_title": "Production Director",
+   "email": "declan.murphy@signalcrestmedia.example",
+   "phone": "+1 555 0120"
+  },
+  {
+   "company": 9,
+   "first_name": "Niamh",
+   "last_name": "Kelleher",
+   "job_title": "Operations Lead",
+   "email": "niamh.kelleher@signalcrestmedia.example",
+   "phone": "+1 555 0189"
+  },
+  {
+   "company": 9,
+   "first_name": "Sean",
+   "last_name": "Doyle",
+   "job_title": "Vendor Relations Manager",
+   "email": "sean.doyle@signalcrestmedia.example",
+   "phone": "+1 555 0154"
+  },
+  {
+   "company": 10,
+   "first_name": "Wei Ming",
+   "last_name": "Tan",
+   "job_title": "Procurement Manager",
+   "email": "weiming.tan@kestrelroutesystems.example",
+   "phone": "+1 555 0143"
+  },
+  {
+   "company": 10,
+   "first_name": "Nur Aisyah",
+   "last_name": "Rahman",
+   "job_title": "Operations Director",
+   "email": "nuraisyah.rahman@kestrelroutesystems.example",
+   "phone": "+1 555 0135"
+  },
+  {
+   "company": 10,
+   "first_name": "Arjun",
+   "last_name": "Nair",
+   "job_title": "Fleet Systems Lead",
+   "email": "arjun.nair@kestrelroutesystems.example",
+   "phone": "+1 555 0119"
+  },
+  {
+   "company": 10,
+   "first_name": "Jia Hui",
+   "last_name": "Lim",
+   "job_title": "Supply Chain Analyst",
+   "email": "jiahui.lim@kestrelroutesystems.example",
+   "phone": "+1 555 0127"
+  },
+  {
+   "company": 11,
+   "first_name": "Lukas",
+   "last_name": "Meier",
+   "job_title": "Procurement Lead",
+   "email": "lukas.meier@asterhealthdiagnostics.example",
+   "phone": "+1 555 0197"
+  },
+  {
+   "company": 11,
+   "first_name": "Petra",
+   "last_name": "Brunner",
+   "job_title": "Laboratory Operations Director",
+   "email": "petra.brunner@asterhealthdiagnostics.example",
+   "phone": "+1 555 0143"
+  },
+  {
+   "company": 11,
+   "first_name": "Simon",
+   "last_name": "Frei",
+   "job_title": "Supply Chain Manager",
+   "email": "simon.frei@asterhealthdiagnostics.example",
+   "phone": "+1 555 0113"
+  },
+  {
+   "company": 11,
+   "first_name": "Nadia",
+   "last_name": "Gerber",
+   "job_title": "Quality Assurance Lead",
+   "email": "nadia.gerber@asterhealthdiagnostics.example",
+   "phone": "+1 555 0111"
+  },
+  {
+   "company": 12,
+   "first_name": "Ingrid",
+   "last_name": "Solberg",
+   "job_title": "Category Buyer",
+   "email": "ingrid.solberg@verdalretailcollective.example",
+   "phone": "+1 555 0148"
+  },
+  {
+   "company": 12,
+   "first_name": "Magnus",
+   "last_name": "Haugen",
+   "job_title": "Retail Operations Director",
+   "email": "magnus.haugen@verdalretailcollective.example",
+   "phone": "+1 555 0112"
+  },
+  {
+   "company": 12,
+   "first_name": "Solveig",
+   "last_name": "Dahl",
+   "job_title": "Supply Chain Manager",
+   "email": "solveig.dahl@verdalretailcollective.example",
+   "phone": "+1 555 0145"
+  },
+  {
+   "company": 12,
+   "first_name": "Henrik",
+   "last_name": "Larsen",
+   "job_title": "Procurement Analyst",
+   "email": "henrik.larsen@verdalretailcollective.example",
+   "phone": "+1 555 0144"
+  },
+  {
+   "company": 13,
+   "first_name": "Aarav",
+   "last_name": "Mehta",
+   "job_title": "Procurement Manager",
+   "email": "aarav.mehta@ironleaffabrication.example",
+   "phone": "+1 555 0177"
+  },
+  {
+   "company": 13,
+   "first_name": "Priya",
+   "last_name": "Nair",
+   "job_title": "Plant Operations Head",
+   "email": "priya.nair@ironleaffabrication.example",
+   "phone": "+1 555 0133"
+  },
+  {
+   "company": 13,
+   "first_name": "Rohan",
+   "last_name": "Kapoor",
+   "job_title": "Vendor Development Lead",
+   "email": "rohan.kapoor@ironleaffabrication.example",
+   "phone": "+1 555 0105"
+  },
+  {
+   "company": 13,
+   "first_name": "Ananya",
+   "last_name": "Iyer",
+   "job_title": "Supply Chain Coordinator",
+   "email": "ananya.iyer@ironleaffabrication.example",
+   "phone": "+1 555 0193"
+  },
+  {
+   "company": 14,
+   "first_name": "Marcus",
+   "last_name": "Whitaker",
+   "job_title": "Procurement Manager",
+   "email": "marcus.whitaker@northvaleledgeradvisory.example",
+   "phone": "+1 555 0158"
+  },
+  {
+   "company": 14,
+   "first_name": "Elena",
+   "last_name": "Voss",
+   "job_title": "Finance Operations Director",
+   "email": "elena.voss@northvaleledgeradvisory.example",
+   "phone": "+1 555 0168"
+  },
+  {
+   "company": 14,
+   "first_name": "Priya",
+   "last_name": "Desai",
+   "job_title": "Vendor Risk Lead",
+   "email": "priya.desai@northvaleledgeradvisory.example",
+   "phone": "+1 555 0115"
+  },
+  {
+   "company": 14,
+   "first_name": "Gregory",
+   "last_name": "Hale",
+   "job_title": "Office Operations Manager",
+   "email": "gregory.hale@northvaleledgeradvisory.example",
+   "phone": "+1 555 0148"
+  },
+  {
+   "company": 15,
+   "first_name": "Amelia",
+   "last_name": "Bennett",
+   "job_title": "Procurement Lead",
+   "email": "amelia.bennett@scholarnesteducation.example",
+   "phone": "+1 555 0110"
+  },
+  {
+   "company": 15,
+   "first_name": "Noah",
+   "last_name": "Sinclair",
+   "job_title": "IT Director",
+   "email": "noah.sinclair@scholarnesteducation.example",
+   "phone": "+1 555 0170"
+  },
+  {
+   "company": 15,
+   "first_name": "Harriet",
+   "last_name": "Lowell",
+   "job_title": "Learning Operations Manager",
+   "email": "harriet.lowell@scholarnesteducation.example",
+   "phone": "+1 555 0137"
+  },
+  {
+   "company": 15,
+   "first_name": "Jack",
+   "last_name": "Mercer",
+   "job_title": "Vendor Manager",
+   "email": "jack.mercer@scholarnesteducation.example",
+   "phone": "+1 555 0180"
+  },
+  {
+   "company": 16,
+   "first_name": "Camila",
+   "last_name": "Rojas",
+   "job_title": "Procurement Manager",
+   "email": "camila.rojas@terravoltenergysolutions.example",
+   "phone": "+1 555 0179"
+  },
+  {
+   "company": 16,
+   "first_name": "Sebastián",
+   "last_name": "Muñoz",
+   "job_title": "Project Operations Director",
+   "email": "sebastin.muoz@terravoltenergysolutions.example",
+   "phone": "+1 555 0146"
+  },
+  {
+   "company": 16,
+   "first_name": "Valentina",
+   "last_name": "Soto",
+   "job_title": "Supply Chain Lead",
+   "email": "valentina.soto@terravoltenergysolutions.example",
+   "phone": "+1 555 0173"
+  },
+  {
+   "company": 16,
+   "first_name": "Diego",
+   "last_name": "Fuentes",
+   "job_title": "Asset Manager",
+   "email": "diego.fuentes@terravoltenergysolutions.example",
+   "phone": "+1 555 0124"
+  },
+  {
+   "company": 17,
+   "first_name": "Jakub",
+   "last_name": "Novak",
+   "job_title": "Procurement Manager",
+   "email": "jakub.novak@copperlanternhotels.example",
+   "phone": "+1 555 0190"
+  },
+  {
+   "company": 17,
+   "first_name": "Tereza",
+   "last_name": "Horáková",
+   "job_title": "Hotel Operations Director",
+   "email": "tereza.horkov@copperlanternhotels.example",
+   "phone": "+1 555 0108"
+  },
+  {
+   "company": 17,
+   "first_name": "Ondřej",
+   "last_name": "Dvořák",
+   "job_title": "Facilities Lead",
+   "email": "ondej.dvok@copperlanternhotels.example",
+   "phone": "+1 555 0105"
+  },
+  {
+   "company": 17,
+   "first_name": "Lucie",
+   "last_name": "Kratochvílová",
+   "job_title": "Supply Chain Coordinator",
+   "email": "lucie.kratochvlov@copperlanternhotels.example",
+   "phone": "+1 555 0184"
+  },
+  {
+   "company": 18,
+   "first_name": "Aroha",
+   "last_name": "Ngata",
+   "job_title": "Procurement Manager",
+   "email": "aroha.ngata@stonebridgebuildworks.example",
+   "phone": "+1 555 0129"
+  },
+  {
+   "company": 18,
+   "first_name": "Finn",
+   "last_name": "Callaghan",
+   "job_title": "Construction Director",
+   "email": "finn.callaghan@stonebridgebuildworks.example",
+   "phone": "+1 555 0198"
+  },
+  {
+   "company": 18,
+   "first_name": "Isla",
+   "last_name": "Mercer",
+   "job_title": "Site Operations Lead",
+   "email": "isla.mercer@stonebridgebuildworks.example",
+   "phone": "+1 555 0137"
+  },
+  {
+   "company": 18,
+   "first_name": "Tane",
+   "last_name": "Parata",
+   "job_title": "Estimating Manager",
+   "email": "tane.parata@stonebridgebuildworks.example",
+   "phone": "+1 555 0110"
+  },
+  {
+   "company": 19,
+   "first_name": "Élodie",
+   "last_name": "Caron",
+   "job_title": "Procurement Manager",
+   "email": "lodie.caron@echoframestudios.example",
+   "phone": "+1 555 0129"
+  },
+  {
+   "company": 19,
+   "first_name": "Connor",
+   "last_name": "Baxter",
+   "job_title": "Production Director",
+   "email": "connor.baxter@echoframestudios.example",
+   "phone": "+1 555 0112"
+  },
+  {
+   "company": 19,
+   "first_name": "Maya",
+   "last_name": "Singh",
+   "job_title": "Studio Operations Lead",
+   "email": "maya.singh@echoframestudios.example",
+   "phone": "+1 555 0148"
+  },
+  {
+   "company": 19,
+   "first_name": "Owen",
+   "last_name": "Fitzgerald",
+   "job_title": "Vendor Relations Manager",
+   "email": "owen.fitzgerald@echoframestudios.example",
+   "phone": "+1 555 0135"
+  },
+  {
+   "company": 20,
+   "first_name": "Lukas",
+   "last_name": "Weber",
+   "job_title": "Procurement Manager",
+   "email": "lukas.weber@bluemeridianlogistics.example",
+   "phone": "+1 555 0158"
+  },
+  {
+   "company": 20,
+   "first_name": "Annika",
+   "last_name": "Schneider",
+   "job_title": "Fleet Operations Director",
+   "email": "annika.schneider@bluemeridianlogistics.example",
+   "phone": "+1 555 0181"
+  },
+  {
+   "company": 20,
+   "first_name": "Matthias",
+   "last_name": "Keller",
+   "job_title": "Logistics Systems Lead",
+   "email": "matthias.keller@bluemeridianlogistics.example",
+   "phone": "+1 555 0146"
+  },
+  {
+   "company": 20,
+   "first_name": "Lena",
+   "last_name": "Hoffmann",
+   "job_title": "Supply Chain Analyst",
+   "email": "lena.hoffmann@bluemeridianlogistics.example",
+   "phone": "+1 555 0120"
+  },
+  {
+   "company": 21,
+   "first_name": "Elin",
+   "last_name": "Lindqvist",
+   "job_title": "Procurement Lead",
+   "email": "elin.lindqvist@clearpinecarenetworks.example",
+   "phone": "+1 555 0147"
+  },
+  {
+   "company": 21,
+   "first_name": "Johan",
+   "last_name": "Bergström",
+   "job_title": "Care Operations Director",
+   "email": "johan.bergstrm@clearpinecarenetworks.example",
+   "phone": "+1 555 0145"
+  },
+  {
+   "company": 21,
+   "first_name": "Maja",
+   "last_name": "Sundberg",
+   "job_title": "Supply Chain Manager",
+   "email": "maja.sundberg@clearpinecarenetworks.example",
+   "phone": "+1 555 0126"
+  },
+  {
+   "company": 21,
+   "first_name": "Erik",
+   "last_name": "Norén",
+   "job_title": "Quality Coordinator",
+   "email": "erik.norn@clearpinecarenetworks.example",
+   "phone": "+1 555 0185"
+  },
+  {
+   "company": 22,
+   "first_name": "Thandiwe",
+   "last_name": "Mokoena",
+   "job_title": "Category Buyer",
+   "email": "thandiwe.mokoena@marketwovenretail.example",
+   "phone": "+1 555 0134"
+  },
+  {
+   "company": 22,
+   "first_name": "Sipho",
+   "last_name": "Dlamini",
+   "job_title": "Retail Operations Manager",
+   "email": "sipho.dlamini@marketwovenretail.example",
+   "phone": "+1 555 0189"
+  },
+  {
+   "company": 22,
+   "first_name": "Lerato",
+   "last_name": "Nkosi",
+   "job_title": "Supply Chain Lead",
+   "email": "lerato.nkosi@marketwovenretail.example",
+   "phone": "+1 555 0187"
+  },
+  {
+   "company": 22,
+   "first_name": "Johan",
+   "last_name": "van Wyk",
+   "job_title": "Procurement Analyst",
+   "email": "johan.vanwyk@marketwovenretail.example",
+   "phone": "+1 555 0182"
+  },
+  {
+   "company": 23,
+   "first_name": "Sofía",
+   "last_name": "Herrera",
+   "job_title": "Procurement Manager",
+   "email": "sofa.herrera@titanforgeindustrial.example",
+   "phone": "+1 555 0109"
+  },
+  {
+   "company": 23,
+   "first_name": "Diego",
+   "last_name": "Ramírez",
+   "job_title": "Plant Operations Director",
+   "email": "diego.ramrez@titanforgeindustrial.example",
+   "phone": "+1 555 0177"
+  },
+  {
+   "company": 23,
+   "first_name": "Ximena",
+   "last_name": "Vargas",
+   "job_title": "Vendor Development Lead",
+   "email": "ximena.vargas@titanforgeindustrial.example",
+   "phone": "+1 555 0181"
+  },
+  {
+   "company": 23,
+   "first_name": "Mateo",
+   "last_name": "Cruz",
+   "job_title": "Supply Chain Coordinator",
+   "email": "mateo.cruz@titanforgeindustrial.example",
+   "phone": "+1 555 0121"
+  },
+  {
+   "company": 24,
+   "first_name": "Fabian",
+   "last_name": "Baumann",
+   "job_title": "Procurement Manager",
+   "email": "fabian.baumann@ledgerspringfinance.example",
+   "phone": "+1 555 0168"
+  },
+  {
+   "company": 24,
+   "first_name": "Isabelle",
+   "last_name": "Rochat",
+   "job_title": "Finance Operations Director",
+   "email": "isabelle.rochat@ledgerspringfinance.example",
+   "phone": "+1 555 0193"
+  },
+  {
+   "company": 24,
+   "first_name": "Pascal",
+   "last_name": "Morel",
+   "job_title": "Vendor Risk Lead",
+   "email": "pascal.morel@ledgerspringfinance.example",
+   "phone": "+1 555 0131"
+  },
+  {
+   "company": 24,
+   "first_name": "Andrea",
+   "last_name": "Keller",
+   "job_title": "Office Operations Manager",
+   "email": "andrea.keller@ledgerspringfinance.example",
+   "phone": "+1 555 0120"
+  },
+  {
+   "company": 25,
+   "first_name": "Aisha",
+   "last_name": "Ibrahim",
+   "job_title": "Procurement Lead",
+   "email": "aisha.ibrahim@campusbridgelearning.example",
+   "phone": "+1 555 0159"
+  },
+  {
+   "company": 25,
+   "first_name": "Wei Jian",
+   "last_name": "Chong",
+   "job_title": "IT Director",
+   "email": "weijian.chong@campusbridgelearning.example",
+   "phone": "+1 555 0148"
+  },
+  {
+   "company": 25,
+   "first_name": "Siti",
+   "last_name": "Hashim",
+   "job_title": "Learning Operations Manager",
+   "email": "siti.hashim@campusbridgelearning.example",
+   "phone": "+1 555 0134"
+  },
+  {
+   "company": 25,
+   "first_name": "Daniel",
+   "last_name": "Tan",
+   "job_title": "Vendor Manager",
+   "email": "daniel.tan@campusbridgelearning.example",
+   "phone": "+1 555 0181"
+  },
+  {
+   "company": 26,
+   "first_name": "Wanjiku",
+   "last_name": "Mwangi",
+   "job_title": "Procurement Manager",
+   "email": "wanjiku.mwangi@helioridgepower.example",
+   "phone": "+1 555 0188"
+  },
+  {
+   "company": 26,
+   "first_name": "Brian",
+   "last_name": "Otieno",
+   "job_title": "Project Operations Director",
+   "email": "brian.otieno@helioridgepower.example",
+   "phone": "+1 555 0171"
+  },
+  {
+   "company": 26,
+   "first_name": "Akinyi",
+   "last_name": "Onyango",
+   "job_title": "Supply Chain Lead",
+   "email": "akinyi.onyango@helioridgepower.example",
+   "phone": "+1 555 0128"
+  },
+  {
+   "company": 26,
+   "first_name": "Kevin",
+   "last_name": "Kariuki",
+   "job_title": "Asset Manager",
+   "email": "kevin.kariuki@helioridgepower.example",
+   "phone": "+1 555 0187"
+  },
+  {
+   "company": 27,
+   "first_name": "Oliver",
+   "last_name": "Harcourt",
+   "job_title": "Procurement Manager",
+   "email": "oliver.harcourt@watersideinns.example",
+   "phone": "+1 555 0141"
+  },
+  {
+   "company": 27,
+   "first_name": "Freya",
+   "last_name": "Ellison",
+   "job_title": "Hotel Operations Director",
+   "email": "freya.ellison@watersideinns.example",
+   "phone": "+1 555 0198"
+  },
+  {
+   "company": 27,
+   "first_name": "George",
+   "last_name": "Whitmore",
+   "job_title": "Facilities Manager",
+   "email": "george.whitmore@watersideinns.example",
+   "phone": "+1 555 0199"
+  },
+  {
+   "company": 27,
+   "first_name": "Imogen",
+   "last_name": "Clarke",
+   "job_title": "Supply Chain Coordinator",
+   "email": "imogen.clarke@watersideinns.example",
+   "phone": "+1 555 0107"
+  },
+  {
+   "company": 28,
+   "first_name": "Danielle",
+   "last_name": "Parker",
+   "job_title": "Procurement Manager",
+   "email": "danielle.parker@redoakcivilworks.example",
+   "phone": "+1 555 0129"
+  },
+  {
+   "company": 28,
+   "first_name": "Tyrone",
+   "last_name": "Jefferson",
+   "job_title": "Project Director",
+   "email": "tyrone.jefferson@redoakcivilworks.example",
+   "phone": "+1 555 0104"
+  },
+  {
+   "company": 28,
+   "first_name": "Maya",
+   "last_name": "Rodriguez",
+   "job_title": "Site Operations Lead",
+   "email": "maya.rodriguez@redoakcivilworks.example",
+   "phone": "+1 555 0140"
+  },
+  {
+   "company": 28,
+   "first_name": "Connor",
+   "last_name": "Bishop",
+   "job_title": "Estimating Manager",
+   "email": "connor.bishop@redoakcivilworks.example",
+   "phone": "+1 555 0151"
+  },
+  {
+   "company": 29,
+   "first_name": "Fatima",
+   "last_name": "Al Mansoori",
+   "job_title": "Procurement Manager",
+   "email": "fatima.almansoori@parcelpilotlogistics.example",
+   "phone": "+1 555 0134"
+  },
+  {
+   "company": 29,
+   "first_name": "Omar",
+   "last_name": "Al Nuaimi",
+   "job_title": "Fleet Operations Director",
+   "email": "omar.alnuaimi@parcelpilotlogistics.example",
+   "phone": "+1 555 0108"
+  },
+  {
+   "company": 29,
+   "first_name": "Layla",
+   "last_name": "Haddad",
+   "job_title": "Logistics Systems Lead",
+   "email": "layla.haddad@parcelpilotlogistics.example",
+   "phone": "+1 555 0127"
+  },
+  {
+   "company": 29,
+   "first_name": "Khalid",
+   "last_name": "Rashid",
+   "job_title": "Supply Chain Analyst",
+   "email": "khalid.rashid@parcelpilotlogistics.example",
+   "phone": "+1 555 0172"
+  },
+  {
+   "company": 30,
+   "first_name": "Freja",
+   "last_name": "Nielsen",
+   "job_title": "Procurement Lead",
+   "email": "freja.nielsen@vireohealthpartners.example",
+   "phone": "+1 555 0191"
+  },
+  {
+   "company": 30,
+   "first_name": "Søren",
+   "last_name": "Madsen",
+   "job_title": "Care Operations Director",
+   "email": "sren.madsen@vireohealthpartners.example",
+   "phone": "+1 555 0140"
+  },
+  {
+   "company": 30,
+   "first_name": "Mette",
+   "last_name": "Jensen",
+   "job_title": "Supply Chain Manager",
+   "email": "mette.jensen@vireohealthpartners.example",
+   "phone": "+1 555 0127"
+  },
+  {
+   "company": 31,
+   "first_name": "Ji-woo",
+   "last_name": "Kim",
+   "job_title": "Category Buyer",
+   "email": "jiwoo.kim@urbanthreadretail.example",
+   "phone": "+1 555 0183"
+  },
+  {
+   "company": 31,
+   "first_name": "Min-ho",
+   "last_name": "Park",
+   "job_title": "Retail Operations Manager",
+   "email": "minho.park@urbanthreadretail.example",
+   "phone": "+1 555 0163"
+  },
+  {
+   "company": 31,
+   "first_name": "Seo-yeon",
+   "last_name": "Lee",
+   "job_title": "Supply Chain Lead",
+   "email": "seoyeon.lee@urbanthreadretail.example",
+   "phone": "+1 555 0150"
+  },
+  {
+   "company": 32,
+   "first_name": "Astrid",
+   "last_name": "Ekström",
+   "job_title": "Procurement Manager",
+   "email": "astrid.ekstrm@apexionmanufacturing.example",
+   "phone": "+1 555 0182"
+  },
+  {
+   "company": 32,
+   "first_name": "Nils",
+   "last_name": "Lindberg",
+   "job_title": "Plant Operations Director",
+   "email": "nils.lindberg@apexionmanufacturing.example",
+   "phone": "+1 555 0158"
+  },
+  {
+   "company": 32,
+   "first_name": "Klara",
+   "last_name": "Svensson",
+   "job_title": "Quality Lead",
+   "email": "klara.svensson@apexionmanufacturing.example",
+   "phone": "+1 555 0118"
+  },
+  {
+   "company": 33,
+   "first_name": "Daan",
+   "last_name": "Mulder",
+   "job_title": "Procurement Manager",
+   "email": "daan.mulder@crestlineriskadvisors.example",
+   "phone": "+1 555 0133"
+  },
+  {
+   "company": 33,
+   "first_name": "Fleur",
+   "last_name": "de Boer",
+   "job_title": "Finance Operations Director",
+   "email": "fleur.deboer@crestlineriskadvisors.example",
+   "phone": "+1 555 0117"
+  },
+  {
+   "company": 33,
+   "first_name": "Bram",
+   "last_name": "Jansen",
+   "job_title": "Vendor Risk Lead",
+   "email": "bram.jansen@crestlineriskadvisors.example",
+   "phone": "+1 555 0131"
+  },
+  {
+   "company": 34,
+   "first_name": "Aoife",
+   "last_name": "Byrne",
+   "job_title": "Procurement Lead",
+   "email": "aoife.byrne@learnforgeacademyservices.example",
+   "phone": "+1 555 0195"
+  },
+  {
+   "company": 34,
+   "first_name": "Cillian",
+   "last_name": "O'Connor",
+   "job_title": "IT Director",
+   "email": "cillian.oconnor@learnforgeacademyservices.example",
+   "phone": "+1 555 0171"
+  },
+  {
+   "company": 34,
+   "first_name": "Saoirse",
+   "last_name": "Gallagher",
+   "job_title": "Learning Operations Manager",
+   "email": "saoirse.gallagher@learnforgeacademyservices.example",
+   "phone": "+1 555 0168"
+  },
+  {
+   "company": 35,
+   "first_name": "Keira",
+   "last_name": "Matthews",
+   "job_title": "Procurement Manager",
+   "email": "keira.matthews@greenaxisrenewables.example",
+   "phone": "+1 555 0133"
+  },
+  {
+   "company": 35,
+   "first_name": "Rawiri",
+   "last_name": "Te Rangi",
+   "job_title": "Project Operations Director",
+   "email": "rawiri.terangi@greenaxisrenewables.example",
+   "phone": "+1 555 0195"
+  },
+  {
+   "company": 35,
+   "first_name": "Mia",
+   "last_name": "Fletcher",
+   "job_title": "Supply Chain Lead",
+   "email": "mia.fletcher@greenaxisrenewables.example",
+   "phone": "+1 555 0174"
+  },
+  {
+   "company": 36,
+   "first_name": "Lucía",
+   "last_name": "García",
+   "job_title": "Procurement Manager",
+   "email": "luca.garca@hearthharborresorts.example",
+   "phone": "+1 555 0154"
+  },
+  {
+   "company": 36,
+   "first_name": "Javier",
+   "last_name": "Martín",
+   "job_title": "Hotel Operations Director",
+   "email": "javier.martn@hearthharborresorts.example",
+   "phone": "+1 555 0174"
+  },
+  {
+   "company": 36,
+   "first_name": "Carmen",
+   "last_name": "López",
+   "job_title": "Facilities Manager",
+   "email": "carmen.lpez@hearthharborresorts.example",
+   "phone": "+1 555 0151"
+  },
+  {
+   "company": 37,
+   "first_name": "Nomsa",
+   "last_name": "Mahlangu",
+   "job_title": "Procurement Manager",
+   "email": "nomsa.mahlangu@summitcraftbuilders.example",
+   "phone": "+1 555 0146"
+  },
+  {
+   "company": 37,
+   "first_name": "Thabo",
+   "last_name": "Mthembu",
+   "job_title": "Construction Director",
+   "email": "thabo.mthembu@summitcraftbuilders.example",
+   "phone": "+1 555 0128"
+  },
+  {
+   "company": 37,
+   "first_name": "Zanele",
+   "last_name": "Khumalo",
+   "job_title": "Site Operations Lead",
+   "email": "zanele.khumalo@summitcraftbuilders.example",
+   "phone": "+1 555 0117"
+  },
+  {
+   "company": 38,
+   "first_name": "Haruto",
+   "last_name": "Sato",
+   "job_title": "Procurement Manager",
+   "email": "haruto.sato@pixelharbormedia.example",
+   "phone": "+1 555 0165"
+  },
+  {
+   "company": 38,
+   "first_name": "Yui",
+   "last_name": "Nakamura",
+   "job_title": "Production Director",
+   "email": "yui.nakamura@pixelharbormedia.example",
+   "phone": "+1 555 0163"
+  },
+  {
+   "company": 38,
+   "first_name": "Ren",
+   "last_name": "Kobayashi",
+   "job_title": "Studio Operations Lead",
+   "email": "ren.kobayashi@pixelharbormedia.example",
+   "phone": "+1 555 0111"
+  },
+  {
+   "company": 39,
+   "first_name": "Emma",
+   "last_name": "Peeters",
+   "job_title": "Procurement Manager",
+   "email": "emma.peeters@cargolanelogistics.example",
+   "phone": "+1 555 0196"
+  },
+  {
+   "company": 39,
+   "first_name": "Lucas",
+   "last_name": "Jacobs",
+   "job_title": "Fleet Operations Director",
+   "email": "lucas.jacobs@cargolanelogistics.example",
+   "phone": "+1 555 0106"
+  },
+  {
+   "company": 39,
+   "first_name": "Camille",
+   "last_name": "Dubois",
+   "job_title": "Logistics Systems Lead",
+   "email": "camille.dubois@cargolanelogistics.example",
+   "phone": "+1 555 0114"
+  }
+ ],
+ "deals": [
+  {
+   "title": "Enterprise software implementation",
+   "company": 7,
+   "contact": 29,
+   "owner": 1,
+   "stage": "negotiation",
+   "value": 4900,
+   "created_days_ago": 68,
+   "closed_days_ago": null,
+   "expected_close_in_days": 60
+  },
+  {
+   "title": "New client onboarding package",
+   "company": 14,
+   "contact": 57,
+   "owner": 1,
+   "stage": "proposal",
+   "value": 85000,
+   "created_days_ago": 155,
+   "closed_days_ago": null,
+   "expected_close_in_days": 19
+  },
+  {
+   "title": "Annual support renewal",
+   "company": 4,
+   "contact": 18,
+   "owner": 1,
+   "stage": "won",
+   "value": 12400,
+   "created_days_ago": 13,
+   "closed_days_ago": 10,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Premium support upgrade",
+   "company": 31,
+   "contact": 125,
+   "owner": 1,
+   "stage": "won",
+   "value": 60900,
+   "created_days_ago": 59,
+   "closed_days_ago": 30,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Consulting discovery engagement",
+   "company": 15,
+   "contact": 63,
+   "owner": 1,
+   "stage": "qualified",
+   "value": 6600,
+   "created_days_ago": 126,
+   "closed_days_ago": null,
+   "expected_close_in_days": 35
+  },
+  {
+   "title": "Data migration planning",
+   "company": 27,
+   "contact": 111,
+   "owner": 4,
+   "stage": "won",
+   "value": 4100,
+   "created_days_ago": 110,
+   "closed_days_ago": 7,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Workflow automation rollout",
+   "company": 25,
+   "contact": 102,
+   "owner": 3,
+   "stage": "won",
+   "value": 6300,
+   "created_days_ago": 191,
+   "closed_days_ago": 49,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Finance module deployment",
+   "company": 12,
+   "contact": 51,
+   "owner": 1,
+   "stage": "won",
+   "value": 8400,
+   "created_days_ago": 142,
+   "closed_days_ago": 118,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Sales analytics implementation",
+   "company": 15,
+   "contact": 63,
+   "owner": 3,
+   "stage": "negotiation",
+   "value": 45100,
+   "created_days_ago": 24,
+   "closed_days_ago": null,
+   "expected_close_in_days": -4
+  },
+  {
+   "title": "Customer portal launch",
+   "company": 34,
+   "contact": 132,
+   "owner": 4,
+   "stage": "won",
+   "value": 12200,
+   "created_days_ago": 8,
+   "closed_days_ago": 6,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "ERP integration assessment",
+   "company": 31,
+   "contact": 123,
+   "owner": 4,
+   "stage": "lead",
+   "value": 4200,
+   "created_days_ago": 128,
+   "closed_days_ago": null,
+   "expected_close_in_days": 38
+  },
+  {
+   "title": "Cloud migration consulting",
+   "company": 0,
+   "contact": 2,
+   "owner": 4,
+   "stage": "won",
+   "value": 30400,
+   "created_days_ago": 104,
+   "closed_days_ago": 54,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Security review engagement",
+   "company": 35,
+   "contact": 137,
+   "owner": 2,
+   "stage": "negotiation",
+   "value": 12400,
+   "created_days_ago": 174,
+   "closed_days_ago": null,
+   "expected_close_in_days": 17
+  },
+  {
+   "title": "Managed support services",
+   "company": 3,
+   "contact": 12,
+   "owner": 3,
+   "stage": "lead",
+   "value": 4000,
+   "created_days_ago": 153,
+   "closed_days_ago": null,
+   "expected_close_in_days": 64
+  },
+  {
+   "title": "Quarterly support retainer",
+   "company": 30,
+   "contact": 122,
+   "owner": 1,
+   "stage": "proposal",
+   "value": 45100,
+   "created_days_ago": 133,
+   "closed_days_ago": null,
+   "expected_close_in_days": 13
+  },
+  {
+   "title": "Implementation readiness workshop",
+   "company": 4,
+   "contact": 16,
+   "owner": 3,
+   "stage": "lost",
+   "value": 12600,
+   "created_days_ago": 157,
+   "closed_days_ago": 30,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "User training program",
+   "company": 36,
+   "contact": 140,
+   "owner": 2,
+   "stage": "lead",
+   "value": 60100,
+   "created_days_ago": 68,
+   "closed_days_ago": null,
+   "expected_close_in_days": 43
+  },
+  {
+   "title": "Admin certification package",
+   "company": 37,
+   "contact": 143,
+   "owner": 1,
+   "stage": "qualified",
+   "value": 15300,
+   "created_days_ago": 149,
+   "closed_days_ago": null,
+   "expected_close_in_days": 30
+  },
+  {
+   "title": "Change management consulting",
+   "company": 15,
+   "contact": 63,
+   "owner": 1,
+   "stage": "qualified",
+   "value": 85400,
+   "created_days_ago": 72,
+   "closed_days_ago": null,
+   "expected_close_in_days": 48
+  },
+  {
+   "title": "Process optimization review",
+   "company": 20,
+   "contact": 80,
+   "owner": 1,
+   "stage": "won",
+   "value": 60900,
+   "created_days_ago": 197,
+   "closed_days_ago": 25,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "API integration project",
+   "company": 4,
+   "contact": 17,
+   "owner": 2,
+   "stage": "lead",
+   "value": 8500,
+   "created_days_ago": 142,
+   "closed_days_ago": null,
+   "expected_close_in_days": -2
+  },
+  {
+   "title": "Reporting dashboard build",
+   "company": 15,
+   "contact": 62,
+   "owner": 1,
+   "stage": "qualified",
+   "value": 45400,
+   "created_days_ago": 99,
+   "closed_days_ago": null,
+   "expected_close_in_days": 68
+  },
+  {
+   "title": "Legacy system migration",
+   "company": 33,
+   "contact": 131,
+   "owner": 3,
+   "stage": "qualified",
+   "value": 15100,
+   "created_days_ago": 7,
+   "closed_days_ago": null,
+   "expected_close_in_days": 7
+  },
+  {
+   "title": "Onboarding acceleration plan",
+   "company": 16,
+   "contact": 64,
+   "owner": 3,
+   "stage": "proposal",
+   "value": 8400,
+   "created_days_ago": 34,
+   "closed_days_ago": null,
+   "expected_close_in_days": 26
+  },
+  {
+   "title": "Dedicated support desk",
+   "company": 38,
+   "contact": 146,
+   "owner": 1,
+   "stage": "lost",
+   "value": 85400,
+   "created_days_ago": 58,
+   "closed_days_ago": 32,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "24/7 support coverage",
+   "company": 31,
+   "contact": 123,
+   "owner": 1,
+   "stage": "proposal",
+   "value": 24400,
+   "created_days_ago": 69,
+   "closed_days_ago": null,
+   "expected_close_in_days": -5
+  },
+  {
+   "title": "Extended support hours",
+   "company": 0,
+   "contact": 1,
+   "owner": 3,
+   "stage": "lead",
+   "value": 15200,
+   "created_days_ago": 90,
+   "closed_days_ago": null,
+   "expected_close_in_days": 46
+  },
+  {
+   "title": "Support plan renewal",
+   "company": 35,
+   "contact": 136,
+   "owner": 2,
+   "stage": "qualified",
+   "value": 6100,
+   "created_days_ago": 185,
+   "closed_days_ago": null,
+   "expected_close_in_days": 9
+  },
+  {
+   "title": "Consulting retainer renewal",
+   "company": 34,
+   "contact": 133,
+   "owner": 2,
+   "stage": "proposal",
+   "value": 8600,
+   "created_days_ago": 14,
+   "closed_days_ago": null,
+   "expected_close_in_days": 6
+  },
+  {
+   "title": "Software license expansion",
+   "company": 2,
+   "contact": 10,
+   "owner": 4,
+   "stage": "negotiation",
+   "value": 4500,
+   "created_days_ago": 83,
+   "closed_days_ago": null,
+   "expected_close_in_days": 16
+  },
+  {
+   "title": "Seat expansion rollout",
+   "company": 15,
+   "contact": 60,
+   "owner": 1,
+   "stage": "proposal",
+   "value": 45600,
+   "created_days_ago": 175,
+   "closed_days_ago": null,
+   "expected_close_in_days": 69
+  },
+  {
+   "title": "Module add-on deployment",
+   "company": 9,
+   "contact": 37,
+   "owner": 4,
+   "stage": "qualified",
+   "value": 8600,
+   "created_days_ago": 65,
+   "closed_days_ago": null,
+   "expected_close_in_days": -7
+  },
+  {
+   "title": "Custom workflow build",
+   "company": 11,
+   "contact": 46,
+   "owner": 3,
+   "stage": "lost",
+   "value": 24300,
+   "created_days_ago": 193,
+   "closed_days_ago": 68,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Data quality assessment",
+   "company": 10,
+   "contact": 40,
+   "owner": 2,
+   "stage": "won",
+   "value": 4700,
+   "created_days_ago": 184,
+   "closed_days_ago": 56,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Analytics adoption consulting",
+   "company": 12,
+   "contact": 50,
+   "owner": 1,
+   "stage": "lead",
+   "value": 12300,
+   "created_days_ago": 122,
+   "closed_days_ago": null,
+   "expected_close_in_days": -7
+  },
+  {
+   "title": "Executive enablement session",
+   "company": 12,
+   "contact": 50,
+   "owner": 1,
+   "stage": "won",
+   "value": 6400,
+   "created_days_ago": 107,
+   "closed_days_ago": 44,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Trainer certification workshop",
+   "company": 32,
+   "contact": 128,
+   "owner": 4,
+   "stage": "proposal",
+   "value": 45500,
+   "created_days_ago": 107,
+   "closed_days_ago": null,
+   "expected_close_in_days": -7
+  },
+  {
+   "title": "Train the trainer workshop",
+   "company": 7,
+   "contact": 29,
+   "owner": 2,
+   "stage": "lost",
+   "value": 15000,
+   "created_days_ago": 71,
+   "closed_days_ago": 13,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "End-user training rollout",
+   "company": 38,
+   "contact": 145,
+   "owner": 3,
+   "stage": "won",
+   "value": 18600,
+   "created_days_ago": 116,
+   "closed_days_ago": 77,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Onsite onboarding support",
+   "company": 32,
+   "contact": 127,
+   "owner": 4,
+   "stage": "won",
+   "value": 12400,
+   "created_days_ago": 34,
+   "closed_days_ago": 2,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Remote onboarding package",
+   "company": 27,
+   "contact": 109,
+   "owner": 2,
+   "stage": "proposal",
+   "value": 6500,
+   "created_days_ago": 5,
+   "closed_days_ago": null,
+   "expected_close_in_days": 69
+  },
+  {
+   "title": "Implementation project rescue",
+   "company": 20,
+   "contact": 80,
+   "owner": 3,
+   "stage": "lost",
+   "value": 15800,
+   "created_days_ago": 174,
+   "closed_days_ago": 79,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Post-launch support plan",
+   "company": 26,
+   "contact": 107,
+   "owner": 3,
+   "stage": "won",
+   "value": 45200,
+   "created_days_ago": 88,
+   "closed_days_ago": 24,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Hypercare support engagement",
+   "company": 26,
+   "contact": 107,
+   "owner": 3,
+   "stage": "qualified",
+   "value": 8900,
+   "created_days_ago": 175,
+   "closed_days_ago": null,
+   "expected_close_in_days": 62
+  },
+  {
+   "title": "Managed application support",
+   "company": 19,
+   "contact": 76,
+   "owner": 1,
+   "stage": "lead",
+   "value": 12600,
+   "created_days_ago": 108,
+   "closed_days_ago": null,
+   "expected_close_in_days": 64
+  },
+  {
+   "title": "Proactive monitoring service",
+   "company": 38,
+   "contact": 145,
+   "owner": 2,
+   "stage": "lead",
+   "value": 30300,
+   "created_days_ago": 172,
+   "closed_days_ago": null,
+   "expected_close_in_days": 55
+  },
+  {
+   "title": "Performance tuning engagement",
+   "company": 30,
+   "contact": 120,
+   "owner": 3,
+   "stage": "negotiation",
+   "value": 15800,
+   "created_days_ago": 193,
+   "closed_days_ago": null,
+   "expected_close_in_days": 74
+  },
+  {
+   "title": "Integration support package",
+   "company": 39,
+   "contact": 147,
+   "owner": 4,
+   "stage": "won",
+   "value": 12400,
+   "created_days_ago": 90,
+   "closed_days_ago": 28,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Migration support retainer",
+   "company": 12,
+   "contact": 48,
+   "owner": 1,
+   "stage": "won",
+   "value": 30900,
+   "created_days_ago": 42,
+   "closed_days_ago": 4,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Upgrade planning workshop",
+   "company": 29,
+   "contact": 117,
+   "owner": 3,
+   "stage": "lost",
+   "value": 24700,
+   "created_days_ago": 111,
+   "closed_days_ago": 51,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Version upgrade rollout",
+   "company": 15,
+   "contact": 60,
+   "owner": 4,
+   "stage": "negotiation",
+   "value": 6600,
+   "created_days_ago": 42,
+   "closed_days_ago": null,
+   "expected_close_in_days": 18
+  },
+  {
+   "title": "Platform health assessment",
+   "company": 11,
+   "contact": 47,
+   "owner": 1,
+   "stage": "lead",
+   "value": 12100,
+   "created_days_ago": 183,
+   "closed_days_ago": null,
+   "expected_close_in_days": 48
+  },
+  {
+   "title": "Business process review",
+   "company": 8,
+   "contact": 34,
+   "owner": 4,
+   "stage": "won",
+   "value": 30900,
+   "created_days_ago": 123,
+   "closed_days_ago": 104,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Solution design workshop",
+   "company": 32,
+   "contact": 128,
+   "owner": 2,
+   "stage": "lead",
+   "value": 8700,
+   "created_days_ago": 114,
+   "closed_days_ago": null,
+   "expected_close_in_days": 47
+  },
+  {
+   "title": "Requirements gathering engagement",
+   "company": 16,
+   "contact": 65,
+   "owner": 4,
+   "stage": "lost",
+   "value": 15800,
+   "created_days_ago": 197,
+   "closed_days_ago": 124,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Proof of concept build",
+   "company": 15,
+   "contact": 63,
+   "owner": 1,
+   "stage": "lost",
+   "value": 15300,
+   "created_days_ago": 75,
+   "closed_days_ago": 34,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Pilot program rollout",
+   "company": 21,
+   "contact": 84,
+   "owner": 1,
+   "stage": "qualified",
+   "value": 12600,
+   "created_days_ago": 86,
+   "closed_days_ago": null,
+   "expected_close_in_days": 9
+  },
+  {
+   "title": "Phased implementation plan",
+   "company": 13,
+   "contact": 55,
+   "owner": 2,
+   "stage": "lost",
+   "value": 45700,
+   "created_days_ago": 21,
+   "closed_days_ago": 13,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Global rollout consulting",
+   "company": 3,
+   "contact": 15,
+   "owner": 2,
+   "stage": "won",
+   "value": 60000,
+   "created_days_ago": 57,
+   "closed_days_ago": 54,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Regional deployment support",
+   "company": 36,
+   "contact": 139,
+   "owner": 1,
+   "stage": "won",
+   "value": 18400,
+   "created_days_ago": 102,
+   "closed_days_ago": 96,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Multi-site onboarding program",
+   "company": 24,
+   "contact": 97,
+   "owner": 2,
+   "stage": "lead",
+   "value": 15600,
+   "created_days_ago": 112,
+   "closed_days_ago": null,
+   "expected_close_in_days": 52
+  },
+  {
+   "title": "Departmental software rollout",
+   "company": 1,
+   "contact": 6,
+   "owner": 3,
+   "stage": "proposal",
+   "value": 24200,
+   "created_days_ago": 104,
+   "closed_days_ago": null,
+   "expected_close_in_days": 49
+  },
+  {
+   "title": "Enterprise license renewal",
+   "company": 8,
+   "contact": 32,
+   "owner": 4,
+   "stage": "lead",
+   "value": 60900,
+   "created_days_ago": 164,
+   "closed_days_ago": null,
+   "expected_close_in_days": 74
+  },
+  {
+   "title": "Subscription renewal deal",
+   "company": 1,
+   "contact": 7,
+   "owner": 1,
+   "stage": "won",
+   "value": 30200,
+   "created_days_ago": 26,
+   "closed_days_ago": 1,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Support tier upgrade",
+   "company": 16,
+   "contact": 66,
+   "owner": 1,
+   "stage": "negotiation",
+   "value": 18500,
+   "created_days_ago": 102,
+   "closed_days_ago": null,
+   "expected_close_in_days": 38
+  },
+  {
+   "title": "Consulting hours package",
+   "company": 17,
+   "contact": 71,
+   "owner": 1,
+   "stage": "won",
+   "value": 6700,
+   "created_days_ago": 197,
+   "closed_days_ago": 4,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Implementation change request",
+   "company": 34,
+   "contact": 133,
+   "owner": 1,
+   "stage": "negotiation",
+   "value": 6000,
+   "created_days_ago": 18,
+   "closed_days_ago": null,
+   "expected_close_in_days": -7
+  },
+  {
+   "title": "Custom reporting engagement",
+   "company": 15,
+   "contact": 60,
+   "owner": 2,
+   "stage": "proposal",
+   "value": 12200,
+   "created_days_ago": 56,
+   "closed_days_ago": null,
+   "expected_close_in_days": 50
+  },
+  {
+   "title": "Data warehouse setup",
+   "company": 7,
+   "contact": 29,
+   "owner": 2,
+   "stage": "qualified",
+   "value": 15500,
+   "created_days_ago": 149,
+   "closed_days_ago": null,
+   "expected_close_in_days": 11
+  },
+  {
+   "title": "BI dashboard rollout",
+   "company": 38,
+   "contact": 146,
+   "owner": 3,
+   "stage": "lead",
+   "value": 8400,
+   "created_days_ago": 160,
+   "closed_days_ago": null,
+   "expected_close_in_days": 3
+  },
+  {
+   "title": "Mobile access deployment",
+   "company": 37,
+   "contact": 142,
+   "owner": 2,
+   "stage": "proposal",
+   "value": 24600,
+   "created_days_ago": 11,
+   "closed_days_ago": null,
+   "expected_close_in_days": 15
+  },
+  {
+   "title": "Customer self-service launch",
+   "company": 4,
+   "contact": 17,
+   "owner": 1,
+   "stage": "won",
+   "value": 15900,
+   "created_days_ago": 156,
+   "closed_days_ago": 30,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Knowledge base setup",
+   "company": 36,
+   "contact": 139,
+   "owner": 2,
+   "stage": "won",
+   "value": 85500,
+   "created_days_ago": 15,
+   "closed_days_ago": 1,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Help desk optimization",
+   "company": 32,
+   "contact": 127,
+   "owner": 1,
+   "stage": "won",
+   "value": 24700,
+   "created_days_ago": 170,
+   "closed_days_ago": 27,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Ticket triage redesign",
+   "company": 27,
+   "contact": 111,
+   "owner": 3,
+   "stage": "won",
+   "value": 24200,
+   "created_days_ago": 97,
+   "closed_days_ago": 93,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Service level review",
+   "company": 33,
+   "contact": 130,
+   "owner": 2,
+   "stage": "lead",
+   "value": 45700,
+   "created_days_ago": 171,
+   "closed_days_ago": null,
+   "expected_close_in_days": 49
+  },
+  {
+   "title": "Support process assessment",
+   "company": 27,
+   "contact": 110,
+   "owner": 1,
+   "stage": "lost",
+   "value": 12100,
+   "created_days_ago": 192,
+   "closed_days_ago": 71,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Onboarding content development",
+   "company": 28,
+   "contact": 115,
+   "owner": 2,
+   "stage": "won",
+   "value": 85600,
+   "created_days_ago": 67,
+   "closed_days_ago": 43,
+   "expected_close_in_days": null
+  },
+  {
+   "title": "Training materials update",
+   "company": 1,
+   "contact": 6,
+   "owner": 1,
+   "stage": "qualified",
+   "value": 12500,
+   "created_days_ago": 131,
+   "closed_days_ago": null,
+   "expected_close_in_days": 23
+  },
+  {
+   "title": "Adoption success consulting",
+   "company": 21,
+   "contact": 86,
+   "owner": 2,
+   "stage": "qualified",
+   "value": 45300,
+   "created_days_ago": 76,
+   "closed_days_ago": null,
+   "expected_close_in_days": 0
+  }
+ ],
+ "activities": [
+  {
+   "type": "note",
+   "subject": "Pilot feedback summarized",
+   "body": "Summarized the feedback received from the pilot group. The themes are useful for the next review discussion.",
+   "deal": 62,
+   "contact": 32,
+   "owner": 4,
+   "occurred_days_ago": 142,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Feedback review meeting",
+   "body": "Reviewed customer feedback in a meeting. Captured themes and identified areas for improvement.",
+   "deal": 57,
+   "contact": 55,
+   "owner": 2,
+   "occurred_days_ago": 0,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Contract terms flagged",
+   "body": "Flagged contract terms that may need additional review. Captured the customer's initial comments for internal follow-up.",
+   "deal": 39,
+   "contact": 127,
+   "owner": 4,
+   "occurred_days_ago": 23,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Training call completed",
+   "body": "Discussed training needs with the customer. The customer will confirm participant groups and preferred format.",
+   "deal": 70,
+   "contact": 142,
+   "owner": 2,
+   "occurred_days_ago": 5,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Proposal review call",
+   "body": "Reviewed the proposal with the customer. The customer requested clarifications on scope and assumptions.",
+   "deal": 32,
+   "contact": 46,
+   "owner": 3,
+   "occurred_days_ago": 59,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Current solution limitations",
+   "body": "Documented limitations the customer described with the current solution. These points may support a future value discussion.",
+   "deal": 68,
+   "contact": 29,
+   "owner": 2,
+   "occurred_days_ago": 47,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Negotiation meeting held",
+   "body": "Met with the customer to discuss commercial terms. Several points require internal review before response.",
+   "deal": 75,
+   "contact": 130,
+   "owner": 2,
+   "occurred_days_ago": 134,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send pricing comparison",
+   "body": "Prepare a pricing comparison for the customer. Keep the format simple and easy to review.",
+   "deal": 37,
+   "contact": 29,
+   "owner": 2,
+   "occurred_days_ago": 29,
+   "due_in_days": -10,
+   "completed": true
+  },
+  {
+   "type": "call",
+   "subject": "Needs assessment call",
+   "body": "Completed a needs assessment call with the customer. Captured priority needs and current constraints.",
+   "deal": 5,
+   "contact": 111,
+   "owner": 4,
+   "occurred_days_ago": 6,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Implementation kickoff meeting",
+   "body": "Held an implementation kickoff meeting with the customer. Confirmed first steps and coordination points.",
+   "deal": null,
+   "contact": 32,
+   "owner": 4,
+   "occurred_days_ago": 26,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Pilot review call",
+   "body": "Completed a pilot review call with the customer. Reviewed early results and open issues.",
+   "deal": 61,
+   "contact": 6,
+   "owner": 3,
+   "occurred_days_ago": 56,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Review integration requirements",
+   "body": "Review integration requirements with the internal team. Confirm what can be supported and what needs validation.",
+   "deal": null,
+   "contact": 6,
+   "owner": 3,
+   "occurred_days_ago": 14,
+   "due_in_days": -2,
+   "completed": true
+  },
+  {
+   "type": "call",
+   "subject": "Technical call completed",
+   "body": "Completed a technical call with the customer's team. Several requirements need validation before a formal review.",
+   "deal": null,
+   "contact": 80,
+   "owner": 1,
+   "occurred_days_ago": 38,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Follow up on proposal",
+   "body": "Follow up with the customer on the proposal. Ask for questions and confirm the review timeline.",
+   "deal": 31,
+   "contact": 37,
+   "owner": 4,
+   "occurred_days_ago": 15,
+   "due_in_days": -2,
+   "completed": true
+  },
+  {
+   "type": "meeting",
+   "subject": "Needs assessment meeting",
+   "body": "Completed a needs assessment meeting with the customer. Captured priority needs and current constraints.",
+   "deal": 66,
+   "contact": 133,
+   "owner": 1,
+   "occurred_days_ago": 12,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Call rescheduled requested",
+   "body": "The customer requested to reschedule the call. A new time will be proposed based on availability.",
+   "deal": 54,
+   "contact": 65,
+   "owner": 4,
+   "occurred_days_ago": 78,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Stakeholder priorities captured",
+   "body": "Captured the priorities shared by different stakeholders. Noted where priorities overlap and where they may conflict.",
+   "deal": 26,
+   "contact": 1,
+   "owner": 3,
+   "occurred_days_ago": 80,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Security review meeting",
+   "body": "Held a security review meeting with the customer. The customer may request formal documentation after review.",
+   "deal": 30,
+   "contact": 60,
+   "owner": 1,
+   "occurred_days_ago": 44,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Pilot feedback summarized",
+   "body": "Summarized the feedback received from the pilot group. The themes are useful for the next review discussion.",
+   "deal": 57,
+   "contact": 55,
+   "owner": 2,
+   "occurred_days_ago": 19,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Referral source noted",
+   "body": "Noted how the customer was referred to the team. Captured the context for future relationship mapping.",
+   "deal": null,
+   "contact": 128,
+   "owner": 4,
+   "occurred_days_ago": 89,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Security review discussed",
+   "body": "Discussed the customer's security review expectations at a high level. Noted that formal documentation may be required.",
+   "deal": 33,
+   "contact": 40,
+   "owner": 2,
+   "occurred_days_ago": 160,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send pricing comparison",
+   "body": "Prepare a pricing comparison for the customer. Keep the format simple and easy to review.",
+   "deal": 54,
+   "contact": 65,
+   "owner": 4,
+   "occurred_days_ago": 29,
+   "due_in_days": 12,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Usage trends summarized",
+   "body": "Summarized recent usage trends shared by the customer. The data suggests adoption is stable but uneven across teams.",
+   "deal": 18,
+   "contact": 63,
+   "owner": 1,
+   "occurred_days_ago": 9,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Internal account review",
+   "body": "Held an internal account review to align on the customer. Captured actions and assigned owners.",
+   "deal": 72,
+   "contact": 139,
+   "owner": 2,
+   "occurred_days_ago": 9,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Proposal review call",
+   "body": "Reviewed the proposal with the customer. The customer requested clarifications on scope and assumptions.",
+   "deal": 51,
+   "contact": 47,
+   "owner": 1,
+   "occurred_days_ago": 69,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Renewal call completed",
+   "body": "Discussed the upcoming renewal and current satisfaction. The customer asked for a summary before the next review.",
+   "deal": null,
+   "contact": 110,
+   "owner": 1,
+   "occurred_days_ago": 10,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Internal account review",
+   "body": "Held an internal account review to align on the customer. Captured actions and assigned owners.",
+   "deal": 32,
+   "contact": 46,
+   "owner": 3,
+   "occurred_days_ago": 6,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Arrange handoff meeting",
+   "body": "Arrange a handoff meeting with the customer and internal team. Confirm attendees and required materials.",
+   "deal": null,
+   "contact": 130,
+   "owner": 2,
+   "occurred_days_ago": 5,
+   "due_in_days": 3,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Decision maker call",
+   "body": "Spoke with the decision maker about priorities and timing. The decision maker requested a concise value summary.",
+   "deal": 60,
+   "contact": 97,
+   "owner": 2,
+   "occurred_days_ago": 66,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Confirm decision timeline",
+   "body": "Ask the customer to confirm the decision timeline. Update the opportunity with any changes.",
+   "deal": 74,
+   "contact": 111,
+   "owner": 3,
+   "occurred_days_ago": 55,
+   "due_in_days": 7,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send feedback survey",
+   "body": "Send a short feedback survey to the customer. Keep the questions focused and easy to complete.",
+   "deal": 44,
+   "contact": 76,
+   "owner": 1,
+   "occurred_days_ago": 52,
+   "due_in_days": -39,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Renewal negotiation call",
+   "body": "Discussed renewal terms with the customer. The customer requested a revised summary before the next step.",
+   "deal": null,
+   "contact": 128,
+   "owner": 4,
+   "occurred_days_ago": 84,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Follow up on invoice",
+   "body": "Follow up with the customer on the invoice question. Confirm whether any additional detail is needed.",
+   "deal": 4,
+   "contact": 63,
+   "owner": 1,
+   "occurred_days_ago": 58,
+   "due_in_days": -26,
+   "completed": true
+  },
+  {
+   "type": "task",
+   "subject": "Prepare executive briefing",
+   "body": "Prepare a concise executive briefing for the customer. Focus on priorities, outcomes, and decisions needed.",
+   "deal": 65,
+   "contact": 71,
+   "owner": 1,
+   "occurred_days_ago": 0,
+   "due_in_days": 9,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Technical call completed",
+   "body": "Completed a technical call with the customer's team. Several requirements need validation before a formal review.",
+   "deal": 24,
+   "contact": 146,
+   "owner": 1,
+   "occurred_days_ago": 33,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Expansion planning meeting",
+   "body": "Discussed possible expansion with the customer. The topic needs more validation before formal planning.",
+   "deal": 6,
+   "contact": 102,
+   "owner": 3,
+   "occurred_days_ago": 52,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Referral source noted",
+   "body": "Noted how the customer was referred to the team. Captured the context for future relationship mapping.",
+   "deal": 56,
+   "contact": 84,
+   "owner": 1,
+   "occurred_days_ago": 62,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Prepare value summary",
+   "body": "Prepare a concise value summary for the customer. Tailor it to the priorities discussed.",
+   "deal": 30,
+   "contact": 60,
+   "owner": 1,
+   "occurred_days_ago": 40,
+   "due_in_days": -40,
+   "completed": true
+  },
+  {
+   "type": "note",
+   "subject": "Current solution limitations",
+   "body": "Documented limitations the customer described with the current solution. These points may support a future value discussion.",
+   "deal": 59,
+   "contact": 139,
+   "owner": 1,
+   "occurred_days_ago": 15,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Referral source noted",
+   "body": "Noted how the customer was referred to the team. Captured the context for future relationship mapping.",
+   "deal": 65,
+   "contact": 71,
+   "owner": 1,
+   "occurred_days_ago": 180,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send feedback survey",
+   "body": "Send a short feedback survey to the customer. Keep the questions focused and easy to complete.",
+   "deal": 31,
+   "contact": 37,
+   "owner": 4,
+   "occurred_days_ago": 58,
+   "due_in_days": -9,
+   "completed": true
+  },
+  {
+   "type": "call",
+   "subject": "Security call completed",
+   "body": "Completed a security-focused call with the customer. Noted that formal security documentation may be requested.",
+   "deal": 8,
+   "contact": 63,
+   "owner": 3,
+   "occurred_days_ago": 8,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Request reference approval",
+   "body": "Ask the customer about reference approval. Clarify scope and use before proceeding.",
+   "deal": null,
+   "contact": 66,
+   "owner": 1,
+   "occurred_days_ago": 34,
+   "due_in_days": -16,
+   "completed": true
+  },
+  {
+   "type": "task",
+   "subject": "Update CRM fields",
+   "body": "Update the relevant CRM fields with the latest customer details. Check that the record is complete.",
+   "deal": 62,
+   "contact": 32,
+   "owner": 4,
+   "occurred_days_ago": 38,
+   "due_in_days": -8,
+   "completed": true
+  },
+  {
+   "type": "call",
+   "subject": "Contact change call",
+   "body": "Discussed a change in the customer's main contact. Confirmed the best path for future communication.",
+   "deal": null,
+   "contact": 48,
+   "owner": 1,
+   "occurred_days_ago": 29,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Collect success criteria",
+   "body": "Collect confirmed success criteria from the customer. Document them in the account record.",
+   "deal": 73,
+   "contact": 127,
+   "owner": 1,
+   "occurred_days_ago": 98,
+   "due_in_days": 1,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Timeline confirmation call",
+   "body": "Confirmed the customer's expected timeline. Noted that internal approval steps may affect the schedule.",
+   "deal": null,
+   "contact": 97,
+   "owner": 2,
+   "occurred_days_ago": 90,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Implementation call completed",
+   "body": "Discussed implementation expectations with the customer. Agreed to review timeline and resource needs next.",
+   "deal": 63,
+   "contact": 7,
+   "owner": 1,
+   "occurred_days_ago": 1,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Request reference approval",
+   "body": "Ask the customer about reference approval. Clarify scope and use before proceeding.",
+   "deal": 12,
+   "contact": 137,
+   "owner": 2,
+   "occurred_days_ago": 112,
+   "due_in_days": 4,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Implementation call completed",
+   "body": "Discussed implementation expectations with the customer. Agreed to review timeline and resource needs next.",
+   "deal": 52,
+   "contact": 34,
+   "owner": 4,
+   "occurred_days_ago": 111,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Stakeholder feedback recorded",
+   "body": "Recorded feedback from the stakeholder group. Noted areas of support and areas requiring more detail.",
+   "deal": 33,
+   "contact": 40,
+   "owner": 2,
+   "occurred_days_ago": 86,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Renewal call completed",
+   "body": "Discussed the upcoming renewal and current satisfaction. The customer asked for a summary before the next review.",
+   "deal": null,
+   "contact": 107,
+   "owner": 3,
+   "occurred_days_ago": 86,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Timeline confirmation call",
+   "body": "Confirmed the customer's expected timeline. Noted that internal approval steps may affect the schedule.",
+   "deal": 62,
+   "contact": 32,
+   "owner": 4,
+   "occurred_days_ago": 138,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Referral source noted",
+   "body": "Noted how the customer was referred to the team. Captured the context for future relationship mapping.",
+   "deal": 29,
+   "contact": 10,
+   "owner": 4,
+   "occurred_days_ago": 11,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Stakeholder priorities captured",
+   "body": "Captured the priorities shared by different stakeholders. Noted where priorities overlap and where they may conflict.",
+   "deal": 56,
+   "contact": 84,
+   "owner": 1,
+   "occurred_days_ago": 21,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Confirm budget owner",
+   "body": "Identify and confirm the customer's budget owner. Update the opportunity record with the result.",
+   "deal": 41,
+   "contact": 80,
+   "owner": 3,
+   "occurred_days_ago": 14,
+   "due_in_days": -3,
+   "completed": true
+  },
+  {
+   "type": "note",
+   "subject": "Pilot feedback summarized",
+   "body": "Summarized the feedback received from the pilot group. The themes are useful for the next review discussion.",
+   "deal": 72,
+   "contact": 139,
+   "owner": 2,
+   "occurred_days_ago": 5,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Reporting requirements noted",
+   "body": "Noted the customer's reporting requirements and expected outputs. Confirmed that frequency and format still need review.",
+   "deal": 79,
+   "contact": 86,
+   "owner": 2,
+   "occurred_days_ago": 30,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Onboarding call completed",
+   "body": "Completed an onboarding call with the customer. Confirmed the first steps and who will coordinate internally.",
+   "deal": 59,
+   "contact": 139,
+   "owner": 1,
+   "occurred_days_ago": 81,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Account background reviewed",
+   "body": "Reviewed the account background and captured the customer's current situation. Noted open questions for the next conversation.",
+   "deal": 59,
+   "contact": 139,
+   "owner": 1,
+   "occurred_days_ago": 36,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Account health update",
+   "body": "Updated the account health view based on the latest interaction. No immediate escalation is required at this stage.",
+   "deal": 44,
+   "contact": 76,
+   "owner": 1,
+   "occurred_days_ago": 75,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Review integration requirements",
+   "body": "Review integration requirements with the internal team. Confirm what can be supported and what needs validation.",
+   "deal": 58,
+   "contact": 15,
+   "owner": 2,
+   "occurred_days_ago": 54,
+   "due_in_days": -5,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Reporting requirements noted",
+   "body": "Noted the customer's reporting requirements and expected outputs. Confirmed that frequency and format still need review.",
+   "deal": 73,
+   "contact": 127,
+   "owner": 1,
+   "occurred_days_ago": 91,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Schedule training session",
+   "body": "Propose training dates to the customer. Confirm audience, format, and any prerequisite materials.",
+   "deal": 2,
+   "contact": 18,
+   "owner": 1,
+   "occurred_days_ago": 13,
+   "due_in_days": -5,
+   "completed": true
+  },
+  {
+   "type": "task",
+   "subject": "Draft implementation plan",
+   "body": "Draft an initial implementation plan for customer review. Keep assumptions clearly marked.",
+   "deal": null,
+   "contact": 115,
+   "owner": 2,
+   "occurred_days_ago": 63,
+   "due_in_days": -27,
+   "completed": true
+  },
+  {
+   "type": "note",
+   "subject": "Success criteria drafted",
+   "body": "Drafted initial success criteria based on the customer's comments. These need confirmation with the broader stakeholder group.",
+   "deal": 28,
+   "contact": 133,
+   "owner": 2,
+   "occurred_days_ago": 10,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Renewal risk identified",
+   "body": "Identified a potential renewal risk related to adoption and timing. Flagged it for review before the next account plan update.",
+   "deal": 12,
+   "contact": 137,
+   "owner": 2,
+   "occurred_days_ago": 160,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Integration call completed",
+   "body": "Reviewed integration questions with the customer. Technical details need confirmation from both sides.",
+   "deal": 4,
+   "contact": 63,
+   "owner": 1,
+   "occurred_days_ago": 74,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Referral source noted",
+   "body": "Noted how the customer was referred to the team. Captured the context for future relationship mapping.",
+   "deal": 41,
+   "contact": 80,
+   "owner": 3,
+   "occurred_days_ago": 106,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Call highlights recorded",
+   "body": "Recorded the main highlights from the call. Noted the topics that require further clarification.",
+   "deal": 46,
+   "contact": 120,
+   "owner": 3,
+   "occurred_days_ago": 135,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Support issue referenced",
+   "body": "The customer referenced a recent support issue during the conversation. Captured the concern and the requested follow-up.",
+   "deal": null,
+   "contact": 46,
+   "owner": 3,
+   "occurred_days_ago": 123,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Open questions listed",
+   "body": "Listed the open questions raised during the discussion. Assigned each question for follow-up before the next meeting.",
+   "deal": null,
+   "contact": 122,
+   "owner": 1,
+   "occurred_days_ago": 119,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Security review discussed",
+   "body": "Discussed the customer's security review expectations at a high level. Noted that formal documentation may be required.",
+   "deal": 50,
+   "contact": 60,
+   "owner": 4,
+   "occurred_days_ago": 35,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Discovery meeting held",
+   "body": "Held a discovery meeting to understand the customer's priorities. Captured key needs and agreed on follow-up topics.",
+   "deal": 33,
+   "contact": 40,
+   "owner": 2,
+   "occurred_days_ago": 137,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Competitive call completed",
+   "body": "Discussed the customer's evaluation process at a high level. The customer is still comparing options and timing.",
+   "deal": null,
+   "contact": 111,
+   "owner": 3,
+   "occurred_days_ago": 48,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Prepare renewal summary",
+   "body": "Prepare a renewal summary for the customer. Include current status, open items, and key dates.",
+   "deal": 29,
+   "contact": 10,
+   "owner": 4,
+   "occurred_days_ago": 60,
+   "due_in_days": 11,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Post-meeting follow-up call",
+   "body": "Followed up after the meeting to review open items. The customer confirmed the next step and owner.",
+   "deal": 28,
+   "contact": 133,
+   "owner": 2,
+   "occurred_days_ago": 10,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Confirm support escalation path",
+   "body": "Confirm the customer's support escalation path. Document the agreed contacts and response expectations.",
+   "deal": 52,
+   "contact": 34,
+   "owner": 4,
+   "occurred_days_ago": 14,
+   "due_in_days": -13,
+   "completed": true
+  },
+  {
+   "type": "call",
+   "subject": "Check-in call completed",
+   "body": "Completed a routine check-in with the customer. No major concerns were raised during the call.",
+   "deal": 30,
+   "contact": 60,
+   "owner": 1,
+   "occurred_days_ago": 137,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Contact change call",
+   "body": "Discussed a change in the customer's main contact. Confirmed the best path for future communication.",
+   "deal": 53,
+   "contact": 128,
+   "owner": 2,
+   "occurred_days_ago": 75,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Pilot feedback summarized",
+   "body": "Summarized the feedback received from the pilot group. The themes are useful for the next review discussion.",
+   "deal": 12,
+   "contact": 137,
+   "owner": 2,
+   "occurred_days_ago": 125,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send onboarding materials",
+   "body": "Send onboarding materials to the customer. Include key contacts and the first set of steps.",
+   "deal": 4,
+   "contact": 63,
+   "owner": 1,
+   "occurred_days_ago": 88,
+   "due_in_days": -32,
+   "completed": true
+  },
+  {
+   "type": "note",
+   "subject": "Integration needs captured",
+   "body": "Captured the customer's integration needs and constraints. Technical validation is still required before scoping.",
+   "deal": 12,
+   "contact": 137,
+   "owner": 2,
+   "occurred_days_ago": 94,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send usage report",
+   "body": "Send the latest usage report to the customer. Highlight trends and invite questions.",
+   "deal": 7,
+   "contact": 51,
+   "owner": 1,
+   "occurred_days_ago": 101,
+   "due_in_days": -86,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Follow up on proposal",
+   "body": "Follow up with the customer on the proposal. Ask for questions and confirm the review timeline.",
+   "deal": 27,
+   "contact": 136,
+   "owner": 2,
+   "occurred_days_ago": 164,
+   "due_in_days": -159,
+   "completed": true
+  },
+  {
+   "type": "call",
+   "subject": "Security call completed",
+   "body": "Completed a security-focused call with the customer. Noted that formal security documentation may be requested.",
+   "deal": 72,
+   "contact": 139,
+   "owner": 2,
+   "occurred_days_ago": 6,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Demo meeting held",
+   "body": "Held a demo meeting with the customer. Reviewed relevant capabilities and captured questions for follow-up.",
+   "deal": null,
+   "contact": 130,
+   "owner": 2,
+   "occurred_days_ago": 55,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Expansion opportunity noted",
+   "body": "Noted a possible expansion opportunity based on the customer's stated needs. Further validation is required before qualification.",
+   "deal": 76,
+   "contact": 110,
+   "owner": 1,
+   "occurred_days_ago": 0,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send meeting recap",
+   "body": "Send a concise recap of the meeting to the customer. Include decisions, open items, and next steps.",
+   "deal": 69,
+   "contact": 146,
+   "owner": 3,
+   "occurred_days_ago": 64,
+   "due_in_days": -50,
+   "completed": true
+  },
+  {
+   "type": "note",
+   "subject": "Account background reviewed",
+   "body": "Reviewed the account background and captured the customer's current situation. Noted open questions for the next conversation.",
+   "deal": 45,
+   "contact": 145,
+   "owner": 2,
+   "occurred_days_ago": 60,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Training needs identified",
+   "body": "Identified possible training needs among the user group. Noted that scope and timing still need validation.",
+   "deal": 6,
+   "contact": 102,
+   "owner": 3,
+   "occurred_days_ago": 32,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Procurement call completed",
+   "body": "Reviewed procurement steps with the customer. The customer will share required documentation when available.",
+   "deal": 60,
+   "contact": 97,
+   "owner": 2,
+   "occurred_days_ago": 57,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Check-in call completed",
+   "body": "Completed a routine check-in with the customer. No major concerns were raised during the call.",
+   "deal": 57,
+   "contact": 55,
+   "owner": 2,
+   "occurred_days_ago": 16,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Reporting review meeting",
+   "body": "Held a reporting review meeting with the customer. Reviewed required outputs and requested format changes.",
+   "deal": 38,
+   "contact": 145,
+   "owner": 3,
+   "occurred_days_ago": 58,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Stakeholder feedback recorded",
+   "body": "Recorded feedback from the stakeholder group. Noted areas of support and areas requiring more detail.",
+   "deal": 51,
+   "contact": 47,
+   "owner": 1,
+   "occurred_days_ago": 109,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Integration call completed",
+   "body": "Reviewed integration questions with the customer. Technical details need confirmation from both sides.",
+   "deal": 9,
+   "contact": 132,
+   "owner": 4,
+   "occurred_days_ago": 1,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Renewal risk identified",
+   "body": "Identified a potential renewal risk related to adoption and timing. Flagged it for review before the next account plan update.",
+   "deal": 35,
+   "contact": 50,
+   "owner": 1,
+   "occurred_days_ago": 79,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Timeline confirmation call",
+   "body": "Confirmed the customer's expected timeline. Noted that internal approval steps may affect the schedule.",
+   "deal": 48,
+   "contact": 48,
+   "owner": 1,
+   "occurred_days_ago": 38,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Warm introduction call",
+   "body": "Completed a warm introduction call with the customer. Captured initial context and agreed on a discovery discussion.",
+   "deal": 55,
+   "contact": 63,
+   "owner": 1,
+   "occurred_days_ago": 12,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Relationship status updated",
+   "body": "Updated the relationship status based on the latest interaction. The customer remains engaged and responsive.",
+   "deal": 27,
+   "contact": 136,
+   "owner": 2,
+   "occurred_days_ago": 110,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Open questions listed",
+   "body": "Listed the open questions raised during the discussion. Assigned each question for follow-up before the next meeting.",
+   "deal": 58,
+   "contact": 15,
+   "owner": 2,
+   "occurred_days_ago": 25,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Renewal timing confirmed",
+   "body": "Confirmed the customer's expected renewal timing. Noted that internal preparation should begin before the next quarter.",
+   "deal": 40,
+   "contact": 109,
+   "owner": 2,
+   "occurred_days_ago": 5,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send feedback survey",
+   "body": "Send a short feedback survey to the customer. Keep the questions focused and easy to complete.",
+   "deal": null,
+   "contact": 63,
+   "owner": 3,
+   "occurred_days_ago": 2,
+   "due_in_days": 0,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Referral call completed",
+   "body": "Completed a call related to a customer referral. Captured the initial context and agreed on next contact.",
+   "deal": 16,
+   "contact": 140,
+   "owner": 2,
+   "occurred_days_ago": 7,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Value review call",
+   "body": "Reviewed expected value with the customer. The customer asked for examples relevant to their use case.",
+   "deal": 15,
+   "contact": 16,
+   "owner": 3,
+   "occurred_days_ago": 105,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Risk review meeting",
+   "body": "Reviewed current risks with the customer. Agreed on follow-up actions for the highest-priority items.",
+   "deal": 6,
+   "contact": 102,
+   "owner": 3,
+   "occurred_days_ago": 73,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "No answer logged",
+   "body": "Attempted a call but reached no answer. Logged the attempt and planned a follow-up through another channel.",
+   "deal": 64,
+   "contact": 66,
+   "owner": 1,
+   "occurred_days_ago": 27,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Check-in call completed",
+   "body": "Completed a routine check-in with the customer. No major concerns were raised during the call.",
+   "deal": 44,
+   "contact": 76,
+   "owner": 1,
+   "occurred_days_ago": 108,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Usage trends summarized",
+   "body": "Summarized recent usage trends shared by the customer. The data suggests adoption is stable but uneven across teams.",
+   "deal": null,
+   "contact": 127,
+   "owner": 1,
+   "occurred_days_ago": 57,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send next steps email",
+   "body": "Send a next-steps email to the customer. Include owners, dates, and any open questions.",
+   "deal": 78,
+   "contact": 6,
+   "owner": 1,
+   "occurred_days_ago": 6,
+   "due_in_days": 2,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Usage trends summarized",
+   "body": "Summarized recent usage trends shared by the customer. The data suggests adoption is stable but uneven across teams.",
+   "deal": 39,
+   "contact": 127,
+   "owner": 4,
+   "occurred_days_ago": 21,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Expansion opportunity noted",
+   "body": "Noted a possible expansion opportunity based on the customer's stated needs. Further validation is required before qualification.",
+   "deal": 72,
+   "contact": 139,
+   "owner": 2,
+   "occurred_days_ago": 12,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Stakeholder meeting held",
+   "body": "Met with several customer stakeholders to review goals. Noted differing priorities that need alignment.",
+   "deal": 11,
+   "contact": 2,
+   "owner": 4,
+   "occurred_days_ago": 95,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Reporting call completed",
+   "body": "Discussed reporting needs with the customer. The customer requested a sample format for review.",
+   "deal": 43,
+   "contact": 107,
+   "owner": 3,
+   "occurred_days_ago": 40,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Contract signing meeting",
+   "body": "Met with the customer regarding contract signing steps. Confirmed the remaining reviews before signature.",
+   "deal": null,
+   "contact": 110,
+   "owner": 1,
+   "occurred_days_ago": 21,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Internal insight shared",
+   "body": "Shared a relevant internal insight with the account team. The insight may help shape the next customer discussion.",
+   "deal": 6,
+   "contact": 102,
+   "owner": 3,
+   "occurred_days_ago": 172,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Training call completed",
+   "body": "Discussed training needs with the customer. The customer will confirm participant groups and preferred format.",
+   "deal": 62,
+   "contact": 32,
+   "owner": 4,
+   "occurred_days_ago": 155,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Next steps summarized",
+   "body": "Summarized the agreed next steps from the latest interaction. Shared the summary with the internal team for visibility.",
+   "deal": 14,
+   "contact": 122,
+   "owner": 1,
+   "occurred_days_ago": 88,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Forecast category adjusted",
+   "body": "Adjusted the forecast category based on the latest customer signals. The change reflects current timing and confidence.",
+   "deal": 62,
+   "contact": 32,
+   "owner": 4,
+   "occurred_days_ago": 134,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Change management concerns",
+   "body": "Documented change management concerns raised by the customer. These concerns may affect rollout planning and adoption.",
+   "deal": 76,
+   "contact": 110,
+   "owner": 1,
+   "occurred_days_ago": 14,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Contract review call",
+   "body": "Reviewed contract questions with the customer. A few terms require internal review before responding.",
+   "deal": 17,
+   "contact": 143,
+   "owner": 1,
+   "occurred_days_ago": 65,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Customer objections documented",
+   "body": "Documented the objections raised by the customer. Each objection should be addressed in the follow-up materials.",
+   "deal": 55,
+   "contact": 63,
+   "owner": 1,
+   "occurred_days_ago": 22,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Onboarding call completed",
+   "body": "Completed an onboarding call with the customer. Confirmed the first steps and who will coordinate internally.",
+   "deal": null,
+   "contact": 66,
+   "owner": 1,
+   "occurred_days_ago": 71,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Share security documentation",
+   "body": "Send the requested security documentation to the customer. Confirm receipt and answer initial questions.",
+   "deal": 50,
+   "contact": 60,
+   "owner": 4,
+   "occurred_days_ago": 2,
+   "due_in_days": 12,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Prepare account plan",
+   "body": "Prepare an updated account plan for the customer. Include priorities, risks, and near-term actions.",
+   "deal": 73,
+   "contact": 127,
+   "owner": 1,
+   "occurred_days_ago": 109,
+   "due_in_days": -19,
+   "completed": true
+  },
+  {
+   "type": "note",
+   "subject": "Change management concerns",
+   "body": "Documented change management concerns raised by the customer. These concerns may affect rollout planning and adoption.",
+   "deal": 2,
+   "contact": 18,
+   "owner": 1,
+   "occurred_days_ago": 5,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Schedule quarterly review",
+   "body": "Schedule the next quarterly review with the customer. Confirm attendees and the topics to cover.",
+   "deal": 46,
+   "contact": 120,
+   "owner": 3,
+   "occurred_days_ago": 22,
+   "due_in_days": -16,
+   "completed": true
+  },
+  {
+   "type": "call",
+   "subject": "Invoice question call",
+   "body": "Answered an invoice-related question from the customer. The customer will confirm internally if anything else is needed.",
+   "deal": null,
+   "contact": 123,
+   "owner": 4,
+   "occurred_days_ago": 101,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Needs assessment meeting",
+   "body": "Completed a needs assessment meeting with the customer. Captured priority needs and current constraints.",
+   "deal": 42,
+   "contact": 107,
+   "owner": 3,
+   "occurred_days_ago": 21,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Reporting review meeting",
+   "body": "Held a reporting review meeting with the customer. Reviewed required outputs and requested format changes.",
+   "deal": null,
+   "contact": 71,
+   "owner": 1,
+   "occurred_days_ago": 49,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Implementation call completed",
+   "body": "Discussed implementation expectations with the customer. Agreed to review timeline and resource needs next.",
+   "deal": 30,
+   "contact": 60,
+   "owner": 1,
+   "occurred_days_ago": 26,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Account plan updated",
+   "body": "Updated the account plan with the latest customer information. Added near-term priorities and open risks.",
+   "deal": 19,
+   "contact": 80,
+   "owner": 1,
+   "occurred_days_ago": 194,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Customer objections documented",
+   "body": "Documented the objections raised by the customer. Each objection should be addressed in the follow-up materials.",
+   "deal": 59,
+   "contact": 139,
+   "owner": 1,
+   "occurred_days_ago": 96,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "No answer logged",
+   "body": "Attempted a call but reached no answer. Logged the attempt and planned a follow-up through another channel.",
+   "deal": null,
+   "contact": 86,
+   "owner": 2,
+   "occurred_days_ago": 41,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Onboarding meeting held",
+   "body": "Completed an onboarding meeting with the customer. Reviewed the plan and confirmed early responsibilities.",
+   "deal": 56,
+   "contact": 84,
+   "owner": 1,
+   "occurred_days_ago": 8,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Negotiation meeting held",
+   "body": "Met with the customer to discuss commercial terms. Several points require internal review before response.",
+   "deal": 75,
+   "contact": 130,
+   "owner": 2,
+   "occurred_days_ago": 14,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Competitive evaluation update",
+   "body": "Captured an update on the customer's competitive evaluation. The customer has not shared a final preference yet.",
+   "deal": 57,
+   "contact": 55,
+   "owner": 2,
+   "occurred_days_ago": 1,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Share security documentation",
+   "body": "Send the requested security documentation to the customer. Confirm receipt and answer initial questions.",
+   "deal": 11,
+   "contact": 2,
+   "owner": 4,
+   "occurred_days_ago": 78,
+   "due_in_days": -29,
+   "completed": true
+  },
+  {
+   "type": "call",
+   "subject": "Budget call completed",
+   "body": "Discussed budget considerations at a high level. The customer needs to confirm available funding before progressing.",
+   "deal": 57,
+   "contact": 55,
+   "owner": 2,
+   "occurred_days_ago": 18,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Pilot review call",
+   "body": "Completed a pilot review call with the customer. Reviewed early results and open issues.",
+   "deal": null,
+   "contact": 66,
+   "owner": 1,
+   "occurred_days_ago": 19,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Value review call",
+   "body": "Reviewed expected value with the customer. The customer asked for examples relevant to their use case.",
+   "deal": 10,
+   "contact": 123,
+   "owner": 4,
+   "occurred_days_ago": 44,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Expansion planning meeting",
+   "body": "Discussed possible expansion with the customer. The topic needs more validation before formal planning.",
+   "deal": 67,
+   "contact": 60,
+   "owner": 2,
+   "occurred_days_ago": 33,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Objection handling call",
+   "body": "Addressed several customer objections during the call. Some concerns still require written follow-up.",
+   "deal": 49,
+   "contact": 117,
+   "owner": 3,
+   "occurred_days_ago": 52,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Procurement meeting held",
+   "body": "Met with the customer on procurement steps. Confirmed required documents and expected review timing.",
+   "deal": 42,
+   "contact": 107,
+   "owner": 3,
+   "occurred_days_ago": 8,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Executive call completed",
+   "body": "Completed a brief executive call with the customer. The discussion focused on priorities and sponsorship.",
+   "deal": 36,
+   "contact": 128,
+   "owner": 4,
+   "occurred_days_ago": 32,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Internal account review",
+   "body": "Held an internal account review to align on the customer. Captured actions and assigned owners.",
+   "deal": 19,
+   "contact": 80,
+   "owner": 1,
+   "occurred_days_ago": 85,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Integration planning meeting",
+   "body": "Held an integration planning meeting with the customer. Identified technical dependencies and open questions.",
+   "deal": 39,
+   "contact": 127,
+   "owner": 4,
+   "occurred_days_ago": 25,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Contract review meeting",
+   "body": "Held a contract review meeting with the customer. A few terms were flagged for further internal review.",
+   "deal": 39,
+   "contact": 127,
+   "owner": 4,
+   "occurred_days_ago": 24,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Security call completed",
+   "body": "Completed a security-focused call with the customer. Noted that formal security documentation may be requested.",
+   "deal": 67,
+   "contact": 60,
+   "owner": 2,
+   "occurred_days_ago": 5,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Referral call completed",
+   "body": "Completed a call related to a customer referral. Captured the initial context and agreed on next contact.",
+   "deal": 2,
+   "contact": 18,
+   "owner": 1,
+   "occurred_days_ago": 5,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Request reference approval",
+   "body": "Ask the customer about reference approval. Clarify scope and use before proceeding.",
+   "deal": 62,
+   "contact": 32,
+   "owner": 4,
+   "occurred_days_ago": 49,
+   "due_in_days": -32,
+   "completed": true
+  },
+  {
+   "type": "note",
+   "subject": "Stakeholder priorities captured",
+   "body": "Captured the priorities shared by different stakeholders. Noted where priorities overlap and where they may conflict.",
+   "deal": 64,
+   "contact": 66,
+   "owner": 1,
+   "occurred_days_ago": 98,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Reporting review meeting",
+   "body": "Held a reporting review meeting with the customer. Reviewed required outputs and requested format changes.",
+   "deal": 4,
+   "contact": 63,
+   "owner": 1,
+   "occurred_days_ago": 84,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Implementation kickoff meeting",
+   "body": "Held an implementation kickoff meeting with the customer. Confirmed first steps and coordination points.",
+   "deal": 76,
+   "contact": 110,
+   "owner": 1,
+   "occurred_days_ago": 96,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Internal insight shared",
+   "body": "Shared a relevant internal insight with the account team. The insight may help shape the next customer discussion.",
+   "deal": 21,
+   "contact": 62,
+   "owner": 1,
+   "occurred_days_ago": 92,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Quarterly review call",
+   "body": "Held a quarterly review call with the customer. Reviewed progress, usage, and upcoming priorities.",
+   "deal": 56,
+   "contact": 84,
+   "owner": 1,
+   "occurred_days_ago": 78,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Expansion planning meeting",
+   "body": "Discussed possible expansion with the customer. The topic needs more validation before formal planning.",
+   "deal": 29,
+   "contact": 10,
+   "owner": 4,
+   "occurred_days_ago": 68,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send feedback survey",
+   "body": "Send a short feedback survey to the customer. Keep the questions focused and easy to complete.",
+   "deal": 24,
+   "contact": 146,
+   "owner": 1,
+   "occurred_days_ago": 23,
+   "due_in_days": 13,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Schedule quarterly review",
+   "body": "Schedule the next quarterly review with the customer. Confirm attendees and the topics to cover.",
+   "deal": 36,
+   "contact": 128,
+   "owner": 4,
+   "occurred_days_ago": 99,
+   "due_in_days": -32,
+   "completed": true
+  },
+  {
+   "type": "note",
+   "subject": "Follow-up preferences recorded",
+   "body": "Recorded how and when the customer prefers follow-up. Updated the activity plan to match those preferences.",
+   "deal": null,
+   "contact": 115,
+   "owner": 2,
+   "occurred_days_ago": 17,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Stakeholder feedback recorded",
+   "body": "Recorded feedback from the stakeholder group. Noted areas of support and areas requiring more detail.",
+   "deal": null,
+   "contact": 147,
+   "owner": 4,
+   "occurred_days_ago": 70,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Reporting review meeting",
+   "body": "Held a reporting review meeting with the customer. Reviewed required outputs and requested format changes.",
+   "deal": 15,
+   "contact": 16,
+   "owner": 3,
+   "occurred_days_ago": 72,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Account health update",
+   "body": "Updated the account health view based on the latest interaction. No immediate escalation is required at this stage.",
+   "deal": null,
+   "contact": 71,
+   "owner": 1,
+   "occurred_days_ago": 37,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Security review discussed",
+   "body": "Discussed the customer's security review expectations at a high level. Noted that formal documentation may be required.",
+   "deal": null,
+   "contact": 55,
+   "owner": 2,
+   "occurred_days_ago": 11,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Cancellation risk call",
+   "body": "Discussed concerns that could affect renewal. The customer agreed to review options before making a decision.",
+   "deal": 64,
+   "contact": 66,
+   "owner": 1,
+   "occurred_days_ago": 47,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Verify contact details",
+   "body": "Verify the customer's contact details and role. Update the record if anything has changed.",
+   "deal": 28,
+   "contact": 133,
+   "owner": 2,
+   "occurred_days_ago": 0,
+   "due_in_days": 2,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Request reference approval",
+   "body": "Ask the customer about reference approval. Clarify scope and use before proceeding.",
+   "deal": 18,
+   "contact": 63,
+   "owner": 1,
+   "occurred_days_ago": 17,
+   "due_in_days": 13,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Implementation kickoff meeting",
+   "body": "Held an implementation kickoff meeting with the customer. Confirmed first steps and coordination points.",
+   "deal": 60,
+   "contact": 97,
+   "owner": 2,
+   "occurred_days_ago": 57,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Schedule discovery call",
+   "body": "Propose times for a discovery call with the customer. Confirm the agenda before sending the invite.",
+   "deal": null,
+   "contact": 46,
+   "owner": 3,
+   "occurred_days_ago": 55,
+   "due_in_days": 12,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Objection handling call",
+   "body": "Addressed several customer objections during the call. Some concerns still require written follow-up.",
+   "deal": 30,
+   "contact": 60,
+   "owner": 1,
+   "occurred_days_ago": 77,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Internal insight shared",
+   "body": "Shared a relevant internal insight with the account team. The insight may help shape the next customer discussion.",
+   "deal": 58,
+   "contact": 15,
+   "owner": 2,
+   "occurred_days_ago": 4,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Prepare value summary",
+   "body": "Prepare a concise value summary for the customer. Tailor it to the priorities discussed.",
+   "deal": 68,
+   "contact": 29,
+   "owner": 2,
+   "occurred_days_ago": 4,
+   "due_in_days": 14,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Expansion opportunity noted",
+   "body": "Noted a possible expansion opportunity based on the customer's stated needs. Further validation is required before qualification.",
+   "deal": 37,
+   "contact": 29,
+   "owner": 2,
+   "occurred_days_ago": 54,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "No answer logged",
+   "body": "Attempted a call but reached no answer. Logged the attempt and planned a follow-up through another channel.",
+   "deal": 53,
+   "contact": 128,
+   "owner": 2,
+   "occurred_days_ago": 23,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Integration needs captured",
+   "body": "Captured the customer's integration needs and constraints. Technical validation is still required before scoping.",
+   "deal": 8,
+   "contact": 63,
+   "owner": 3,
+   "occurred_days_ago": 16,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Success criteria meeting",
+   "body": "Met with the customer to review success criteria. Several criteria need confirmation from stakeholders.",
+   "deal": 70,
+   "contact": 142,
+   "owner": 2,
+   "occurred_days_ago": 0,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Executive call completed",
+   "body": "Completed a brief executive call with the customer. The discussion focused on priorities and sponsorship.",
+   "deal": 47,
+   "contact": 147,
+   "owner": 4,
+   "occurred_days_ago": 32,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Procurement call completed",
+   "body": "Reviewed procurement steps with the customer. The customer will share required documentation when available.",
+   "deal": 44,
+   "contact": 76,
+   "owner": 1,
+   "occurred_days_ago": 30,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Handoff meeting held",
+   "body": "Completed a handoff meeting with the customer. Confirmed contacts and the path for ongoing coordination.",
+   "deal": 42,
+   "contact": 107,
+   "owner": 3,
+   "occurred_days_ago": 17,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Decision maker call",
+   "body": "Spoke with the decision maker about priorities and timing. The decision maker requested a concise value summary.",
+   "deal": 59,
+   "contact": 139,
+   "owner": 1,
+   "occurred_days_ago": 89,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Renewal risk identified",
+   "body": "Identified a potential renewal risk related to adoption and timing. Flagged it for review before the next account plan update.",
+   "deal": 8,
+   "contact": 63,
+   "owner": 3,
+   "occurred_days_ago": 22,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Objection handling call",
+   "body": "Addressed several customer objections during the call. Some concerns still require written follow-up.",
+   "deal": 25,
+   "contact": 123,
+   "owner": 1,
+   "occurred_days_ago": 5,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Prepare account plan",
+   "body": "Prepare an updated account plan for the customer. Include priorities, risks, and near-term actions.",
+   "deal": 39,
+   "contact": 127,
+   "owner": 4,
+   "occurred_days_ago": 32,
+   "due_in_days": 2,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Budget call completed",
+   "body": "Discussed budget considerations at a high level. The customer needs to confirm available funding before progressing.",
+   "deal": 24,
+   "contact": 146,
+   "owner": 1,
+   "occurred_days_ago": 18,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Support review meeting",
+   "body": "Met with the customer to review support topics. Agreed on ownership and a clearer update cadence.",
+   "deal": 34,
+   "contact": 50,
+   "owner": 1,
+   "occurred_days_ago": 15,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Cancellation risk call",
+   "body": "Discussed concerns that could affect renewal. The customer agreed to review options before making a decision.",
+   "deal": 56,
+   "contact": 84,
+   "owner": 1,
+   "occurred_days_ago": 49,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Customer objections documented",
+   "body": "Documented the objections raised by the customer. Each objection should be addressed in the follow-up materials.",
+   "deal": 47,
+   "contact": 147,
+   "owner": 4,
+   "occurred_days_ago": 66,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Renewal timing confirmed",
+   "body": "Confirmed the customer's expected renewal timing. Noted that internal preparation should begin before the next quarter.",
+   "deal": 10,
+   "contact": 123,
+   "owner": 4,
+   "occurred_days_ago": 110,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send implementation timeline",
+   "body": "Send the proposed implementation timeline to the customer. Ask for confirmation of key dates.",
+   "deal": 37,
+   "contact": 29,
+   "owner": 2,
+   "occurred_days_ago": 41,
+   "due_in_days": -21,
+   "completed": true
+  },
+  {
+   "type": "call",
+   "subject": "Warm introduction call",
+   "body": "Completed a warm introduction call with the customer. Captured initial context and agreed on a discovery discussion.",
+   "deal": 54,
+   "contact": 65,
+   "owner": 4,
+   "occurred_days_ago": 42,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Budget call completed",
+   "body": "Discussed budget considerations at a high level. The customer needs to confirm available funding before progressing.",
+   "deal": null,
+   "contact": 145,
+   "owner": 2,
+   "occurred_days_ago": 157,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Decision process mapped",
+   "body": "Mapped the customer's decision process and identified the main approval stages. Captured where additional input may be needed.",
+   "deal": 9,
+   "contact": 132,
+   "owner": 4,
+   "occurred_days_ago": 6,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Obtain procurement requirements",
+   "body": "Request the customer's procurement requirements and required forms. Confirm the expected review timeline.",
+   "deal": null,
+   "contact": 125,
+   "owner": 1,
+   "occurred_days_ago": 9,
+   "due_in_days": 12,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Technical meeting held",
+   "body": "Held a technical meeting with the customer's team. Reviewed requirements and identified items needing validation.",
+   "deal": 16,
+   "contact": 140,
+   "owner": 2,
+   "occurred_days_ago": 8,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Training planning meeting",
+   "body": "Reviewed training plans in a meeting with the customer. Confirmed audience, format, and timing considerations.",
+   "deal": 49,
+   "contact": 117,
+   "owner": 3,
+   "occurred_days_ago": 72,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Account health update",
+   "body": "Updated the account health view based on the latest interaction. No immediate escalation is required at this stage.",
+   "deal": 47,
+   "contact": 147,
+   "owner": 4,
+   "occurred_days_ago": 47,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Renewal risk identified",
+   "body": "Identified a potential renewal risk related to adoption and timing. Flagged it for review before the next account plan update.",
+   "deal": 67,
+   "contact": 60,
+   "owner": 2,
+   "occurred_days_ago": 23,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Solution review meeting",
+   "body": "Reviewed the proposed solution with the customer. The customer requested more detail on scope and support.",
+   "deal": 14,
+   "contact": 122,
+   "owner": 1,
+   "occurred_days_ago": 6,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Executive call completed",
+   "body": "Completed a brief executive call with the customer. The discussion focused on priorities and sponsorship.",
+   "deal": 71,
+   "contact": 17,
+   "owner": 1,
+   "occurred_days_ago": 30,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Account health update",
+   "body": "Updated the account health view based on the latest interaction. No immediate escalation is required at this stage.",
+   "deal": 27,
+   "contact": 136,
+   "owner": 2,
+   "occurred_days_ago": 156,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Review competitor mentions",
+   "body": "Review recent competitor mentions from the customer. Capture themes and prepare relevant responses.",
+   "deal": 25,
+   "contact": 123,
+   "owner": 1,
+   "occurred_days_ago": 15,
+   "due_in_days": -13,
+   "completed": true
+  },
+  {
+   "type": "task",
+   "subject": "Draft negotiation strategy",
+   "body": "Draft a negotiation strategy based on customer requests. Review key trade-offs before the next discussion.",
+   "deal": 11,
+   "contact": 2,
+   "owner": 4,
+   "occurred_days_ago": 103,
+   "due_in_days": 5,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send usage report",
+   "body": "Send the latest usage report to the customer. Highlight trends and invite questions.",
+   "deal": 8,
+   "contact": 63,
+   "owner": 3,
+   "occurred_days_ago": 17,
+   "due_in_days": 2,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Confirm decision timeline",
+   "body": "Ask the customer to confirm the decision timeline. Update the opportunity with any changes.",
+   "deal": 46,
+   "contact": 120,
+   "owner": 3,
+   "occurred_days_ago": 130,
+   "due_in_days": -79,
+   "completed": true
+  },
+  {
+   "type": "note",
+   "subject": "Customer objections documented",
+   "body": "Documented the objections raised by the customer. Each objection should be addressed in the follow-up materials.",
+   "deal": 3,
+   "contact": 125,
+   "owner": 1,
+   "occurred_days_ago": 23,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Voicemail left follow-up",
+   "body": "Left a voicemail to follow up on the previous discussion. Will try another channel if no response is received.",
+   "deal": 16,
+   "contact": 140,
+   "owner": 2,
+   "occurred_days_ago": 11,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Pilot review call",
+   "body": "Completed a pilot review call with the customer. Reviewed early results and open issues.",
+   "deal": 67,
+   "contact": 60,
+   "owner": 2,
+   "occurred_days_ago": 26,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Share security documentation",
+   "body": "Send the requested security documentation to the customer. Confirm receipt and answer initial questions.",
+   "deal": 16,
+   "contact": 140,
+   "owner": 2,
+   "occurred_days_ago": 40,
+   "due_in_days": -12,
+   "completed": true
+  },
+  {
+   "type": "call",
+   "subject": "Security call completed",
+   "body": "Completed a security-focused call with the customer. Noted that formal security documentation may be requested.",
+   "deal": 70,
+   "contact": 142,
+   "owner": 2,
+   "occurred_days_ago": 10,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Implementation kickoff meeting",
+   "body": "Held an implementation kickoff meeting with the customer. Confirmed first steps and coordination points.",
+   "deal": null,
+   "contact": 63,
+   "owner": 1,
+   "occurred_days_ago": 64,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Current solution limitations",
+   "body": "Documented limitations the customer described with the current solution. These points may support a future value discussion.",
+   "deal": 66,
+   "contact": 133,
+   "owner": 1,
+   "occurred_days_ago": 4,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Security review discussed",
+   "body": "Discussed the customer's security review expectations at a high level. Noted that formal documentation may be required.",
+   "deal": null,
+   "contact": 76,
+   "owner": 1,
+   "occurred_days_ago": 66,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Review integration requirements",
+   "body": "Review integration requirements with the internal team. Confirm what can be supported and what needs validation.",
+   "deal": 25,
+   "contact": 123,
+   "owner": 1,
+   "occurred_days_ago": 35,
+   "due_in_days": -16,
+   "completed": true
+  },
+  {
+   "type": "note",
+   "subject": "Support issue referenced",
+   "body": "The customer referenced a recent support issue during the conversation. Captured the concern and the requested follow-up.",
+   "deal": 75,
+   "contact": 130,
+   "owner": 2,
+   "occurred_days_ago": 148,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Internal account review",
+   "body": "Held an internal account review to align on the customer. Captured actions and assigned owners.",
+   "deal": 43,
+   "contact": 107,
+   "owner": 3,
+   "occurred_days_ago": 144,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Follow up on proposal",
+   "body": "Follow up with the customer on the proposal. Ask for questions and confirm the review timeline.",
+   "deal": 5,
+   "contact": 111,
+   "owner": 4,
+   "occurred_days_ago": 82,
+   "due_in_days": -49,
+   "completed": true
+  },
+  {
+   "type": "meeting",
+   "subject": "Timeline planning meeting",
+   "body": "Held a timeline planning meeting with the customer. Reviewed key dates and internal dependencies.",
+   "deal": 79,
+   "contact": 86,
+   "owner": 2,
+   "occurred_days_ago": 3,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Close plan meeting",
+   "body": "Reviewed the close plan with the customer. Confirmed key steps and likely approval timing.",
+   "deal": 38,
+   "contact": 145,
+   "owner": 3,
+   "occurred_days_ago": 61,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Prepare executive briefing",
+   "body": "Prepare a concise executive briefing for the customer. Focus on priorities, outcomes, and decisions needed.",
+   "deal": 38,
+   "contact": 145,
+   "owner": 3,
+   "occurred_days_ago": 58,
+   "due_in_days": -51,
+   "completed": true
+  },
+  {
+   "type": "call",
+   "subject": "Reporting call completed",
+   "body": "Discussed reporting needs with the customer. The customer requested a sample format for review.",
+   "deal": 26,
+   "contact": 1,
+   "owner": 3,
+   "occurred_days_ago": 43,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Timeline confirmation call",
+   "body": "Confirmed the customer's expected timeline. Noted that internal approval steps may affect the schedule.",
+   "deal": 44,
+   "contact": 76,
+   "owner": 1,
+   "occurred_days_ago": 51,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Voicemail left follow-up",
+   "body": "Left a voicemail to follow up on the previous discussion. Will try another channel if no response is received.",
+   "deal": 13,
+   "contact": 12,
+   "owner": 3,
+   "occurred_days_ago": 81,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Account health update",
+   "body": "Updated the account health view based on the latest interaction. No immediate escalation is required at this stage.",
+   "deal": 31,
+   "contact": 37,
+   "owner": 4,
+   "occurred_days_ago": 18,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Reporting requirements noted",
+   "body": "Noted the customer's reporting requirements and expected outputs. Confirmed that frequency and format still need review.",
+   "deal": 78,
+   "contact": 6,
+   "owner": 1,
+   "occurred_days_ago": 107,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Obtain procurement requirements",
+   "body": "Request the customer's procurement requirements and required forms. Confirm the expected review timeline.",
+   "deal": 41,
+   "contact": 80,
+   "owner": 3,
+   "occurred_days_ago": 147,
+   "due_in_days": -99,
+   "completed": true
+  },
+  {
+   "type": "call",
+   "subject": "Discount request call",
+   "body": "Reviewed a discount request with the customer. The request needs internal review before a response is shared.",
+   "deal": null,
+   "contact": 139,
+   "owner": 1,
+   "occurred_days_ago": 63,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Renewal call completed",
+   "body": "Discussed the upcoming renewal and current satisfaction. The customer asked for a summary before the next review.",
+   "deal": 50,
+   "contact": 60,
+   "owner": 4,
+   "occurred_days_ago": 32,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Forecast category adjusted",
+   "body": "Adjusted the forecast category based on the latest customer signals. The change reflects current timing and confidence.",
+   "deal": 45,
+   "contact": 145,
+   "owner": 2,
+   "occurred_days_ago": 12,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Pilot review call",
+   "body": "Completed a pilot review call with the customer. Reviewed early results and open issues.",
+   "deal": 36,
+   "contact": 128,
+   "owner": 4,
+   "occurred_days_ago": 68,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Renewal risk identified",
+   "body": "Identified a potential renewal risk related to adoption and timing. Flagged it for review before the next account plan update.",
+   "deal": 33,
+   "contact": 40,
+   "owner": 2,
+   "occurred_days_ago": 93,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Cancellation risk call",
+   "body": "Discussed concerns that could affect renewal. The customer agreed to review options before making a decision.",
+   "deal": 6,
+   "contact": 102,
+   "owner": 3,
+   "occurred_days_ago": 145,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Objection handling call",
+   "body": "Addressed several customer objections during the call. Some concerns still require written follow-up.",
+   "deal": 9,
+   "contact": 132,
+   "owner": 4,
+   "occurred_days_ago": 6,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Negotiation meeting held",
+   "body": "Met with the customer to discuss commercial terms. Several points require internal review before response.",
+   "deal": 79,
+   "contact": 86,
+   "owner": 2,
+   "occurred_days_ago": 15,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Integration needs captured",
+   "body": "Captured the customer's integration needs and constraints. Technical validation is still required before scoping.",
+   "deal": null,
+   "contact": 107,
+   "owner": 3,
+   "occurred_days_ago": 142,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Executive briefing meeting",
+   "body": "Delivered an executive briefing to the customer. The discussion focused on priorities and expected outcomes.",
+   "deal": 77,
+   "contact": 115,
+   "owner": 2,
+   "occurred_days_ago": 65,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Budget timeline clarified",
+   "body": "Clarified the customer's budget cycle and likely approval timing. Noted that final budget confirmation is still pending.",
+   "deal": null,
+   "contact": 143,
+   "owner": 1,
+   "occurred_days_ago": 85,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Implementation call completed",
+   "body": "Discussed implementation expectations with the customer. Agreed to review timeline and resource needs next.",
+   "deal": 77,
+   "contact": 115,
+   "owner": 2,
+   "occurred_days_ago": 65,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Prepare account plan",
+   "body": "Prepare an updated account plan for the customer. Include priorities, risks, and near-term actions.",
+   "deal": null,
+   "contact": 17,
+   "owner": 2,
+   "occurred_days_ago": 100,
+   "due_in_days": -6,
+   "completed": true
+  },
+  {
+   "type": "call",
+   "subject": "Discount request call",
+   "body": "Reviewed a discount request with the customer. The request needs internal review before a response is shared.",
+   "deal": 65,
+   "contact": 71,
+   "owner": 1,
+   "occurred_days_ago": 136,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Pilot review call",
+   "body": "Completed a pilot review call with the customer. Reviewed early results and open issues.",
+   "deal": 2,
+   "contact": 18,
+   "owner": 1,
+   "occurred_days_ago": 5,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Pilot feedback summarized",
+   "body": "Summarized the feedback received from the pilot group. The themes are useful for the next review discussion.",
+   "deal": 74,
+   "contact": 111,
+   "owner": 3,
+   "occurred_days_ago": 39,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Stakeholder meeting held",
+   "body": "Met with several customer stakeholders to review goals. Noted differing priorities that need alignment.",
+   "deal": 76,
+   "contact": 110,
+   "owner": 1,
+   "occurred_days_ago": 121,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Handoff meeting held",
+   "body": "Completed a handoff meeting with the customer. Confirmed contacts and the path for ongoing coordination.",
+   "deal": 73,
+   "contact": 127,
+   "owner": 1,
+   "occurred_days_ago": 58,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Stakeholder call completed",
+   "body": "Completed a call with an additional stakeholder. The stakeholder asked for more detail on outcomes and support.",
+   "deal": 67,
+   "contact": 60,
+   "owner": 2,
+   "occurred_days_ago": 40,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Change management meeting",
+   "body": "Discussed change management with the customer. Captured adoption concerns and communication needs.",
+   "deal": 18,
+   "contact": 63,
+   "owner": 1,
+   "occurred_days_ago": 31,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Update forecast category",
+   "body": "Review the latest customer signals and update the forecast category. Add a brief rationale in the record.",
+   "deal": 24,
+   "contact": 146,
+   "owner": 1,
+   "occurred_days_ago": 1,
+   "due_in_days": 12,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Procurement requirements noted",
+   "body": "Noted the procurement requirements mentioned by the customer. Some details still need confirmation from the procurement contact.",
+   "deal": 52,
+   "contact": 34,
+   "owner": 4,
+   "occurred_days_ago": 64,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Draft implementation plan",
+   "body": "Draft an initial implementation plan for customer review. Keep assumptions clearly marked.",
+   "deal": 17,
+   "contact": 143,
+   "owner": 1,
+   "occurred_days_ago": 132,
+   "due_in_days": -49,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Executive call completed",
+   "body": "Completed a brief executive call with the customer. The discussion focused on priorities and sponsorship.",
+   "deal": 40,
+   "contact": 109,
+   "owner": 2,
+   "occurred_days_ago": 1,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Contact change call",
+   "body": "Discussed a change in the customer's main contact. Confirmed the best path for future communication.",
+   "deal": null,
+   "contact": 145,
+   "owner": 2,
+   "occurred_days_ago": 164,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Stakeholder feedback recorded",
+   "body": "Recorded feedback from the stakeholder group. Noted areas of support and areas requiring more detail.",
+   "deal": 24,
+   "contact": 146,
+   "owner": 1,
+   "occurred_days_ago": 15,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Budget approval stage",
+   "body": "Documented the current budget approval stage. Confirmed that final sign-off has not yet been provided.",
+   "deal": 36,
+   "contact": 128,
+   "owner": 4,
+   "occurred_days_ago": 90,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Relationship review meeting",
+   "body": "Completed a relationship review with the customer. Discussed communication, support, and upcoming needs.",
+   "deal": 61,
+   "contact": 6,
+   "owner": 3,
+   "occurred_days_ago": 44,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send onboarding materials",
+   "body": "Send onboarding materials to the customer. Include key contacts and the first set of steps.",
+   "deal": 36,
+   "contact": 128,
+   "owner": 4,
+   "occurred_days_ago": 15,
+   "due_in_days": 2,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Cancellation risk call",
+   "body": "Discussed concerns that could affect renewal. The customer agreed to review options before making a decision.",
+   "deal": null,
+   "contact": 76,
+   "owner": 1,
+   "occurred_days_ago": 98,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Referral source noted",
+   "body": "Noted how the customer was referred to the team. Captured the context for future relationship mapping.",
+   "deal": null,
+   "contact": 123,
+   "owner": 4,
+   "occurred_days_ago": 88,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Competitive review meeting",
+   "body": "Reviewed the customer's competitive evaluation in a meeting. The customer has not shared a final preference.",
+   "deal": null,
+   "contact": 136,
+   "owner": 2,
+   "occurred_days_ago": 51,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Relationship status updated",
+   "body": "Updated the relationship status based on the latest interaction. The customer remains engaged and responsive.",
+   "deal": 34,
+   "contact": 50,
+   "owner": 1,
+   "occurred_days_ago": 17,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Solution review meeting",
+   "body": "Reviewed the proposed solution with the customer. The customer requested more detail on scope and support.",
+   "deal": 31,
+   "contact": 37,
+   "owner": 4,
+   "occurred_days_ago": 6,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Onboarding call completed",
+   "body": "Completed an onboarding call with the customer. Confirmed the first steps and who will coordinate internally.",
+   "deal": 6,
+   "contact": 102,
+   "owner": 3,
+   "occurred_days_ago": 25,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Renewal meeting held",
+   "body": "Met with the customer to discuss the upcoming renewal. Reviewed current satisfaction and remaining concerns.",
+   "deal": null,
+   "contact": 143,
+   "owner": 1,
+   "occurred_days_ago": 1,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Obtain procurement requirements",
+   "body": "Request the customer's procurement requirements and required forms. Confirm the expected review timeline.",
+   "deal": null,
+   "contact": 34,
+   "owner": 4,
+   "occurred_days_ago": 83,
+   "due_in_days": -23,
+   "completed": true
+  },
+  {
+   "type": "note",
+   "subject": "Referral source noted",
+   "body": "Noted how the customer was referred to the team. Captured the context for future relationship mapping.",
+   "deal": 41,
+   "contact": 80,
+   "owner": 3,
+   "occurred_days_ago": 73,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Follow up on proposal",
+   "body": "Follow up with the customer on the proposal. Ask for questions and confirm the review timeline.",
+   "deal": 73,
+   "contact": 127,
+   "owner": 1,
+   "occurred_days_ago": 59,
+   "due_in_days": -55,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Implementation concerns logged",
+   "body": "Logged implementation concerns raised by the customer. These should be addressed in the planning discussion.",
+   "deal": 4,
+   "contact": 63,
+   "owner": 1,
+   "occurred_days_ago": 107,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Objection handling call",
+   "body": "Addressed several customer objections during the call. Some concerns still require written follow-up.",
+   "deal": 4,
+   "contact": 63,
+   "owner": 1,
+   "occurred_days_ago": 1,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Support review meeting",
+   "body": "Met with the customer to review support topics. Agreed on ownership and a clearer update cadence.",
+   "deal": null,
+   "contact": 128,
+   "owner": 4,
+   "occurred_days_ago": 58,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Renewal negotiation call",
+   "body": "Discussed renewal terms with the customer. The customer requested a revised summary before the next step.",
+   "deal": 17,
+   "contact": 143,
+   "owner": 1,
+   "occurred_days_ago": 129,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Current solution limitations",
+   "body": "Documented limitations the customer described with the current solution. These points may support a future value discussion.",
+   "deal": 42,
+   "contact": 107,
+   "owner": 3,
+   "occurred_days_ago": 20,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Pilot review meeting",
+   "body": "Reviewed pilot results in a meeting with the customer. Captured feedback and open issues for follow-up.",
+   "deal": 1,
+   "contact": 57,
+   "owner": 1,
+   "occurred_days_ago": 86,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Support escalation call",
+   "body": "Reviewed a support escalation with the customer. The customer wants a clear owner and update cadence.",
+   "deal": null,
+   "contact": 131,
+   "owner": 3,
+   "occurred_days_ago": 6,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Renewal call completed",
+   "body": "Discussed the upcoming renewal and current satisfaction. The customer asked for a summary before the next review.",
+   "deal": 51,
+   "contact": 47,
+   "owner": 1,
+   "occurred_days_ago": 171,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send feedback survey",
+   "body": "Send a short feedback survey to the customer. Keep the questions focused and easy to complete.",
+   "deal": 41,
+   "contact": 80,
+   "owner": 3,
+   "occurred_days_ago": 63,
+   "due_in_days": -14,
+   "completed": true
+  },
+  {
+   "type": "meeting",
+   "subject": "Support review meeting",
+   "body": "Met with the customer to review support topics. Agreed on ownership and a clearer update cadence.",
+   "deal": 38,
+   "contact": 145,
+   "owner": 3,
+   "occurred_days_ago": 74,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Integration needs captured",
+   "body": "Captured the customer's integration needs and constraints. Technical validation is still required before scoping.",
+   "deal": 30,
+   "contact": 60,
+   "owner": 1,
+   "occurred_days_ago": 15,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Stakeholder call completed",
+   "body": "Completed a call with an additional stakeholder. The stakeholder asked for more detail on outcomes and support.",
+   "deal": 51,
+   "contact": 47,
+   "owner": 1,
+   "occurred_days_ago": 175,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Confirm support escalation path",
+   "body": "Confirm the customer's support escalation path. Document the agreed contacts and response expectations.",
+   "deal": 15,
+   "contact": 16,
+   "owner": 3,
+   "occurred_days_ago": 75,
+   "due_in_days": -47,
+   "completed": true
+  },
+  {
+   "type": "note",
+   "subject": "Expansion opportunity noted",
+   "body": "Noted a possible expansion opportunity based on the customer's stated needs. Further validation is required before qualification.",
+   "deal": null,
+   "contact": 15,
+   "owner": 2,
+   "occurred_days_ago": 47,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Voicemail left follow-up",
+   "body": "Left a voicemail to follow up on the previous discussion. Will try another channel if no response is received.",
+   "deal": 60,
+   "contact": 97,
+   "owner": 2,
+   "occurred_days_ago": 96,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Demo meeting held",
+   "body": "Held a demo meeting with the customer. Reviewed relevant capabilities and captured questions for follow-up.",
+   "deal": 31,
+   "contact": 37,
+   "owner": 4,
+   "occurred_days_ago": 10,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Referral call completed",
+   "body": "Completed a call related to a customer referral. Captured the initial context and agreed on next contact.",
+   "deal": 9,
+   "contact": 132,
+   "owner": 4,
+   "occurred_days_ago": 1,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Discount request call",
+   "body": "Reviewed a discount request with the customer. The request needs internal review before a response is shared.",
+   "deal": 25,
+   "contact": 123,
+   "owner": 1,
+   "occurred_days_ago": 68,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Invoice question call",
+   "body": "Answered an invoice-related question from the customer. The customer will confirm internally if anything else is needed.",
+   "deal": 56,
+   "contact": 84,
+   "owner": 1,
+   "occurred_days_ago": 14,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Feedback review meeting",
+   "body": "Reviewed customer feedback in a meeting. Captured themes and identified areas for improvement.",
+   "deal": 11,
+   "contact": 2,
+   "owner": 4,
+   "occurred_days_ago": 65,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Renewal risk identified",
+   "body": "Identified a potential renewal risk related to adoption and timing. Flagged it for review before the next account plan update.",
+   "deal": 65,
+   "contact": 71,
+   "owner": 1,
+   "occurred_days_ago": 106,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Competitive evaluation update",
+   "body": "Captured an update on the customer's competitive evaluation. The customer has not shared a final preference yet.",
+   "deal": 39,
+   "contact": 127,
+   "owner": 4,
+   "occurred_days_ago": 1,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Arrange stakeholder meeting",
+   "body": "Coordinate a meeting with the relevant customer stakeholders. Confirm availability and desired outcomes.",
+   "deal": 74,
+   "contact": 111,
+   "owner": 3,
+   "occurred_days_ago": 9,
+   "due_in_days": 2,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Usage review meeting",
+   "body": "Reviewed usage with the customer in a meeting. Discussed adoption trends and possible actions.",
+   "deal": null,
+   "contact": 51,
+   "owner": 1,
+   "occurred_days_ago": 17,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Objection handling call",
+   "body": "Addressed several customer objections during the call. Some concerns still require written follow-up.",
+   "deal": 52,
+   "contact": 34,
+   "owner": 4,
+   "occurred_days_ago": 23,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Timeline planning meeting",
+   "body": "Held a timeline planning meeting with the customer. Reviewed key dates and internal dependencies.",
+   "deal": 47,
+   "contact": 147,
+   "owner": 4,
+   "occurred_days_ago": 48,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Update opportunity notes",
+   "body": "Update opportunity notes with the latest customer information. Ensure next steps and owners are clear.",
+   "deal": 48,
+   "contact": 48,
+   "owner": 1,
+   "occurred_days_ago": 5,
+   "due_in_days": 12,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Success criteria drafted",
+   "body": "Drafted initial success criteria based on the customer's comments. These need confirmation with the broader stakeholder group.",
+   "deal": null,
+   "contact": 16,
+   "owner": 3,
+   "occurred_days_ago": 45,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Security call completed",
+   "body": "Completed a security-focused call with the customer. Noted that formal security documentation may be requested.",
+   "deal": 28,
+   "contact": 133,
+   "owner": 2,
+   "occurred_days_ago": 13,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Budget approval stage",
+   "body": "Documented the current budget approval stage. Confirmed that final sign-off has not yet been provided.",
+   "deal": 59,
+   "contact": 139,
+   "owner": 1,
+   "occurred_days_ago": 86,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Executive call completed",
+   "body": "Completed a brief executive call with the customer. The discussion focused on priorities and sponsorship.",
+   "deal": 29,
+   "contact": 10,
+   "owner": 4,
+   "occurred_days_ago": 31,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Follow-up preferences recorded",
+   "body": "Recorded how and when the customer prefers follow-up. Updated the activity plan to match those preferences.",
+   "deal": null,
+   "contact": 122,
+   "owner": 1,
+   "occurred_days_ago": 8,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Follow-up call completed",
+   "body": "Completed the follow-up call and reviewed the open items. The customer confirmed the next area to explore.",
+   "deal": 30,
+   "contact": 60,
+   "owner": 1,
+   "occurred_days_ago": 52,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Integration call completed",
+   "body": "Reviewed integration questions with the customer. Technical details need confirmation from both sides.",
+   "deal": 76,
+   "contact": 110,
+   "owner": 1,
+   "occurred_days_ago": 172,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Budget timeline clarified",
+   "body": "Clarified the customer's budget cycle and likely approval timing. Noted that final budget confirmation is still pending.",
+   "deal": 51,
+   "contact": 47,
+   "owner": 1,
+   "occurred_days_ago": 112,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Decision process mapped",
+   "body": "Mapped the customer's decision process and identified the main approval stages. Captured where additional input may be needed.",
+   "deal": null,
+   "contact": 143,
+   "owner": 1,
+   "occurred_days_ago": 128,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Opportunity stage rationale",
+   "body": "Documented the rationale for the current opportunity stage. Noted the evidence still needed before advancing.",
+   "deal": 40,
+   "contact": 109,
+   "owner": 2,
+   "occurred_days_ago": 4,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Relationship review meeting",
+   "body": "Completed a relationship review with the customer. Discussed communication, support, and upcoming needs.",
+   "deal": null,
+   "contact": 60,
+   "owner": 1,
+   "occurred_days_ago": 77,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Prepare close plan",
+   "body": "Prepare a close plan for the customer opportunity. Include milestones, owners, and expected dates.",
+   "deal": 28,
+   "contact": 133,
+   "owner": 2,
+   "occurred_days_ago": 6,
+   "due_in_days": -5,
+   "completed": true
+  },
+  {
+   "type": "call",
+   "subject": "Decision maker call",
+   "body": "Spoke with the decision maker about priorities and timing. The decision maker requested a concise value summary.",
+   "deal": 54,
+   "contact": 65,
+   "owner": 4,
+   "occurred_days_ago": 142,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Update opportunity notes",
+   "body": "Update opportunity notes with the latest customer information. Ensure next steps and owners are clear.",
+   "deal": 67,
+   "contact": 60,
+   "owner": 2,
+   "occurred_days_ago": 20,
+   "due_in_days": 6,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Reporting requirements noted",
+   "body": "Noted the customer's reporting requirements and expected outputs. Confirmed that frequency and format still need review.",
+   "deal": 23,
+   "contact": 64,
+   "owner": 3,
+   "occurred_days_ago": 34,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Confirm support escalation path",
+   "body": "Confirm the customer's support escalation path. Document the agreed contacts and response expectations.",
+   "deal": null,
+   "contact": 63,
+   "owner": 1,
+   "occurred_days_ago": 59,
+   "due_in_days": 12,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Feedback call completed",
+   "body": "Collected feedback from the customer during the call. The feedback will be shared with the internal team.",
+   "deal": 71,
+   "contact": 17,
+   "owner": 1,
+   "occurred_days_ago": 135,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Procurement requirements noted",
+   "body": "Noted the procurement requirements mentioned by the customer. Some details still need confirmation from the procurement contact.",
+   "deal": 42,
+   "contact": 107,
+   "owner": 3,
+   "occurred_days_ago": 82,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Referral call completed",
+   "body": "Completed a call related to a customer referral. Captured the initial context and agreed on next contact.",
+   "deal": 11,
+   "contact": 2,
+   "owner": 4,
+   "occurred_days_ago": 68,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Usage trends summarized",
+   "body": "Summarized recent usage trends shared by the customer. The data suggests adoption is stable but uneven across teams.",
+   "deal": 48,
+   "contact": 48,
+   "owner": 1,
+   "occurred_days_ago": 38,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send pricing comparison",
+   "body": "Prepare a pricing comparison for the customer. Keep the format simple and easy to review.",
+   "deal": 75,
+   "contact": 130,
+   "owner": 2,
+   "occurred_days_ago": 171,
+   "due_in_days": -49,
+   "completed": true
+  },
+  {
+   "type": "task",
+   "subject": "Confirm support escalation path",
+   "body": "Confirm the customer's support escalation path. Document the agreed contacts and response expectations.",
+   "deal": null,
+   "contact": 57,
+   "owner": 1,
+   "occurred_days_ago": 54,
+   "due_in_days": -39,
+   "completed": true
+  },
+  {
+   "type": "meeting",
+   "subject": "Solution review meeting",
+   "body": "Reviewed the proposed solution with the customer. The customer requested more detail on scope and support.",
+   "deal": 77,
+   "contact": 115,
+   "owner": 2,
+   "occurred_days_ago": 26,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Communication cadence agreed",
+   "body": "Agreed on a practical communication cadence with the customer. Noted the preferred update frequency and format.",
+   "deal": 36,
+   "contact": 128,
+   "owner": 4,
+   "occurred_days_ago": 48,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Account planning meeting",
+   "body": "Held an account planning meeting with the customer. Reviewed near-term priorities and relationship needs.",
+   "deal": 33,
+   "contact": 40,
+   "owner": 2,
+   "occurred_days_ago": 92,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Check-in call completed",
+   "body": "Completed a routine check-in with the customer. No major concerns were raised during the call.",
+   "deal": null,
+   "contact": 97,
+   "owner": 2,
+   "occurred_days_ago": 97,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Verify contact details",
+   "body": "Verify the customer's contact details and role. Update the record if anything has changed.",
+   "deal": 40,
+   "contact": 109,
+   "owner": 2,
+   "occurred_days_ago": 3,
+   "due_in_days": 4,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Stakeholder meeting held",
+   "body": "Met with several customer stakeholders to review goals. Noted differing priorities that need alignment.",
+   "deal": null,
+   "contact": 40,
+   "owner": 2,
+   "occurred_days_ago": 141,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Feedback call completed",
+   "body": "Collected feedback from the customer during the call. The feedback will be shared with the internal team.",
+   "deal": 37,
+   "contact": 29,
+   "owner": 2,
+   "occurred_days_ago": 19,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Opportunity stage rationale",
+   "body": "Documented the rationale for the current opportunity stage. Noted the evidence still needed before advancing.",
+   "deal": 31,
+   "contact": 37,
+   "owner": 4,
+   "occurred_days_ago": 63,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Request reference approval",
+   "body": "Ask the customer about reference approval. Clarify scope and use before proceeding.",
+   "deal": null,
+   "contact": 46,
+   "owner": 3,
+   "occurred_days_ago": 125,
+   "due_in_days": 0,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Expansion discussion call",
+   "body": "Discussed possible expansion needs with the customer. The topic needs more validation before qualification.",
+   "deal": 21,
+   "contact": 62,
+   "owner": 1,
+   "occurred_days_ago": 17,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Contact change call",
+   "body": "Discussed a change in the customer's main contact. Confirmed the best path for future communication.",
+   "deal": 7,
+   "contact": 51,
+   "owner": 1,
+   "occurred_days_ago": 134,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Draft implementation plan",
+   "body": "Draft an initial implementation plan for customer review. Keep assumptions clearly marked.",
+   "deal": 0,
+   "contact": 29,
+   "owner": 1,
+   "occurred_days_ago": 52,
+   "due_in_days": -23,
+   "completed": true
+  },
+  {
+   "type": "note",
+   "subject": "Procurement requirements noted",
+   "body": "Noted the procurement requirements mentioned by the customer. Some details still need confirmation from the procurement contact.",
+   "deal": 64,
+   "contact": 66,
+   "owner": 1,
+   "occurred_days_ago": 58,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Follow-up meeting held",
+   "body": "Held a follow-up meeting with the customer. Reviewed open items and confirmed the next milestone.",
+   "deal": 61,
+   "contact": 6,
+   "owner": 3,
+   "occurred_days_ago": 84,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Relationship status updated",
+   "body": "Updated the relationship status based on the latest interaction. The customer remains engaged and responsive.",
+   "deal": 52,
+   "contact": 34,
+   "owner": 4,
+   "occurred_days_ago": 1,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Usage review meeting",
+   "body": "Reviewed usage with the customer in a meeting. Discussed adoption trends and possible actions.",
+   "deal": 36,
+   "contact": 128,
+   "owner": 4,
+   "occurred_days_ago": 2,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Risk review meeting",
+   "body": "Reviewed current risks with the customer. Agreed on follow-up actions for the highest-priority items.",
+   "deal": null,
+   "contact": 131,
+   "owner": 3,
+   "occurred_days_ago": 1,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Quarterly review call",
+   "body": "Held a quarterly review call with the customer. Reviewed progress, usage, and upcoming priorities.",
+   "deal": 24,
+   "contact": 146,
+   "owner": 1,
+   "occurred_days_ago": 39,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send onboarding materials",
+   "body": "Send onboarding materials to the customer. Include key contacts and the first set of steps.",
+   "deal": 50,
+   "contact": 60,
+   "owner": 4,
+   "occurred_days_ago": 5,
+   "due_in_days": 7,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Quarterly review call",
+   "body": "Held a quarterly review call with the customer. Reviewed progress, usage, and upcoming priorities.",
+   "deal": 28,
+   "contact": 133,
+   "owner": 2,
+   "occurred_days_ago": 4,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Confirm budget owner",
+   "body": "Identify and confirm the customer's budget owner. Update the opportunity record with the result.",
+   "deal": 11,
+   "contact": 2,
+   "owner": 4,
+   "occurred_days_ago": 51,
+   "due_in_days": 9,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Account background reviewed",
+   "body": "Reviewed the account background and captured the customer's current situation. Noted open questions for the next conversation.",
+   "deal": 21,
+   "contact": 62,
+   "owner": 1,
+   "occurred_days_ago": 10,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Value review call",
+   "body": "Reviewed expected value with the customer. The customer asked for examples relevant to their use case.",
+   "deal": null,
+   "contact": 139,
+   "owner": 2,
+   "occurred_days_ago": 3,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Draft contract redlines",
+   "body": "Draft initial contract redlines based on customer comments. Route them for internal review before sharing.",
+   "deal": null,
+   "contact": 136,
+   "owner": 2,
+   "occurred_days_ago": 177,
+   "due_in_days": -56,
+   "completed": true
+  },
+  {
+   "type": "task",
+   "subject": "Send onboarding materials",
+   "body": "Send onboarding materials to the customer. Include key contacts and the first set of steps.",
+   "deal": 69,
+   "contact": 146,
+   "owner": 3,
+   "occurred_days_ago": 144,
+   "due_in_days": -99,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Contract review call",
+   "body": "Reviewed contract questions with the customer. A few terms require internal review before responding.",
+   "deal": 75,
+   "contact": 130,
+   "owner": 2,
+   "occurred_days_ago": 36,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Budget review meeting",
+   "body": "Met with the customer to review budget context. Final approval timing is still being confirmed.",
+   "deal": 9,
+   "contact": 132,
+   "owner": 4,
+   "occurred_days_ago": 4,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Reporting requirements noted",
+   "body": "Noted the customer's reporting requirements and expected outputs. Confirmed that frequency and format still need review.",
+   "deal": 69,
+   "contact": 146,
+   "owner": 3,
+   "occurred_days_ago": 84,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Contract review meeting",
+   "body": "Held a contract review meeting with the customer. A few terms were flagged for further internal review.",
+   "deal": null,
+   "contact": 66,
+   "owner": 1,
+   "occurred_days_ago": 95,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Renewal timing confirmed",
+   "body": "Confirmed the customer's expected renewal timing. Noted that internal preparation should begin before the next quarter.",
+   "deal": 29,
+   "contact": 10,
+   "owner": 4,
+   "occurred_days_ago": 9,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Internal account review",
+   "body": "Held an internal account review to align on the customer. Captured actions and assigned owners.",
+   "deal": 50,
+   "contact": 60,
+   "owner": 4,
+   "occurred_days_ago": 20,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Account health update",
+   "body": "Updated the account health view based on the latest interaction. No immediate escalation is required at this stage.",
+   "deal": 62,
+   "contact": 32,
+   "owner": 4,
+   "occurred_days_ago": 58,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Confirm renewal date",
+   "body": "Confirm the customer's renewal date and any internal deadlines. Update the account record.",
+   "deal": 23,
+   "contact": 64,
+   "owner": 3,
+   "occurred_days_ago": 24,
+   "due_in_days": -6,
+   "completed": true
+  },
+  {
+   "type": "meeting",
+   "subject": "Contract review meeting",
+   "body": "Held a contract review meeting with the customer. A few terms were flagged for further internal review.",
+   "deal": 34,
+   "contact": 50,
+   "owner": 1,
+   "occurred_days_ago": 19,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Onboarding meeting held",
+   "body": "Completed an onboarding meeting with the customer. Reviewed the plan and confirmed early responsibilities.",
+   "deal": 49,
+   "contact": 117,
+   "owner": 3,
+   "occurred_days_ago": 40,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Budget approval stage",
+   "body": "Documented the current budget approval stage. Confirmed that final sign-off has not yet been provided.",
+   "deal": 56,
+   "contact": 84,
+   "owner": 1,
+   "occurred_days_ago": 46,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Pain points summarized",
+   "body": "Summarized the customer's main pain points and their relative priority. These points should guide the next solution discussion.",
+   "deal": 23,
+   "contact": 64,
+   "owner": 3,
+   "occurred_days_ago": 27,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Feedback call completed",
+   "body": "Collected feedback from the customer during the call. The feedback will be shared with the internal team.",
+   "deal": 13,
+   "contact": 12,
+   "owner": 3,
+   "occurred_days_ago": 6,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Warm introduction call",
+   "body": "Completed a warm introduction call with the customer. Captured initial context and agreed on a discovery discussion.",
+   "deal": null,
+   "contact": 110,
+   "owner": 1,
+   "occurred_days_ago": 83,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Pilot feedback summarized",
+   "body": "Summarized the feedback received from the pilot group. The themes are useful for the next review discussion.",
+   "deal": 49,
+   "contact": 117,
+   "owner": 3,
+   "occurred_days_ago": 99,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Collect success criteria",
+   "body": "Collect confirmed success criteria from the customer. Document them in the account record.",
+   "deal": 73,
+   "contact": 127,
+   "owner": 1,
+   "occurred_days_ago": 133,
+   "due_in_days": -36,
+   "completed": true
+  },
+  {
+   "type": "note",
+   "subject": "Usage trends summarized",
+   "body": "Summarized recent usage trends shared by the customer. The data suggests adoption is stable but uneven across teams.",
+   "deal": 63,
+   "contact": 7,
+   "owner": 1,
+   "occurred_days_ago": 4,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Feedback call completed",
+   "body": "Collected feedback from the customer during the call. The feedback will be shared with the internal team.",
+   "deal": 38,
+   "contact": 145,
+   "owner": 3,
+   "occurred_days_ago": 61,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Quarterly review call",
+   "body": "Held a quarterly review call with the customer. Reviewed progress, usage, and upcoming priorities.",
+   "deal": 63,
+   "contact": 7,
+   "owner": 1,
+   "occurred_days_ago": 19,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Security call completed",
+   "body": "Completed a security-focused call with the customer. Noted that formal security documentation may be requested.",
+   "deal": null,
+   "contact": 145,
+   "owner": 3,
+   "occurred_days_ago": 0,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Post-meeting follow-up call",
+   "body": "Followed up after the meeting to review open items. The customer confirmed the next step and owner.",
+   "deal": 48,
+   "contact": 48,
+   "owner": 1,
+   "occurred_days_ago": 21,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Warm introduction call",
+   "body": "Completed a warm introduction call with the customer. Captured initial context and agreed on a discovery discussion.",
+   "deal": 17,
+   "contact": 143,
+   "owner": 1,
+   "occurred_days_ago": 76,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send pricing comparison",
+   "body": "Prepare a pricing comparison for the customer. Keep the format simple and easy to review.",
+   "deal": 61,
+   "contact": 6,
+   "owner": 3,
+   "occurred_days_ago": 40,
+   "due_in_days": -15,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Customer objections documented",
+   "body": "Documented the objections raised by the customer. Each objection should be addressed in the follow-up materials.",
+   "deal": 73,
+   "contact": 127,
+   "owner": 1,
+   "occurred_days_ago": 62,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Change management concerns",
+   "body": "Documented change management concerns raised by the customer. These concerns may affect rollout planning and adoption.",
+   "deal": null,
+   "contact": 120,
+   "owner": 3,
+   "occurred_days_ago": 29,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Call highlights recorded",
+   "body": "Recorded the main highlights from the call. Noted the topics that require further clarification.",
+   "deal": null,
+   "contact": 64,
+   "owner": 3,
+   "occurred_days_ago": 1,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Contract review call",
+   "body": "Reviewed contract questions with the customer. A few terms require internal review before responding.",
+   "deal": null,
+   "contact": 84,
+   "owner": 1,
+   "occurred_days_ago": 37,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Pilot feedback summarized",
+   "body": "Summarized the feedback received from the pilot group. The themes are useful for the next review discussion.",
+   "deal": 63,
+   "contact": 7,
+   "owner": 1,
+   "occurred_days_ago": 4,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Expansion opportunity noted",
+   "body": "Noted a possible expansion opportunity based on the customer's stated needs. Further validation is required before qualification.",
+   "deal": 54,
+   "contact": 65,
+   "owner": 4,
+   "occurred_days_ago": 96,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send feedback survey",
+   "body": "Send a short feedback survey to the customer. Keep the questions focused and easy to complete.",
+   "deal": 74,
+   "contact": 111,
+   "owner": 3,
+   "occurred_days_ago": 51,
+   "due_in_days": 2,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Referral call completed",
+   "body": "Completed a call related to a customer referral. Captured the initial context and agreed on next contact.",
+   "deal": 68,
+   "contact": 29,
+   "owner": 2,
+   "occurred_days_ago": 21,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Success criteria drafted",
+   "body": "Drafted initial success criteria based on the customer's comments. These need confirmation with the broader stakeholder group.",
+   "deal": 21,
+   "contact": 62,
+   "owner": 1,
+   "occurred_days_ago": 82,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Cancellation risk call",
+   "body": "Discussed concerns that could affect renewal. The customer agreed to review options before making a decision.",
+   "deal": 42,
+   "contact": 107,
+   "owner": 3,
+   "occurred_days_ago": 55,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Security review discussed",
+   "body": "Discussed the customer's security review expectations at a high level. Noted that formal documentation may be required.",
+   "deal": 65,
+   "contact": 71,
+   "owner": 1,
+   "occurred_days_ago": 191,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "No answer logged",
+   "body": "Attempted a call but reached no answer. Logged the attempt and planned a follow-up through another channel.",
+   "deal": 28,
+   "contact": 133,
+   "owner": 2,
+   "occurred_days_ago": 7,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Call rescheduled requested",
+   "body": "The customer requested to reschedule the call. A new time will be proposed based on availability.",
+   "deal": 64,
+   "contact": 66,
+   "owner": 1,
+   "occurred_days_ago": 19,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Stakeholder priorities captured",
+   "body": "Captured the priorities shared by different stakeholders. Noted where priorities overlap and where they may conflict.",
+   "deal": null,
+   "contact": 29,
+   "owner": 2,
+   "occurred_days_ago": 53,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Expansion opportunity noted",
+   "body": "Noted a possible expansion opportunity based on the customer's stated needs. Further validation is required before qualification.",
+   "deal": 44,
+   "contact": 76,
+   "owner": 1,
+   "occurred_days_ago": 39,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Reporting review meeting",
+   "body": "Held a reporting review meeting with the customer. Reviewed required outputs and requested format changes.",
+   "deal": 61,
+   "contact": 6,
+   "owner": 3,
+   "occurred_days_ago": 44,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Integration call completed",
+   "body": "Reviewed integration questions with the customer. Technical details need confirmation from both sides.",
+   "deal": 40,
+   "contact": 109,
+   "owner": 2,
+   "occurred_days_ago": 0,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Update forecast category",
+   "body": "Review the latest customer signals and update the forecast category. Add a brief rationale in the record.",
+   "deal": 2,
+   "contact": 18,
+   "owner": 1,
+   "occurred_days_ago": 13,
+   "due_in_days": -10,
+   "completed": true
+  },
+  {
+   "type": "note",
+   "subject": "Contract terms flagged",
+   "body": "Flagged contract terms that may need additional review. Captured the customer's initial comments for internal follow-up.",
+   "deal": 66,
+   "contact": 133,
+   "owner": 1,
+   "occurred_days_ago": 5,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Training call completed",
+   "body": "Discussed training needs with the customer. The customer will confirm participant groups and preferred format.",
+   "deal": 59,
+   "contact": 139,
+   "owner": 1,
+   "occurred_days_ago": 29,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Pilot review meeting",
+   "body": "Reviewed pilot results in a meeting with the customer. Captured feedback and open issues for follow-up.",
+   "deal": 55,
+   "contact": 63,
+   "owner": 1,
+   "occurred_days_ago": 50,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Executive briefing meeting",
+   "body": "Delivered an executive briefing to the customer. The discussion focused on priorities and expected outcomes.",
+   "deal": 57,
+   "contact": 55,
+   "owner": 2,
+   "occurred_days_ago": 18,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Procurement requirements noted",
+   "body": "Noted the procurement requirements mentioned by the customer. Some details still need confirmation from the procurement contact.",
+   "deal": 26,
+   "contact": 1,
+   "owner": 3,
+   "occurred_days_ago": 35,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Share security documentation",
+   "body": "Send the requested security documentation to the customer. Confirm receipt and answer initial questions.",
+   "deal": 73,
+   "contact": 127,
+   "owner": 1,
+   "occurred_days_ago": 26,
+   "due_in_days": 8,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Communication cadence agreed",
+   "body": "Agreed on a practical communication cadence with the customer. Noted the preferred update frequency and format.",
+   "deal": 25,
+   "contact": 123,
+   "owner": 1,
+   "occurred_days_ago": 58,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Feedback review meeting",
+   "body": "Reviewed customer feedback in a meeting. Captured themes and identified areas for improvement.",
+   "deal": 67,
+   "contact": 60,
+   "owner": 2,
+   "occurred_days_ago": 40,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Cancellation risk call",
+   "body": "Discussed concerns that could affect renewal. The customer agreed to review options before making a decision.",
+   "deal": 75,
+   "contact": 130,
+   "owner": 2,
+   "occurred_days_ago": 29,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "task",
+   "subject": "Send next steps email",
+   "body": "Send a next-steps email to the customer. Include owners, dates, and any open questions.",
+   "deal": null,
+   "contact": 131,
+   "owner": 3,
+   "occurred_days_ago": 4,
+   "due_in_days": 14,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Renewal risk identified",
+   "body": "Identified a potential renewal risk related to adoption and timing. Flagged it for review before the next account plan update.",
+   "deal": 40,
+   "contact": 109,
+   "owner": 2,
+   "occurred_days_ago": 0,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Integration needs captured",
+   "body": "Captured the customer's integration needs and constraints. Technical validation is still required before scoping.",
+   "deal": 18,
+   "contact": 63,
+   "owner": 1,
+   "occurred_days_ago": 65,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "No answer logged",
+   "body": "Attempted a call but reached no answer. Logged the attempt and planned a follow-up through another channel.",
+   "deal": 49,
+   "contact": 117,
+   "owner": 3,
+   "occurred_days_ago": 54,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Pilot review meeting",
+   "body": "Reviewed pilot results in a meeting with the customer. Captured feedback and open issues for follow-up.",
+   "deal": 71,
+   "contact": 17,
+   "owner": 1,
+   "occurred_days_ago": 42,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "note",
+   "subject": "Communication cadence agreed",
+   "body": "Agreed on a practical communication cadence with the customer. Noted the preferred update frequency and format.",
+   "deal": 57,
+   "contact": 55,
+   "owner": 2,
+   "occurred_days_ago": 19,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Initial discovery call",
+   "body": "Completed an initial discovery call with the customer. Captured current priorities and agreed on a follow-up topic.",
+   "deal": 62,
+   "contact": 32,
+   "owner": 4,
+   "occurred_days_ago": 34,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Voicemail left follow-up",
+   "body": "Left a voicemail to follow up on the previous discussion. Will try another channel if no response is received.",
+   "deal": 64,
+   "contact": 66,
+   "owner": 1,
+   "occurred_days_ago": 83,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Timeline planning meeting",
+   "body": "Held a timeline planning meeting with the customer. Reviewed key dates and internal dependencies.",
+   "deal": 56,
+   "contact": 84,
+   "owner": 1,
+   "occurred_days_ago": 62,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Onboarding call completed",
+   "body": "Completed an onboarding call with the customer. Confirmed the first steps and who will coordinate internally.",
+   "deal": 37,
+   "contact": 29,
+   "owner": 2,
+   "occurred_days_ago": 4,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "call",
+   "subject": "Stakeholder call completed",
+   "body": "Completed a call with an additional stakeholder. The stakeholder asked for more detail on outcomes and support.",
+   "deal": 58,
+   "contact": 15,
+   "owner": 2,
+   "occurred_days_ago": 36,
+   "due_in_days": null,
+   "completed": false
+  },
+  {
+   "type": "meeting",
+   "subject": "Renewal planning meeting",
+   "body": "Held a renewal planning meeting with the customer. Reviewed timing, concerns, and next steps.",
+   "deal": 65,
+   "contact": 71,
+   "owner": 1,
+   "occurred_days_ago": 28,
+   "due_in_days": null,
+   "completed": false
+  }
+ ]
+}
