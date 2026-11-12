@@ -109,6 +109,28 @@ class Pipeline:
             return False, f"Change request {cr} is not approved for this commit."
         return True, f"Change request {cr} is approved."
 
+    def merge(self, cr: int, sha: str) -> None:
+        """Move main to an approved commit by pushing through the git server, so the same hook
+        that guards everyone else's pushes decides. The deployer has no way around it."""
+        try:
+            subprocess.run(
+                [
+                    "git",
+                    f"--git-dir={self.config.git_dir}",
+                    "push",
+                    self.config.git_url,
+                    f"{sha}:{MAIN}",
+                ],
+                check=True,
+                capture_output=True,
+                text=True,
+            )
+        except subprocess.CalledProcessError as error:
+            self.report(
+                "merge_failed",
+                {"change_request_id": cr, "sha": sha, "log": error.stderr or error.stdout},
+            )
+
     def main_updated(self, old: str, sha: str) -> None:
         branch = self.state.passed_check(sha)
         cr = request_id(branch) if branch else None

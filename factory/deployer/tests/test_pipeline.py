@@ -22,7 +22,12 @@ class Harness:
         self.git("config", "user.email", "test@example.test")
         self.git("config", "user.name", "Test")
         self.git("remote", "add", "origin", str(self.bare))
-        config = Config(git_dir=self.bare, state_dir=tmp / "state", work_dir=tmp / "work")
+        config = Config(
+            git_dir=self.bare,
+            state_dir=tmp / "state",
+            work_dir=tmp / "work",
+            git_url=str(self.bare),
+        )
         self.state = State(config.state_dir)
         self.pipeline = Pipeline(config, self.state, self.run, self.report)
 
@@ -217,3 +222,27 @@ def test_state_survives_a_restart(h):
     sha = install(h)
 
     assert State(h.pipeline.config.state_dir).current == sha
+
+
+def test_merge_moves_main_to_the_approved_commit(h):
+    install(h)
+    sha = h.commit("cr/7", "change")
+
+    h.pipeline.merge(7, sha)
+
+    assert h.pipeline.main_sha() == sha
+    assert h.kinds() == []
+
+
+def test_merge_that_the_repository_rejects_is_reported(h):
+    install(h)
+    sha = h.commit("cr/7", "change")
+    hook = h.bare / "hooks" / "pre-receive"
+    hook.write_text("#!/bin/sh\necho 'Rejected: not approved'\nexit 1\n")
+    hook.chmod(0o755)
+
+    h.pipeline.merge(7, sha)
+
+    assert h.pipeline.main_sha() != sha
+    assert h.kinds() == ["merge_failed"]
+    assert "Rejected: not approved" in h.events[-1][1]["log"]

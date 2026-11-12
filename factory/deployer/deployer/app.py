@@ -108,6 +108,10 @@ class Push(BaseModel):
     new: str
 
 
+class Merge(BaseModel):
+    sha: str
+
+
 class Rollback(BaseModel):
     requested_by: str | None = None
 
@@ -146,4 +150,10 @@ def rollback(body: Rollback) -> dict:
 @app.post("/change-requests/{change_request_id}/discard", status_code=202)
 def discard(change_request_id: int) -> dict:
     jobs.put(lambda: pipeline.discard(change_request_id))
+    return {"queued": True}
+
+
+@app.post("/change-requests/{change_request_id}/merge", status_code=202)
+def merge(change_request_id: int, body: Merge) -> dict:
+    jobs.put(lambda: pipeline.merge(change_request_id, body.sha))
     return {"queued": True}
