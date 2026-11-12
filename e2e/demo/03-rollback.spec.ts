@@ -16,7 +16,7 @@ test("rollback", async ({ page }) => {
   await click(page, page.getByRole("button", { name: "Sign in" }));
 
   await openPage(page, "Contacts");
-  await expect(page.getByText(/lead source/i).first()).toBeVisible();
+  await expect(page.locator("main")).toContainText(/lead source/i);
   const people = await page.getByText(/^\d+ people$/).innerText();
   await caption(page, `Production has the lead source field, and ${people}`, 3000);
 
@@ -38,7 +38,7 @@ test("rollback", async ({ page }) => {
 
   await openPage(page, "Contacts");
   await expect(page.getByText(people)).toBeVisible({ timeout: 60000 });
-  await expect(page.getByText(/lead source/i)).toHaveCount(0);
+  await expect(page.locator("main")).not.toContainText(/lead source/i);
   await caption(page, `The field is gone. The data is intact: still ${people}`, 3500);
   await caption(page, "The new column stays in the database, so the change can be restored", 3000);
 

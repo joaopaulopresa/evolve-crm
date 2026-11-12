@@ -57,7 +57,7 @@ test("change request", async ({ page, baseURL }) => {
   await type(page, page.getByLabel("Password"), ADMIN.password);
   await click(page, page.getByRole("button", { name: "Sign in" }));
   await openPage(page, "Contacts");
-  await expect(page.getByText(/lead source/i).first()).toBeVisible();
+  await expect(page.locator("main")).toContainText(/lead source/i);
   await caption(page, "In the preview: contacts now have a lead source and a filter", 3200);
 
   await caption(page, "Back in the CRM, the owner asks for one adjustment", 500);
@@ -82,7 +82,7 @@ test("change request", async ({ page, baseURL }) => {
 
   await heroClip(3.5, async () => {
     await openPage(page, "Contacts");
-    await expect(page.getByText(/lead source/i).first()).toBeVisible();
+    await expect(page.locator("main")).toContainText(/lead source/i);
     await caption(page, "Production now has the lead source field and filter", 3000);
   });
   await screenshot(page, "screen-contacts-lead-source");
