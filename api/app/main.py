@@ -9,7 +9,7 @@ from app.config import get_settings
 from app.db import SessionLocal, get_session
 from app.implementation import router as implementation
 from app.models import User
-from app.routers import activities, auth, companies, contacts, dashboard, deals
+from app.routers import activities, auth, backups, companies, contacts, dashboard, deals
 
 
 def ensure_admin_exists() -> None:
@@ -41,7 +41,7 @@ app = FastAPI(
     openapi_url="/api/openapi.json",
 )
 
-for module in (auth, companies, contacts, deals, activities, dashboard):
+for module in (auth, companies, contacts, deals, activities, dashboard, backups):
     app.include_router(module.router)
 app.include_router(implementation.router)
 app.include_router(implementation.internal)

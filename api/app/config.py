@@ -22,6 +22,12 @@ class Settings(BaseSettings):
     factory_url: str | None = None
     factory_key: str | None = None
 
+    # Where the backup service stores its files; the API only lists them for admins.
+    s3_endpoint: str | None = None
+    s3_bucket: str = "evolve-backups"
+    s3_access_key: str | None = None
+    s3_secret_key: str | None = None
+
 
 @lru_cache
 def get_settings() -> Settings:
