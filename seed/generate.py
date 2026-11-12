@@ -4,7 +4,7 @@ The language model (through OpenRouter) invents the text: company names, people,
 activity notes. Everything numeric (stages, values, dates, owners) is drawn here from a fixed
 random seed, and dates are stored as offsets from "today" so the demo never goes stale.
 
-    OPENROUTER_API_KEY=... LLM_MODEL=... python seed/generate.py
+    OPENROUTER_API_KEY=... SEED_MODEL=... python seed/generate.py
 
 The result is committed, so running the product never needs an API key. Everything is fictional.
 
@@ -24,7 +24,10 @@ from pathlib import Path
 
 OUTPUT = Path(__file__).with_name("data.json")
 SEED = 42
-MODEL = os.environ.get("LLM_MODEL", "deepseek/deepseek-v4.1-flash-1017")
+# A small, fast model is enough for this: SEED_MODEL, or the product's LLM_MODEL if unset.
+MODEL = os.environ.get("SEED_MODEL") or os.environ.get(
+    "LLM_MODEL", "deepseek/deepseek-v4.1-flash-1017"
+)
 
 USERS = [
     {"email": "admin@evolve.test", "name": "Morgan Reyes", "role": "admin"},
