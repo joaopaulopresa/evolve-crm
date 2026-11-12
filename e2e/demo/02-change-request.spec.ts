@@ -89,9 +89,9 @@ test("change request", async ({ page, baseURL }) => {
 
   await caption(page, "Every model call of the request is traced in Langfuse", 400);
   await page.goto(`${LANGFUSE}/auth/sign-in`);
-  await page.getByLabel(/email/i).fill("admin@evolve.test");
-  await page.getByLabel(/password/i).fill(process.env.LANGFUSE_PASSWORD ?? "admin12345");
-  await page.getByRole("button", { name: /sign in/i }).first().click();
+  await page.locator('input[name="email"]').fill("admin@evolve.test");
+  await page.locator('input[name="password"]').fill(process.env.LANGFUSE_PASSWORD ?? "admin12345");
+  await page.locator('button[type="submit"]').first().click();
   await page.waitForURL((url) => !url.pathname.includes("sign-in"), { timeout: 30000 });
   await page.goto(traceUrl ?? `${LANGFUSE}/project/evolve-crm/sessions`);
   await page.waitForTimeout(4000);

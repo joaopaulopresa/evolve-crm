@@ -215,6 +215,12 @@ function RequestView({ id, onChanged }: { id: number; onChanged: () => void }) {
 function ReleasePanel({ refreshKey }: { refreshKey: number }) {
   const releases = useLoad(() => api<Releases>("/releases"), [refreshKey]);
   const [message, setMessage] = useState<string | null>(null);
+  // Deploys and rollbacks finish on their own time: keep the panel current.
+  const { reload } = releases;
+  useEffect(() => {
+    const timer = setInterval(reload, 4000);
+    return () => clearInterval(timer);
+  }, [reload]);
 
   async function rollback() {
     if (!window.confirm("Switch production to the other release? Data is kept.")) return;
