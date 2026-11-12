@@ -7,5 +7,5 @@ set -eu
 project="$1"; sha="$2"
 
 wait_for_release "$project" "$sha" "${SMOKE_TIMEOUT:-120}"
-docker compose -p "$project" exec -T web wget -qO- http://localhost/ | grep -q '<div id="root">'
+docker compose -p "$project" exec -T web wget -qO- http://127.0.0.1/ | grep -q '<div id="root">'
 log "Smoke test passed: $project serves release $sha"

@@ -14,7 +14,7 @@ project_name() { # <environment>
 wait_for_release() { # <compose project> <sha> [seconds]
     project="$1"; sha="$2"; deadline=$(( $(date +%s) + ${3:-120} ))
     while [ "$(date +%s)" -lt "$deadline" ]; do
-        health=$(docker compose -p "$project" exec -T web wget -qO- http://localhost/api/health 2>/dev/null || true)
+        health=$(docker compose -p "$project" exec -T web wget -qO- http://127.0.0.1/api/health 2>/dev/null || true)
         case "$health" in
             *'"status":"ok"'*"\"release\":\"$sha\""*) return 0 ;;
         esac
