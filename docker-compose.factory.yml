@@ -1,0 +1,54 @@
+# The factory: everything that turns a change request into a running release. One per
+# installation, separate from the app stacks it deploys.
+#
+#   git        bare repository (local delivery mode) with the hooks that guard main
+#   deployer   runs deploy/*.sh; the only container with the Docker socket
+name: evolve-factory
+
+services:
+  git:
+    build: ./factory/git
+    environment:
+      FACTORY_KEY: ${FACTORY_KEY:?run deploy/install.sh, which generates it}
+    volumes:
+      - repo-git:/srv/git
+    networks: [agent, control]
+    ports:
+      # Bound to this machine only: used by deploy/install.sh and by operators.
+      - "127.0.0.1:${GIT_PORT:-9418}:9418"
+    restart: unless-stopped
+
+  deployer:
+    image: evolve-deployer:local
+    build:
+      context: .
+      dockerfile: factory/deployer/Dockerfile
+    environment:
+      FACTORY_KEY: ${FACTORY_KEY:?}
+      GIT_DIR: /srv/git/repo.git
+      CRM_URL: http://crm-api:8000
+      DELIVERY_MODE: ${DELIVERY_MODE:-local}
+      PRODUCTION_PORT: ${PRODUCTION_PORT:-8100}
+      PREVIEW_PORT_BASE: ${PREVIEW_PORT_BASE:-8200}
+      PUBLIC_HOST: ${PUBLIC_HOST:-localhost}
+      SEED_DEMO_DATA: ${SEED_DEMO_DATA:-true}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - repo-git:/srv/git:ro
+      - deployer-state:/state
+      - deployer-work:/work
+    networks: [control]
+    restart: unless-stopped
+
+networks:
+  # git, Hermes and the production API. No deployer here: the agent never talks to it.
+  agent:
+    name: evolve-agent
+  # git hooks, the deployer and the production API.
+  control:
+    name: evolve-control
+
+volumes:
+  repo-git:
+  deployer-state:
+  deployer-work:

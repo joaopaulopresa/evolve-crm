@@ -1,0 +1,9 @@
+#!/bin/sh
+# Tells the deployer what was pushed. Never fails the push: the deployer may be restarting.
+while read -r old new ref; do
+    curl -fsS -m 10 -o /dev/null -X POST -H "Content-Type: application/json" \
+        -H "X-Factory-Key: ${FACTORY_KEY:-}" \
+        -d "{\"ref\":\"$ref\",\"old\":\"$old\",\"new\":\"$new\"}" \
+        "${DEPLOYER_URL:-http://deployer:8700}/hooks/pushed" \
+        || echo "Note: the deployer was not reached; push again to trigger the pipeline."
+done

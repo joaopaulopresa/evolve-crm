@@ -1,0 +1,43 @@
+#!/bin/sh
+# Decides which pushes the repository accepts.
+#   cr/<id>...  change-request branches: anyone on the factory network may push them.
+#   main        only moves forward, and only to a commit that passed the checks as a cr/* branch
+#               and whose change request an admin approved. The deployer answers that question.
+#               Exceptions: the very first push (installation) and an operator who sends the
+#               factory key as a push option (git push -o operator-key=...).
+#   other refs  rejected.
+zero=0000000000000000000000000000000000000000
+
+operator=no
+i=0
+while [ "$i" -lt "${GIT_PUSH_OPTION_COUNT:-0}" ]; do
+    eval "option=\$GIT_PUSH_OPTION_$i"
+    [ -n "${FACTORY_KEY:-}" ] && [ "$option" = "operator-key=$FACTORY_KEY" ] && operator=yes
+    i=$((i + 1))
+done
+
+while read -r old new ref; do
+    case "$ref" in
+        refs/heads/cr/*) ;;
+        refs/heads/main)
+            [ "$operator" = yes ] && continue
+            [ "$old" = "$zero" ] && continue
+            if [ "$new" = "$zero" ]; then
+                echo "Rejected: main cannot be deleted."; exit 1
+            fi
+            if ! git merge-base --is-ancestor "$old" "$new"; then
+                echo "Rejected: main only moves forward (fast-forward)."; exit 1
+            fi
+            answer=$(curl -fsS -m 20 -H "X-Factory-Key: ${FACTORY_KEY:-}" \
+                "${DEPLOYER_URL:-http://deployer:8700}/hooks/can-merge?sha=$new" 2>&1) || {
+                echo "Rejected: the deployer could not be asked ($answer)."; exit 1
+            }
+            case "$answer" in
+                *'"allowed":true'*) ;;
+                *) echo "Rejected: $answer"; exit 1 ;;
+            esac
+            ;;
+        *)
+            echo "Rejected: only main and cr/* branches are accepted ($ref)."; exit 1 ;;
+    esac
+done
