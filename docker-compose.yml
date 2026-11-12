@@ -16,7 +16,9 @@ services:
       retries: 20
 
   api:
-    build: ./api
+    build:
+      context: .
+      dockerfile: api/Dockerfile
     environment:
       DATABASE_URL: postgresql+psycopg://crm:${POSTGRES_PASSWORD:-crm}@db:5432/crm
       ENVIRONMENT: ${ENVIRONMENT:-development}
@@ -24,6 +26,7 @@ services:
       SECRET_KEY: ${SECRET_KEY:-change-me-in-production-to-a-long-random-value}
       ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@evolve.test}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin123}
+      SEED_DEMO_DATA: ${SEED_DEMO_DATA:-true}
     depends_on:
       db:
         condition: service_healthy

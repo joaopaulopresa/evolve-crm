@@ -1,4 +1,11 @@
-__pycache__/
-.pytest_cache/
-.ruff_cache/
-.venv/
+.git
+.env
+.env.*
+.dev
+**/__pycache__
+**/.pytest_cache
+**/.ruff_cache
+**/.venv
+**/node_modules
+**/dist
+**/test-results
