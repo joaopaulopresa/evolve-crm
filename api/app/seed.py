@@ -14,6 +14,7 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from app.auth import hash_password
+from app.config import get_settings
 from app.models import Activity, Company, Contact, Deal, User
 
 SEED_FILE = Path(os.environ.get("SEED_FILE", Path(__file__).parents[2] / "seed" / "data.json"))
@@ -31,12 +32,16 @@ def load_seed(session: Session) -> bool:
     def days_ago(days: int) -> datetime:
         return now - timedelta(days=days)
 
+    settings = get_settings()
     password_hash = hash_password(DEMO_PASSWORD)
     users = []
     for row in data["users"]:
         user = session.scalar(select(User).where(User.email == row["email"]))
         if user is None:
-            user = User(**row, password_hash=password_hash)
+            # The admin keeps the password chosen for this installation (ADMIN_PASSWORD).
+            is_admin = row["email"] == settings.admin_email
+            own_hash = hash_password(settings.admin_password) if is_admin else password_hash
+            user = User(**row, password_hash=own_hash)
             session.add(user)
         else:
             user.name = row["name"]

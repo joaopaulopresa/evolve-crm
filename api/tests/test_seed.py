@@ -53,3 +53,14 @@ def test_seeded_sales_user_can_sign_in(client, db):
 
     assert response.status_code == 200
     assert response.json()["user"]["name"] == "Priya Raman"
+
+
+def test_seeded_admin_uses_the_installation_password(client, db):
+    load_seed(db)
+
+    response = client.post(
+        "/api/auth/login", json={"email": "admin@evolve.test", "password": "admin123"}
+    )
+
+    assert response.status_code == 200
+    assert response.json()["user"]["role"] == "admin"
