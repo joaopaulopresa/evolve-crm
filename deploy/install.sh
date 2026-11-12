@@ -4,7 +4,9 @@
 #   2. start the factory stack (git server and deployer)
 #   3. push this checkout to the factory's repository; the deployer builds it and deploys
 #      production
-# Run it again after pulling a new version of Evolve CRM to update the installation.
+# Run it again after pulling a new version of Evolve CRM to update the installation. If the
+# installation has changes of its own (merged change requests), merge them into this checkout
+# first: git pull git://127.0.0.1:9418/repo.git main. FORCE=1 overwrites them instead.
 set -eu
 cd "$(dirname "$0")/.."
 
@@ -19,7 +21,7 @@ docker compose -f docker-compose.factory.yml up -d --build --wait
 
 remote="git://127.0.0.1:${GIT_PORT:-9418}/repo.git"
 echo "Pushing $(git rev-parse --short HEAD) to $remote"
-git push -o "operator-key=$FACTORY_KEY" "$remote" HEAD:refs/heads/main
+git push ${FORCE:+--force} -o "operator-key=$FACTORY_KEY" "$remote" HEAD:refs/heads/main
 
 echo
 echo "The deployer is now building and deploying production."
