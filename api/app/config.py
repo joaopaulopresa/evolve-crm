@@ -16,6 +16,12 @@ class Settings(BaseSettings):
     admin_email: str = "admin@evolve.test"
     admin_password: str = "admin123"
 
+    # The factory stack (deployer and Hermes). Unset in development and in previews, where the
+    # Implement and Ask pages explain that they are not connected.
+    delivery_mode: str = "local"
+    factory_url: str | None = None
+    factory_key: str | None = None
+
 
 @lru_cache
 def get_settings() -> Settings:

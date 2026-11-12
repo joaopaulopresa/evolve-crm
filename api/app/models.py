@@ -3,13 +3,26 @@
 from datetime import date, datetime
 from decimal import Decimal
 
-from sqlalchemy import Date, DateTime, ForeignKey, Numeric, String, Text, func
+from sqlalchemy import JSON, Date, DateTime, ForeignKey, Numeric, String, Text, func
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
 ROLES = ("admin", "user")
 DEAL_STAGES = ("lead", "qualified", "proposal", "negotiation", "won", "lost")
 OPEN_STAGES = ("lead", "qualified", "proposal", "negotiation")
 ACTIVITY_TYPES = ("note", "call", "meeting", "task")
+CHANGE_REQUEST_STATUSES = (
+    "open",  # created; waiting for the agent or for a branch to be pushed
+    "working",  # the agent is implementing it
+    "checking",  # the branch was pushed; checks and the preview build are running
+    "checks_failed",
+    "preview_ready",  # waiting for an admin to try the preview and approve or discard
+    "approved",  # approved; the merge and the production deploy follow
+    "deploying",
+    "live",
+    "deploy_failed",  # production was restored to the previous release
+    "rolled_back",
+    "discarded",
+)
 
 
 class Base(DeclarativeBase):
@@ -107,3 +120,55 @@ class Activity(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
     owner: Mapped[User] = relationship()
+
+
+class ChangeRequest(Base):
+    """A change to the product itself, asked for in the Implement page."""
+
+    __tablename__ = "change_requests"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str] = mapped_column(String(120))
+    description: Mapped[str] = mapped_column(Text)
+    status: Mapped[str] = mapped_column(String(20), default="open", index=True)
+    branch: Mapped[str | None] = mapped_column(String(120))
+    head_sha: Mapped[str | None] = mapped_column(String(40))
+    approved_sha: Mapped[str | None] = mapped_column(String(40))
+    preview_url: Mapped[str | None] = mapped_column(String(255))
+    summary: Mapped[str | None] = mapped_column(Text)
+    agent_session_id: Mapped[str | None] = mapped_column(String(120))
+    requested_by_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
+    approved_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"))
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
+    )
+
+    requested_by: Mapped[User] = relationship(foreign_keys=[requested_by_id])
+    approved_by: Mapped[User | None] = relationship(foreign_keys=[approved_by_id])
+    events: Mapped[list["ChangeRequestEvent"]] = relationship(
+        back_populates="change_request", order_by="ChangeRequestEvent.id"
+    )
+
+
+class ChangeRequestEvent(Base):
+    """Everything that happened to a change request: chat, agent progress, pipeline, decisions.
+
+    Rows without a change request are pipeline events of the installation itself (first deploy,
+    operator pushes). Together they are the audit log of delivery.
+    """
+
+    __tablename__ = "change_request_events"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    change_request_id: Mapped[int | None] = mapped_column(
+        ForeignKey("change_requests.id", ondelete="CASCADE"), index=True
+    )
+    kind: Mapped[str] = mapped_column(String(40))
+    actor: Mapped[str] = mapped_column(String(120))
+    message: Mapped[str | None] = mapped_column(Text)
+    log: Mapped[str | None] = mapped_column(Text)
+    data: Mapped[dict | None] = mapped_column(JSON)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+    change_request: Mapped[ChangeRequest | None] = relationship(back_populates="events")

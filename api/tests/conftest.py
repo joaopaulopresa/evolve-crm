@@ -52,7 +52,9 @@ def db(engine) -> Iterator[Session]:
 
 
 @pytest.fixture
-def client(db) -> Iterator[TestClient]:
+def client(db, monkeypatch) -> Iterator[TestClient]:
+    monkeypatch.setattr(get_settings(), "factory_key", "test-factory-key")
+    monkeypatch.setattr(get_settings(), "factory_url", None)
     app.dependency_overrides[get_session] = lambda: db
     yield TestClient(app)
     app.dependency_overrides.clear()

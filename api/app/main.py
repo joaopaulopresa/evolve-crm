@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 from app.auth import hash_password
 from app.config import get_settings
 from app.db import SessionLocal, get_session
+from app.implementation import router as implementation
 from app.models import User
 from app.routers import activities, auth, companies, contacts, dashboard, deals
 
@@ -42,6 +43,8 @@ app = FastAPI(
 
 for module in (auth, companies, contacts, deals, activities, dashboard):
     app.include_router(module.router)
+app.include_router(implementation.router)
+app.include_router(implementation.internal)
 
 
 @app.get("/api/health")
