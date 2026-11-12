@@ -267,6 +267,11 @@ export function Implement() {
 
   const list = requests.data ?? [];
   const unfinished = list.find((request) => !isFinal(request.status));
+  // Follow the request in progress, and keep it on screen after it finishes: going live is
+  // the moment the owner most wants to see.
+  useEffect(() => {
+    if (selected === null && unfinished) setSelected(unfinished.id);
+  }, [selected, unfinished]);
   const current = selected ?? unfinished?.id ?? null;
 
   async function open(event: FormEvent) {
