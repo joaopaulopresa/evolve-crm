@@ -17,5 +17,7 @@ for project in $(docker compose ls -a --format json | grep -o '"evolve-\(product
     docker compose -p "$project" down -v --remove-orphans
 done
 docker compose -f docker-compose.observability.yml down -v --remove-orphans 2>/dev/null || true
-FACTORY_KEY=unused docker compose -f docker-compose.factory.yml down -v --remove-orphans
+# The factory file requires its keys even to be taken down; any value will do.
+export FACTORY_KEY=x HERMES_BUILDER_KEY=x HERMES_ANALYST_KEY=x CRM_DATA_MCP_KEY=x CRM_DATA_CONTEXT_KEY=x
+docker compose -f docker-compose.factory.yml down -v --remove-orphans
 echo "Uninstalled."
