@@ -8,8 +8,8 @@ from app import metrics
 from app.auth import hash_password
 from app.config import get_settings
 from app.db import SessionLocal, get_session
+from app.implementation import ask, worker
 from app.implementation import router as implementation
-from app.implementation import worker
 from app.models import User
 from app.routers import activities, auth, backups, companies, contacts, dashboard, deals
 
@@ -48,6 +48,7 @@ for module in (auth, companies, contacts, deals, activities, dashboard, backups)
     app.include_router(module.router)
 app.include_router(implementation.router)
 app.include_router(implementation.internal)
+app.include_router(ask.router)
 metrics.install(app)
 
 
