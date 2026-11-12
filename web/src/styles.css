@@ -722,3 +722,6 @@ input[type="checkbox"] {
     display: none;
   }
 }
+.timeline-item strong {
+  display: block;
+}
