@@ -182,6 +182,12 @@ export async function saveVideo(page: Page, name: string) {
       retime(heroClips, ",fps=12,scale=960:-1:flags=lanczos,split[a][b]") +
       ";[a]palettegen=max_colors=128:stats_mode=diff[palette];[b][palette]paletteuse=dither=bayer:bayer_scale=4";
     execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", source, "-filter_complex", filter, gif]);
+    try {
+      // Smaller file when gifsicle is installed; the GIF is fine without it.
+      execFileSync("gifsicle", ["-O3", "--lossy=60", "--batch", gif], { stdio: "ignore" });
+    } catch {
+      /* gifsicle is optional */
+    }
     console.log(`saved ${gif}`);
   }
 }
