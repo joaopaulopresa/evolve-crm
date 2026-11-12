@@ -11,6 +11,8 @@ mc alias set s3 "$S3_ENDPOINT" "$S3_ACCESS_KEY" "$S3_SECRET_KEY" >/dev/null
 case "${1:-}" in
     db)
         mc cat "$bucket/$2" > /tmp/restore.dump
+        # The dump grants privileges to the read-only role; on a new server it must exist first.
+        psql "$PGURL" -qc "DO \$\$ BEGIN IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'crm_reader') THEN CREATE ROLE crm_reader NOLOGIN; END IF; END \$\$"
         pg_restore --clean --if-exists --no-owner --single-transaction --dbname "$PGURL" /tmp/restore.dump
         rm -f /tmp/restore.dump
         echo "Database restored from $2"
