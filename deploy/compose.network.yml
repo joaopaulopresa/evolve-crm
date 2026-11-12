@@ -1,0 +1,7 @@
+# Gives a deployed stack's network an explicit subnet (STACK_SUBNET, set by deploy/lib.sh), so
+# previews and production do not draw from Docker's shared address pool.
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: ${STACK_SUBNET:?}

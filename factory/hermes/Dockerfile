@@ -35,4 +35,8 @@ COPY factory/hermes/00-evolve-setup /etc/cont-init.d/00-evolve-setup
 COPY AGENTS.m[d] /opt/evolve/
 RUN chmod +x /usr/local/bin/evolve-* /etc/cont-init.d/00-evolve-setup
 
+# If the setup script fails, stop: never start the agent with its stock configuration, which
+# enables every tool.
+ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
+
 CMD ["gateway", "run"]

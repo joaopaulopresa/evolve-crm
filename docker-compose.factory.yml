@@ -67,6 +67,7 @@ services:
       PRODUCTION_PORT: ${PRODUCTION_PORT:-8100}
       PREVIEW_PORT_BASE: ${PREVIEW_PORT_BASE:-8200}
       PUBLIC_HOST: ${PUBLIC_HOST:-localhost}
+      EVOLVE_SUBNET_PREFIX: ${EVOLVE_SUBNET_PREFIX:-10.213}
       SEED_DEMO_DATA: ${SEED_DEMO_DATA:-true}
       # Handed to the production stack when it is deployed.
       HERMES_BUILDER_KEY: ${HERMES_BUILDER_KEY:?}
@@ -133,22 +134,36 @@ services:
       - hermes-analyst:/opt/data
     networks: [analyst]
 
+# Subnets are set explicitly (EVOLVE_SUBNET_PREFIX, two octets) so these networks do not draw
+# from Docker's shared address pool, which runs out on hosts with many projects.
 networks:
   # The builder's world: git, the sandbox database, Langfuse, the proxy, and the production
   # API that calls it. No route to the internet, no deployer, no production database.
   agent:
     name: evolve-agent
     internal: true
+    ipam:
+      config:
+        - subnet: ${EVOLVE_SUBNET_PREFIX:-10.213}.1.0/24
   # The analyst's world: the crm-data server, Langfuse, the proxy and the production API.
   analyst:
     name: evolve-analyst
     internal: true
+    ipam:
+      config:
+        - subnet: ${EVOLVE_SUBNET_PREFIX:-10.213}.2.0/24
   # git hooks, the deployer, the production API and Prometheus.
   control:
     name: evolve-control
+    ipam:
+      config:
+        - subnet: ${EVOLVE_SUBNET_PREFIX:-10.213}.3.0/24
   # Only the proxy is attached to this one.
   egress:
     name: evolve-egress
+    ipam:
+      config:
+        - subnet: ${EVOLVE_SUBNET_PREFIX:-10.213}.4.0/24
 
 volumes:
   repo-git:

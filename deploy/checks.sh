@@ -13,13 +13,16 @@ project="evolve-check-$(echo "$sha" | cut -c1-10)"
 
 "$here/build.sh" "$src" "$sha"
 
-cleanup() { docker compose -p "$project" -f "$src/docker-compose.yml" down -v --remove-orphans >/dev/null 2>&1 || true; }
+files="-f $src/docker-compose.yml -f $here/compose.network.yml"
+export STACK_SUBNET="$(stack_subnet check)"
+
+cleanup() { docker compose -p "$project" $files down -v --remove-orphans >/dev/null 2>&1 || true; }
 trap cleanup EXIT
 export IMAGE_TAG="$sha" SEED_DEMO_DATA=false
 
 log "API: lint and tests"
-docker compose -p "$project" -f "$src/docker-compose.yml" up -d --wait db >/dev/null 2>&1
-docker compose -p "$project" -f "$src/docker-compose.yml" run --rm --no-deps -T api \
+docker compose -p "$project" $files up -d --wait db >/dev/null 2>&1
+docker compose -p "$project" $files run --rm --no-deps -T api \
     sh -c "ruff check . && ruff format --check . && pytest -q -p no:cacheprovider"
 
 log "Web: type check and tests"

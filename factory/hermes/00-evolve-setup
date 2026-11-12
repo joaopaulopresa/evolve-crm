@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/command/with-contenv sh
+# (with-contenv: s6 init scripts do not see the container's environment otherwise.)
 # Runs as root on every start, before Hermes's own setup. Seeds the data volume, then writes
 # the configuration for this container's role from the environment. Configuration is code:
 # it is rewritten on every start, so nothing the agent changes there survives a restart.

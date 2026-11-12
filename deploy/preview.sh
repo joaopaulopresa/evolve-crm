@@ -13,8 +13,10 @@ case "$action" in
     up)
         src="$3"; sha="$4"
         log "Starting preview $project on port $port"
-        IMAGE_TAG="$sha" WEB_PORT="$port" docker compose -p "$project" \
+        IMAGE_TAG="$sha" WEB_PORT="$port" STACK_SUBNET="$(stack_subnet preview "$id")" \
+            docker compose -p "$project" \
             -f "$src/docker-compose.yml" -f "$src/deploy/compose.preview.yml" \
+            -f "$src/deploy/compose.network.yml" \
             up -d --no-build --remove-orphans --wait
         "$here/smoke.sh" "$project" "$sha"
         echo "http://${PUBLIC_HOST:-localhost}:$port"

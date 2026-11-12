@@ -185,6 +185,10 @@ services:
     restart: unless-stopped
 
 networks:
+  default:
+    ipam:
+      config:
+        - subnet: ${EVOLVE_SUBNET_PREFIX:-10.213}.5.0/24
   # Created by docker-compose.factory.yml.
   agent:
     name: evolve-agent

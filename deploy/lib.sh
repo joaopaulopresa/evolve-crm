@@ -4,6 +4,17 @@ STATE_DIR="${STATE_DIR:-/state}"
 PRODUCTION_PORT="${PRODUCTION_PORT:-8100}"
 PREVIEW_PORT_BASE="${PREVIEW_PORT_BASE:-8200}"
 
+SUBNET_PREFIX="${EVOLVE_SUBNET_PREFIX:-10.213}"
+
+# Each stack gets its own /24: production .10, the checks' database .11, preview N .(100+N%100).
+stack_subnet() { # production | check | preview <id>
+    case "$1" in
+        production) echo "$SUBNET_PREFIX.10.0/24" ;;
+        check) echo "$SUBNET_PREFIX.11.0/24" ;;
+        preview) echo "$SUBNET_PREFIX.$(( 100 + $2 % 100 )).0/24" ;;
+    esac
+}
+
 log() { echo "[$(date +%H:%M:%S)] $*"; }
 
 project_name() { # <environment>

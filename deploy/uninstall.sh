@@ -20,4 +20,6 @@ docker compose -f docker-compose.observability.yml down -v --remove-orphans 2>/d
 # The factory file requires its keys even to be taken down; any value will do.
 export FACTORY_KEY=x HERMES_BUILDER_KEY=x HERMES_ANALYST_KEY=x CRM_DATA_MCP_KEY=x CRM_DATA_CONTEXT_KEY=x
 docker compose -f docker-compose.factory.yml down -v --remove-orphans
+# Volumes of stacks that never got as far as starting a container.
+docker volume ls -q --filter name=evolve-production_ --filter name=evolve-preview-cr- | xargs -r docker volume rm >/dev/null
 echo "Uninstalled."

@@ -36,8 +36,10 @@ if [ -n "$(docker compose -p "$project" ps -q --status running backup 2>/dev/nul
 fi
 
 log "Deploying $sha to $environment (port $port)"
-IMAGE_TAG="$sha" WEB_PORT="$port" docker compose -p "$project" --env-file "$env_file" \
+IMAGE_TAG="$sha" WEB_PORT="$port" STACK_SUBNET="$(stack_subnet "$environment")" \
+    docker compose -p "$project" --env-file "$env_file" \
     -f "$src/docker-compose.yml" -f "$src/deploy/compose.$environment.yml" \
+    -f "$src/deploy/compose.network.yml" \
     up -d --no-build --remove-orphans --wait
 
 "$here/smoke.sh" "$project" "$sha"
