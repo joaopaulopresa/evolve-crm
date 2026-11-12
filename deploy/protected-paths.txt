@@ -1,0 +1,21 @@
+# Paths a change request (a cr/* branch) may not touch. One git glob per line.
+# These hold the pipeline, the agent's own guardrails, authentication and secrets.
+.github/**
+deploy/**
+factory/**
+backup/**
+observability/**
+crm-data/**
+docker-compose*.yml
+**/Dockerfile
+.dockerignore
+.gitignore
+.env*
+AGENTS.md
+api/entrypoint.sh
+api/alembic.ini
+api/migrations/env.py
+api/app/auth.py
+api/app/config.py
+api/app/routers/auth.py
+api/app/implementation/**
