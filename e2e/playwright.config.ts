@@ -11,13 +11,13 @@ export default defineConfig({
   projects: [
     { name: "e2e", testDir: "tests" },
     {
-      // Scripts that record the demo videos into e2e/videos/. Run with: npm run demo
+      // Scripts that record the demo videos and screenshots into docs/media/. Run with: npm run demo
       name: "demo",
       testDir: "demo",
       timeout: 30 * 60 * 1000,
       use: {
-        video: { mode: "on", size: { width: 1440, height: 900 } },
-        launchOptions: { slowMo: 60 },
+        viewport: { width: 1280, height: 720 },
+        video: { mode: "on", size: { width: 1280, height: 720 } },
       },
     },
   ],
