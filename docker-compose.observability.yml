@@ -56,6 +56,8 @@ services:
     depends_on: *langfuse-depends-on
     environment:
       <<: *langfuse-env
+      # The container is on two networks; listen on all of them, not only the first.
+      HOSTNAME: 0.0.0.0
       # Creates the organisation, project, API keys and first user on an empty database, so
       # traces can be sent and viewed right after "up".
       LANGFUSE_INIT_ORG_ID: evolve
