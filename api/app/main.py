@@ -33,7 +33,12 @@ async def lifespan(_: FastAPI):
     yield
 
 
-app = FastAPI(title="Evolve CRM API", lifespan=lifespan)
+app = FastAPI(
+    title="Evolve CRM API",
+    lifespan=lifespan,
+    docs_url="/api/docs",
+    openapi_url="/api/openapi.json",
+)
 
 for module in (auth, companies, contacts, deals, activities, dashboard):
     app.include_router(module.router)

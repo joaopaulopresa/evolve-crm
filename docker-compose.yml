@@ -1,3 +1,5 @@
+# The CRM application: database, API and web. One copy of this stack runs per environment
+# (development, each preview, production); deploy/compose.<environment>.yml adds what differs.
 name: evolve-crm
 
 services:
@@ -16,13 +18,14 @@ services:
       retries: 20
 
   api:
+    image: evolve-crm-api:${IMAGE_TAG:-dev}
     build:
       context: .
       dockerfile: api/Dockerfile
     environment:
       DATABASE_URL: postgresql+psycopg://crm:${POSTGRES_PASSWORD:-crm}@db:5432/crm
       ENVIRONMENT: ${ENVIRONMENT:-development}
-      RELEASE: ${RELEASE:-dev}
+      RELEASE: ${IMAGE_TAG:-dev}
       SECRET_KEY: ${SECRET_KEY:-change-me-in-production-to-a-long-random-value}
       ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@evolve.test}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin123}
@@ -30,15 +33,14 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    ports:
-      - "${API_PORT:-8000}:8000"
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
       interval: 5s
       timeout: 3s
-      retries: 20
+      retries: 30
 
   web:
+    image: evolve-crm-web:${IMAGE_TAG:-dev}
     build: ./web
     depends_on:
       api:
