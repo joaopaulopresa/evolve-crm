@@ -66,6 +66,14 @@ class Pipeline:
         """Scripts always come from main, never from the branch under test."""
         return self.export(self.main_sha()) / "deploy"
 
+    def reconcile(self) -> None:
+        """On start: if main moved while the deployer was away (the hook could not reach it),
+        deploy it now. A commit that was already tried is not tried again."""
+        main = self.main_sha()
+        attempted = {release["sha"] for release in self.state.releases}
+        if main and main not in attempted:
+            self.main_updated(self.state.current or ZERO, main)
+
     # --- events from git ------------------------------------------------------------------
 
     def pushed(self, ref: str, old: str, new: str) -> None:

@@ -246,3 +246,19 @@ def test_merge_that_the_repository_rejects_is_reported(h):
     assert h.pipeline.main_sha() != sha
     assert h.kinds() == ["merge_failed"]
     assert "Rejected: not approved" in h.events[-1][1]["log"]
+
+
+def test_on_start_a_main_that_moved_unnoticed_is_deployed_once(h):
+    sha = h.commit("main", "v1")
+
+    h.pipeline.reconcile()
+    h.pipeline.reconcile()
+
+    assert h.scripts_run() == ["build.sh", "deploy.sh"]
+    assert h.state.current == sha
+
+
+def test_on_start_nothing_happens_without_commits(h):
+    h.pipeline.reconcile()
+
+    assert h.calls == []

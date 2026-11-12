@@ -16,7 +16,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 
 import httpx2 as httpx
-from fastapi import Depends, FastAPI, Header, HTTPException
+from fastapi import APIRouter, Depends, FastAPI, Header, HTTPException
 from pydantic import BaseModel
 
 from deployer.config import Config
@@ -96,6 +96,7 @@ def worker() -> None:
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     threading.Thread(target=worker, daemon=True).start()
+    jobs.put(pipeline.reconcile)
     yield
 
 
@@ -104,7 +105,13 @@ def factory_key(x_factory_key: str = Header(default="")) -> None:
         raise HTTPException(401, "Wrong factory key")
 
 
-app = FastAPI(title="Evolve CRM deployer", lifespan=lifespan, dependencies=[Depends(factory_key)])
+app = FastAPI(title="Evolve CRM deployer", lifespan=lifespan)
+guarded = APIRouter(dependencies=[Depends(factory_key)])
+
+
+@app.get("/health")
+def health() -> dict:
+    return {"status": "ok"}
 
 
 class Push(BaseModel):
@@ -121,19 +128,19 @@ class Rollback(BaseModel):
     requested_by: str | None = None
 
 
-@app.get("/hooks/can-merge")
+@guarded.get("/hooks/can-merge")
 def can_merge(sha: str) -> dict:
     allowed, reason = pipeline.can_merge(sha, approved)
     return {"allowed": allowed, "reason": reason}
 
 
-@app.post("/hooks/pushed", status_code=202)
+@guarded.post("/hooks/pushed", status_code=202)
 def pushed(push: Push) -> dict:
     jobs.put(lambda: pipeline.pushed(push.ref, push.old, push.new))
     return {"queued": True}
 
 
-@app.get("/releases")
+@guarded.get("/releases")
 def releases() -> dict:
     state = pipeline.state
     return {
@@ -144,7 +151,7 @@ def releases() -> dict:
     }
 
 
-@app.post("/rollback", status_code=202)
+@guarded.post("/rollback", status_code=202)
 def rollback(body: Rollback) -> dict:
     if pipeline.state.rollback_target is None:
         raise HTTPException(409, "There is no earlier release to roll back to")
@@ -152,13 +159,16 @@ def rollback(body: Rollback) -> dict:
     return {"queued": True, "target": pipeline.state.rollback_target}
 
 
-@app.post("/change-requests/{change_request_id}/discard", status_code=202)
+@guarded.post("/change-requests/{change_request_id}/discard", status_code=202)
 def discard(change_request_id: int) -> dict:
     jobs.put(lambda: pipeline.discard(change_request_id))
     return {"queued": True}
 
 
-@app.post("/change-requests/{change_request_id}/merge", status_code=202)
+@guarded.post("/change-requests/{change_request_id}/merge", status_code=202)
 def merge(change_request_id: int, body: Merge) -> dict:
     jobs.put(lambda: pipeline.merge(change_request_id, body.sha))
     return {"queued": True}
+
+
+app.include_router(guarded)

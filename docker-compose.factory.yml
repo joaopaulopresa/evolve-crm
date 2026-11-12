@@ -16,6 +16,11 @@ services:
     ports:
       # Bound to this machine only: used by deploy/install.sh and by operators.
       - "127.0.0.1:${GIT_PORT:-9418}:9418"
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z 127.0.0.1 9418"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
     restart: unless-stopped
 
   deployer:
@@ -38,6 +43,11 @@ services:
       - deployer-state:/state
       - deployer-work:/work
     networks: [control]
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "-o", "/dev/null", "http://127.0.0.1:8700/health"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
     restart: unless-stopped
 
 networks:
