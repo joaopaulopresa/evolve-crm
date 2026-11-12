@@ -1,0 +1,7 @@
+# A disposable copy of the app for one change request, always on fictional data.
+# It joins no factory network: code written by the agent runs here.
+services:
+  api:
+    environment:
+      ENVIRONMENT: preview
+      SEED_DEMO_DATA: "true"

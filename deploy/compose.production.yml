@@ -1,0 +1,27 @@
+# Production: restarts on failure and can reach the factory stack (deployer and Hermes).
+services:
+  db:
+    restart: unless-stopped
+  api:
+    restart: unless-stopped
+    environment:
+      ENVIRONMENT: production
+      DELIVERY_MODE: ${DELIVERY_MODE:-local}
+      FACTORY_URL: http://deployer:8700
+      FACTORY_KEY: ${FACTORY_KEY:?}
+    networks:
+      default:
+      control:
+        aliases: [crm-api]
+      agent:
+        aliases: [crm-api]
+  web:
+    restart: unless-stopped
+
+networks:
+  control:
+    name: evolve-control
+    external: true
+  agent:
+    name: evolve-agent
+    external: true
