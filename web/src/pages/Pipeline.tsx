@@ -1,7 +1,7 @@
 import { type DragEvent, useState } from "react";
 
 import { api } from "../api";
-import { day, initials, money } from "../format";
+import { initials, money, shortDay } from "../format";
 import { buildColumns } from "../pipeline";
 import type { Company, Deal, Stage, User } from "../types";
 import { useLoad } from "../useLoad";
@@ -82,7 +82,7 @@ export function Pipeline() {
                     <span className="deal-meta">
                       <span className="deal-value">{money(deal.value)}</span>
                       {deal.expected_close_date && (
-                        <span className="muted">{day(deal.expected_close_date)}</span>
+                        <span className="muted">{shortDay(deal.expected_close_date)}</span>
                       )}
                       <span className="avatar small" title={deal.owner_name}>
                         {initials(deal.owner_name)}

@@ -9,8 +9,9 @@
   --accent-wash: #e3f3ee;
   --amber: #b26a05;
   --rose: #b4324a;
-  --display: "Bricolage Grotesque Variable", "Hanken Grotesk Variable", system-ui, sans-serif;
-  --body: "Hanken Grotesk Variable", system-ui, sans-serif;
+  /* One typeface for the whole product. */
+  --display: "Bricolage Grotesque Variable", system-ui, sans-serif;
+  --body: var(--display);
   --radius: 6px;
 }
 
@@ -465,7 +466,7 @@ input[type="checkbox"] {
 
 .board {
   display: grid;
-  grid-template-columns: repeat(6, minmax(190px, 1fr));
+  grid-template-columns: repeat(6, minmax(172px, 1fr));
   gap: 12px;
   overflow-x: auto;
   align-items: start;
@@ -545,6 +546,9 @@ input[type="checkbox"] {
 }
 .deal-card .muted {
   font-size: 0.87rem;
+}
+.deal-meta .muted {
+  white-space: nowrap;
 }
 .deal-meta {
   display: flex;

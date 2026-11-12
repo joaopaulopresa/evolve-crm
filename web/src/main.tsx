@@ -1,5 +1,4 @@
 import "@fontsource-variable/bricolage-grotesque";
-import "@fontsource-variable/hanken-grotesk";
 import "./styles.css";
 
 import { StrictMode } from "react";

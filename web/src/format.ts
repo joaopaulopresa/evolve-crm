@@ -5,6 +5,8 @@ const moneyFormat = new Intl.NumberFormat("en-US", {
 });
 const dayFormat = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" });
 
+const shortDayFormat = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric" });
+
 export const money = (value: number) => moneyFormat.format(value);
 
 /** Formats an ISO date or timestamp as "Oct 5, 2026"; date-only values are not shifted by timezone. */
@@ -24,3 +26,6 @@ export const initials = (name: string) =>
 
 export const fullName = (person: { first_name: string; last_name: string }) =>
   `${person.first_name} ${person.last_name}`;
+
+/** "Oct 5" for a date-only value; used where space is tight. */
+export const shortDay = (value: string) => shortDayFormat.format(new Date(`${value}T12:00:00`));
