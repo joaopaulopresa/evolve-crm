@@ -71,3 +71,75 @@ export type Dashboard = {
   won_this_month: { count: number; value: number };
   overdue_tasks: Activity[];
 };
+
+// --- Implement and Ask (see api/app/implementation) ---------------------------------------------
+
+export type Features = {
+  environment: string;
+  implement: boolean;
+  implement_agent: boolean;
+  ask: boolean;
+  ask_disabled_by_owner: boolean;
+};
+
+export type RequestStatus =
+  | "open"
+  | "queued"
+  | "working"
+  | "needs_input"
+  | "checking"
+  | "checks_failed"
+  | "preview_ready"
+  | "approved"
+  | "deploying"
+  | "live"
+  | "deploy_failed"
+  | "rolled_back"
+  | "discarded";
+
+export type RequestEvent = {
+  id: number;
+  kind: string;
+  actor: string;
+  message: string | null;
+  log: string | null;
+  data: Record<string, unknown> | null;
+  created_at: string;
+};
+
+export type ChangeRequest = {
+  id: number;
+  title: string;
+  description: string;
+  status: RequestStatus;
+  branch: string | null;
+  head_sha: string | null;
+  preview_url: string | null;
+  summary: string | null;
+  tokens: number;
+  cost_usd: number | null;
+  trace_url: string | null;
+  requested_by_name: string;
+  approved_by_name: string | null;
+  created_at: string;
+  updated_at: string;
+  events?: RequestEvent[];
+};
+
+export type Releases = {
+  current: string | null;
+  rollback_target: string | null;
+  busy: boolean;
+  history: { sha: string; kind: string; ok: boolean; at: string; change_request_id?: number | null }[];
+};
+
+export type AskQuery = {
+  sql: string;
+  columns: string[];
+  rows: unknown[][];
+  row_count: number;
+  truncated: boolean;
+  error: string | null;
+};
+
+export type AskAnswer = { answer: string; queries: AskQuery[]; conversation_id: string };

@@ -4,11 +4,13 @@ import { useAuth } from "../auth";
 import { initials } from "../format";
 
 // Add a page: create it in src/pages, add its route in App.tsx and its link here.
-const LINKS = [
+const LINKS: { to: string; label: string; adminOnly?: boolean }[] = [
   { to: "/", label: "Dashboard" },
   { to: "/pipeline", label: "Pipeline" },
   { to: "/contacts", label: "Contacts" },
   { to: "/companies", label: "Companies" },
+  { to: "/ask", label: "Ask" },
+  { to: "/implement", label: "Implement", adminOnly: true },
 ];
 
 export function Layout() {
@@ -21,7 +23,7 @@ export function Layout() {
           Evolve CRM
         </div>
         <nav aria-label="Main">
-          {LINKS.map((link) => (
+          {LINKS.filter((link) => !link.adminOnly || user!.role === "admin").map((link) => (
             <NavLink key={link.to} to={link.to} end={link.to === "/"}>
               {link.label}
             </NavLink>
