@@ -5,6 +5,12 @@ from pydantic import BaseModel, ConfigDict, Field
 
 class ChangeRequestIn(BaseModel):
     description: str = Field(min_length=3, max_length=4000)
+    # True when a developer will push the branch by hand instead of asking the agent.
+    manual: bool = False
+
+
+class ReplyIn(BaseModel):
+    text: str = Field(min_length=1, max_length=4000)
 
 
 class EventOut(BaseModel):
@@ -30,6 +36,9 @@ class ChangeRequestOut(BaseModel):
     head_sha: str | None
     preview_url: str | None
     summary: str | None
+    tokens: int
+    cost_usd: float | None
+    trace_url: str | None
     requested_by_name: str
     approved_by_name: str | None
     created_at: datetime

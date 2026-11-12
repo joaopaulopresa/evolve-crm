@@ -9,6 +9,7 @@ from app.auth import hash_password
 from app.config import get_settings
 from app.db import SessionLocal, get_session
 from app.implementation import router as implementation
+from app.implementation import worker
 from app.models import User
 from app.routers import activities, auth, backups, companies, contacts, dashboard, deals
 
@@ -32,6 +33,7 @@ def ensure_admin_exists() -> None:
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     ensure_admin_exists()
+    worker.start()
     yield
 
 

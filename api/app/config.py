@@ -21,6 +21,15 @@ class Settings(BaseSettings):
     delivery_mode: str = "local"
     factory_url: str | None = None
     factory_key: str | None = None
+    hermes_builder_url: str | None = None
+    hermes_builder_key: str | None = None
+    hermes_analyst_url: str | None = None
+    hermes_analyst_key: str | None = None
+    crm_data_url: str | None = None
+    crm_data_context_key: str | None = None
+    # Where a person opens Langfuse in their browser, for links to traces.
+    langfuse_public_url: str | None = None
+    ask_enabled: bool = True
 
     # Where the backup service stores its files; the API only lists them for admins.
     s3_endpoint: str | None = None

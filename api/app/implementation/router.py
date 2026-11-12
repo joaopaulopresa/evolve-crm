@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, Header, HTTPException, Response, status
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.auth import require_admin
+from app.auth import current_user, require_admin
 from app.config import get_settings
 from app.db import get_session
 from app.implementation import service
@@ -15,6 +15,7 @@ from app.implementation.schemas import (
     ChangeRequestOut,
     EventOut,
     PipelineEvent,
+    ReplyIn,
 )
 from app.models import ChangeRequest, ChangeRequestEvent, User
 
@@ -52,9 +53,38 @@ def open_change_request(
     user: User = Depends(require_admin),
     _: Factory = Depends(get_factory),
 ):
-    request = service.open_request(session, payload.description, user)
+    settings = get_settings()
+    with_agent = bool(settings.hermes_builder_url) and not payload.manual
+    request = service.open_request(session, payload.description, user, with_agent)
     session.commit()
     return to_out(request)
+
+
+@router.post("/change-requests/{change_request_id}/messages", response_model=ChangeRequestOut)
+def reply_to_change_request(
+    payload: ReplyIn,
+    request: ChangeRequest = Depends(get_request),
+    session: Session = Depends(get_session),
+    user: User = Depends(require_admin),
+    factory: Factory = Depends(get_factory),
+):
+    service.reply(session, request, payload.text, user)
+    session.commit()
+    return to_out(request)
+
+
+@router.get("/features")
+def features(user: User = Depends(current_user)):
+    """What this environment can do, so the web app can explain what is switched off."""
+    settings = get_settings()
+    factory_connected = bool(settings.factory_url and settings.factory_key)
+    return {
+        "environment": settings.environment,
+        "implement": factory_connected and user.role == "admin",
+        "implement_agent": bool(settings.hermes_builder_url),
+        "ask": bool(settings.ask_enabled and settings.hermes_analyst_url and settings.crm_data_url),
+        "ask_disabled_by_owner": not settings.ask_enabled,
+    }
 
 
 @router.get("/change-requests", response_model=list[ChangeRequestOut])

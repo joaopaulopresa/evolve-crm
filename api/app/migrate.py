@@ -13,7 +13,6 @@ from alembic import command
 from alembic.config import Config
 from alembic.runtime.migration import MigrationContext
 from alembic.script import ScriptDirectory
-
 from sqlalchemy import text
 
 from app.db import engine

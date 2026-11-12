@@ -52,7 +52,7 @@ def status(client, admin, request_id):
 def test_admin_opens_a_change_request_with_its_branch(client, admin, factory):
     request = open_request(client, admin)
 
-    assert request["status"] == "open"
+    assert request["status"] == "open", "no agent is connected: a developer pushes the branch"
     assert request["branch"] == f"cr/{request['id']}"
     assert request["requested_by_name"] == "Admin"
     assert request["title"] == "Add a lead source field to contacts"

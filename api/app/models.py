@@ -11,8 +11,10 @@ DEAL_STAGES = ("lead", "qualified", "proposal", "negotiation", "won", "lost")
 OPEN_STAGES = ("lead", "qualified", "proposal", "negotiation")
 ACTIVITY_TYPES = ("note", "call", "meeting", "task")
 CHANGE_REQUEST_STATUSES = (
-    "open",  # created; waiting for the agent or for a branch to be pushed
+    "open",  # created without an agent (a developer pushes the branch by hand)
+    "queued",  # waiting for the agent to pick up the request or the owner's reply
     "working",  # the agent is implementing it
+    "needs_input",  # the agent asked a question, declined or got stuck; the owner replies
     "checking",  # the branch was pushed; checks and the preview build are running
     "checks_failed",
     "preview_ready",  # waiting for an admin to try the preview and approve or discard
@@ -23,6 +25,8 @@ CHANGE_REQUEST_STATUSES = (
     "rolled_back",
     "discarded",
 )
+# A request in one of these is finished. Only one unfinished request exists at a time.
+CHANGE_REQUEST_FINAL = ("live", "deploy_failed", "rolled_back", "discarded")
 
 
 class Base(DeclarativeBase):
@@ -137,6 +141,11 @@ class ChangeRequest(Base):
     preview_url: Mapped[str | None] = mapped_column(String(255))
     summary: Mapped[str | None] = mapped_column(Text)
     agent_session_id: Mapped[str | None] = mapped_column(String(120))
+    pending_message: Mapped[str | None] = mapped_column(Text)
+    agent_attempts: Mapped[int] = mapped_column(default=0, server_default="0")
+    tokens: Mapped[int] = mapped_column(default=0, server_default="0")
+    cost_usd: Mapped[Decimal | None] = mapped_column(Numeric(10, 4))
+    trace_url: Mapped[str | None] = mapped_column(String(255))
     requested_by_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
     approved_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
