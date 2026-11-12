@@ -1,7 +1,9 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 import { useAuth } from "../auth";
 import { initials } from "../format";
+import { reloadIfReleaseChanged } from "../release";
 
 // Add a page: create it in src/pages, add its route in App.tsx and its link here.
 const LINKS: { to: string; label: string; adminOnly?: boolean }[] = [
@@ -15,6 +17,10 @@ const LINKS: { to: string; label: string; adminOnly?: boolean }[] = [
 
 export function Layout() {
   const { user, logout } = useAuth();
+  const location = useLocation();
+  useEffect(() => {
+    void reloadIfReleaseChanged();
+  }, [location.pathname]);
   return (
     <div className="shell">
       <aside className="rail">

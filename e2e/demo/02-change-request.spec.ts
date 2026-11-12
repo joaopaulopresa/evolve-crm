@@ -82,7 +82,7 @@ test("change request", async ({ page, baseURL }) => {
 
   await heroClip(3.5, async () => {
     await openPage(page, "Contacts");
-    await expect(page.locator("main")).toContainText(/lead source/i);
+    await expect(page.locator("main")).toContainText(/lead source/i, { timeout: 30000 });
     await caption(page, "Production now has the lead source field and filter", 3000);
   });
   await screenshot(page, "screen-contacts-lead-source");
