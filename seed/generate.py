@@ -7,13 +7,19 @@ random seed, and dates are stored as offsets from "today" so the demo never goes
     OPENROUTER_API_KEY=... LLM_MODEL=... python seed/generate.py
 
 The result is committed, so running the product never needs an API key. Everything is fictional.
+
+When the Langfuse SDK is installed (pip install -r seed/requirements.txt) and LANGFUSE_PUBLIC_KEY,
+LANGFUSE_SECRET_KEY and LANGFUSE_HOST are set, every model call is recorded as a trace.
+`python seed/generate.py --trace-check` makes one tiny call to check that tracing works.
 """
 
 import json
 import os
 import random
 import re
+import sys
 import urllib.request
+from contextlib import contextmanager
 from pathlib import Path
 
 OUTPUT = Path(__file__).with_name("data.json")
@@ -34,8 +40,45 @@ RULES = (
 )
 
 
-def ask(prompt: str) -> dict:
+def tracer():
+    """The Langfuse client, or None when tracing is not installed or not configured."""
+    if not os.environ.get("LANGFUSE_PUBLIC_KEY"):
+        return None
+    try:
+        from langfuse import get_client
+    except ImportError:
+        return None
+    return get_client()
+
+
+@contextmanager
+def traced(name: str, prompt: str):
+    """Records one model call in Langfuse. Yields a function that takes the output and usage."""
+    client = tracer()
+    if client is None:
+        yield lambda output, usage: None
+        return
+    with client.start_as_current_observation(
+        name=name, as_type="generation", model=MODEL, input=prompt
+    ) as generation:
+        yield lambda output, usage: generation.update(
+            output=output,
+            usage_details={
+                "input": usage.get("prompt_tokens", 0),
+                "output": usage.get("completion_tokens", 0),
+            },
+        )
+
+
+def ask(prompt: str, name: str = "seed") -> dict:
     """One chat completion that must return a JSON object."""
+    with traced(name, prompt) as finish:
+        content, usage = complete(prompt)
+        finish(content, usage)
+    return json.loads(re.sub(r"^```(?:json)?|```$", "", content.strip(), flags=re.M))
+
+
+def complete(prompt: str) -> tuple[str, dict]:
     request = urllib.request.Request(
         "https://openrouter.ai/api/v1/chat/completions",
         data=json.dumps(
@@ -60,8 +103,7 @@ def ask(prompt: str) -> dict:
         body = json.load(response)
     usage = body.get("usage", {})
     print(f"  {usage.get('prompt_tokens')} in / {usage.get('completion_tokens')} out tokens")
-    content = body["choices"][0]["message"]["content"]
-    return json.loads(re.sub(r"^```(?:json)?|```$", "", content.strip(), flags=re.M))
+    return body["choices"][0]["message"]["content"], usage
 
 
 def slug(text: str) -> str:
@@ -188,6 +230,16 @@ def generate() -> dict:
 
 
 if __name__ == "__main__":
+    if "--trace-check" in sys.argv:
+        print(ask('Reply with {"ok": true}.', name="seed-trace-check"))
+        client = tracer()
+        if client is None:
+            sys.exit("Tracing is off: install seed/requirements.txt and set the LANGFUSE_* variables.")
+        client.flush()
+        print("Trace sent to", os.environ.get("LANGFUSE_HOST"))
+        sys.exit(0)
     data = generate()
     OUTPUT.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n")
     print({key: len(value) for key, value in data.items() if isinstance(value, list)})
+    if tracer():
+        tracer().flush()
