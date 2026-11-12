@@ -1,0 +1,42 @@
+#!/bin/sh
+# Start (or resume) work on a change request: puts the checkout on branch cr/<id> and resets
+# the sandbox database to match it.
+# Usage: evolve-start <change-request-id>
+set -eu
+. /usr/local/bin/evolve-env
+id="${1:?usage: evolve-start <change-request-id>}"
+branch="cr/$id"
+
+if [ ! -d "$REPO/.git" ]; then
+    git clone -q "${GIT_URL:?}" "$REPO"
+fi
+cd "$REPO"
+git fetch -q --prune origin
+git reset -q --hard
+git clean -fdq
+if git rev-parse -q --verify "refs/remotes/origin/$branch" >/dev/null; then
+    git checkout -q -B "$branch" "origin/$branch"
+    echo "Resumed $branch at $(git rev-parse --short HEAD) (earlier work on this request is kept)."
+else
+    git checkout -q -B "$branch" origin/main
+    echo "Created $branch from main at $(git rev-parse --short HEAD)."
+fi
+evolve-brief "$REPO"
+ln -sfn /opt/evolve/web/node_modules web/node_modules
+grep -qx 'web/node_modules' .git/info/exclude 2>/dev/null || echo 'web/node_modules' >> .git/info/exclude
+
+# A fresh sandbox database with this branch's schema and the fictional demo data.
+python - <<'PY'
+import os
+from sqlalchemy import create_engine, text
+from sqlalchemy.engine import make_url
+
+url = make_url(os.environ["DATABASE_URL"])
+engine = create_engine(url.set(database="postgres"), isolation_level="AUTOCOMMIT")
+with engine.connect() as connection:
+    connection.execute(text(f"DROP DATABASE IF EXISTS {url.database} WITH (FORCE)"))
+    connection.execute(text(f"CREATE DATABASE {url.database}"))
+PY
+(cd api && python -m app.migrate >/dev/null 2>&1 && python -m app.seed >/dev/null)
+echo "Sandbox database reset: migrated and loaded with demo data."
+echo "Next: make the change, run evolve-test, then evolve-submit \"<commit message>\"."

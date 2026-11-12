@@ -1,0 +1,8 @@
+#!/bin/sh
+# Make sure the checkout has the agent's brief. When the repository does not track AGENTS.md,
+# the copy shipped in this image is placed there and hidden from git.
+repo="${1:-/opt/data/workspace/repo}"
+if ! git -C "$repo" ls-files --error-unmatch AGENTS.md >/dev/null 2>&1 && [ -f /opt/evolve/AGENTS.md ]; then
+    cp /opt/evolve/AGENTS.md "$repo/AGENTS.md"
+    grep -qx 'AGENTS.md' "$repo/.git/info/exclude" 2>/dev/null || echo 'AGENTS.md' >> "$repo/.git/info/exclude"
+fi

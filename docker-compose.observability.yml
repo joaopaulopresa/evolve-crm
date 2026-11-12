@@ -75,6 +75,8 @@ services:
       default:
       agent:
         aliases: [langfuse]
+      analyst:
+        aliases: [langfuse]
     healthcheck:
       test: ["CMD-SHELL", "wget -qO /dev/null http://127.0.0.1:3000/api/public/health || exit 1"]
       interval: 10s
@@ -186,6 +188,9 @@ networks:
   # Created by docker-compose.factory.yml.
   agent:
     name: evolve-agent
+    external: true
+  analyst:
+    name: evolve-analyst
     external: true
   control:
     name: evolve-control

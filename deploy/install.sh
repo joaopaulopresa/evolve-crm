@@ -11,17 +11,26 @@ set -eu
 cd "$(dirname "$0")/.."
 
 [ -f .env ] || cp .env.example .env
-if ! grep -q '^FACTORY_KEY=' .env; then
-    printf '\n# Shared secret between the CRM API, the deployer and the git hooks.\nFACTORY_KEY=%s\n' \
-        "$(openssl rand -hex 24)" >> .env
-fi
+# Secrets shared between the CRM API, the deployer, the git hooks, the agents and crm-data.
+[ -z "$(tail -c1 .env)" ] || echo >> .env
+for name in FACTORY_KEY HERMES_BUILDER_KEY HERMES_ANALYST_KEY CRM_DATA_MCP_KEY CRM_DATA_CONTEXT_KEY; do
+    grep -q "^$name=" .env || printf '%s=%s\n' "$name" "$(openssl rand -hex 24)" >> .env
+done
 set -a; . ./.env; set +a
+if [ -z "${OPENROUTER_API_KEY:-}" ]; then
+    echo "Note: OPENROUTER_API_KEY is empty in .env. The CRM will run, but the Implement and"
+    echo "Ask pages need it. Add the key and run this script again."
+fi
 
-docker compose -f docker-compose.factory.yml up -d --build --wait
+# The repository and the deployer first: the push below is what the deployer deploys.
+docker compose -f docker-compose.factory.yml up -d --build --wait git deployer
 
 remote="git://127.0.0.1:${GIT_PORT:-9418}/repo.git"
 echo "Pushing $(git rev-parse --short HEAD) to $remote"
 git push ${FORCE:+--force} -o "operator-key=$FACTORY_KEY" "$remote" HEAD:refs/heads/main
+
+# The agents start after the push, so the builder finds a repository to clone.
+docker compose -f docker-compose.factory.yml up -d --build --wait
 
 echo
 echo "The deployer is now building and deploying production."

@@ -9,12 +9,37 @@ services:
       DELIVERY_MODE: ${DELIVERY_MODE:-local}
       FACTORY_URL: http://deployer:8700
       FACTORY_KEY: ${FACTORY_KEY:?}
+      HERMES_BUILDER_URL: http://hermes-builder:8642
+      HERMES_BUILDER_KEY: ${HERMES_BUILDER_KEY:?}
+      HERMES_ANALYST_URL: http://hermes-analyst:8642
+      HERMES_ANALYST_KEY: ${HERMES_ANALYST_KEY:?}
+      CRM_DATA_URL: http://crm-data:8765
+      CRM_DATA_CONTEXT_KEY: ${CRM_DATA_CONTEXT_KEY:?}
+      LANGFUSE_PUBLIC_URL: ${LANGFUSE_PUBLIC_URL:-}
+      ASK_ENABLED: ${ASK_ENABLED:-true}
     networks:
       default:
       control:
         aliases: [crm-api]
       agent:
         aliases: [crm-api]
+      analyst:
+        aliases: [crm-api]
+  # Read-only query tools over this environment's database, for the analyst agent.
+  crm-data:
+    image: evolve-crm-data:${IMAGE_TAG:-dev}
+    restart: unless-stopped
+    environment:
+      READER_DATABASE_URL: postgresql://crm_reader:${CRM_READER_PASSWORD}@db:5432/crm
+      CRM_DATA_MCP_KEY: ${CRM_DATA_MCP_KEY:?}
+      CRM_DATA_CONTEXT_KEY: ${CRM_DATA_CONTEXT_KEY:?}
+    depends_on:
+      api:
+        condition: service_healthy
+    networks:
+      default:
+      analyst:
+        aliases: [crm-data]
   web:
     restart: unless-stopped
   minio:
@@ -49,4 +74,7 @@ networks:
     external: true
   agent:
     name: evolve-agent
+    external: true
+  analyst:
+    name: evolve-analyst
     external: true

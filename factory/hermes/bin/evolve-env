@@ -1,0 +1,6 @@
+# Sourced by the evolve-* commands: the project toolchain and the sandbox database.
+export PATH="/opt/evolve/venv/bin:$PATH"
+export DATABASE_URL="${SANDBOX_DATABASE_URL:-postgresql+psycopg://crm:crm@sandbox-db:5432/crm}"
+export SEED_FILE=/opt/data/workspace/repo/seed/data.json
+export CI=true
+REPO=/opt/data/workspace/repo

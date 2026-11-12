@@ -1,0 +1,122 @@
+#!/bin/sh
+# Runs as root on every start, before Hermes's own setup. Seeds the data volume, then writes
+# the configuration for this container's role from the environment. Configuration is code:
+# it is rewritten on every start, so nothing the agent changes there survives a restart.
+set -eu
+home=/opt/data
+role="${HERMES_ROLE:?HERMES_ROLE must be builder or analyst}"
+
+if [ ! -d "$home/plugins/langfuse" ]; then
+    echo "[evolve] seeding $home (first start)"
+    cp -a /opt/evolve/home-seed/. "$home/"
+fi
+
+# Hermes loads $HERMES_HOME/.env over the container environment, so secrets go there.
+umask 077
+cat > "$home/.env" <<ENV
+OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
+API_SERVER_ENABLED=true
+API_SERVER_HOST=0.0.0.0
+API_SERVER_KEY=${API_SERVER_KEY:?}
+HERMES_LANGFUSE_PUBLIC_KEY=${LANGFUSE_PUBLIC_KEY:-}
+HERMES_LANGFUSE_SECRET_KEY=${LANGFUSE_SECRET_KEY:-}
+HERMES_LANGFUSE_BASE_URL=${LANGFUSE_BASE_URL:-http://langfuse:3000}
+HERMES_LANGFUSE_CAPTURE=full
+HERMES_LANGFUSE_ENV=${HERMES_ROLE}
+CRM_DATA_MCP_KEY=${CRM_DATA_MCP_KEY:-}
+ENV
+umask 022
+
+common() {
+    cat <<YAML
+model:
+  default: "${LLM_MODEL:?}"
+  provider: "openrouter"
+  base_url: "https://openrouter.ai/api/v1"
+# Every request starts clean: no long-term memory, no self-written skills, no curator.
+memory:
+  memory_enabled: false
+  user_profile_enabled: false
+  provider: ""
+curator:
+  enabled: false
+skills:
+  external_dirs: []
+  project_discovery: false
+plugins:
+  enabled:
+    - langfuse
+gateway:
+  api_server:
+    max_concurrent_runs: 1
+YAML
+}
+
+if [ "$role" = builder ]; then
+    {
+        common
+        cat <<YAML
+terminal:
+  backend: local
+  cwd: /opt/data/workspace/repo
+  timeout: 600
+agent:
+  max_turns: 80
+  disabled_toolsets: [web, search, x_search, browser, code_execution, delegation, memory, skills, session_search, cronjob, vision, video, image_gen, video_gen, tts, stt, connections, computer_use, kanban, context_engine, clarify, discord, discord_admin, a2a]
+platform_toolsets:
+  api_server: [terminal, file, todo, no_mcp]
+# Nobody watches the terminal: a command flagged as dangerous is denied, not asked about.
+approvals:
+  mode: manual
+  unattended_mode: deny
+  deny:
+    - 'git push*--force*'
+    - 'git push* -f*'
+    - 'git push*main*'
+    - 'git push*:refs/heads/main*'
+    - 'hermes skills *'
+    - 'hermes plugins *'
+    - 'hermes config *'
+YAML
+    } > "$home/config.yaml"
+
+    mkdir -p "$home/workspace"
+    cat > "$home/.gitconfig" <<GIT
+[user]
+    name = Hermes
+    email = hermes@evolve.local
+[safe]
+    directory = *
+[advice]
+    detachedHead = false
+GIT
+    # Clone now if the repository already has a main branch, so the brief (AGENTS.md) is in
+    # place when the first session starts. evolve-start clones later otherwise.
+    if [ ! -d "$home/workspace/repo/.git" ] && git ls-remote --exit-code "${GIT_URL:?}" refs/heads/main >/dev/null 2>&1; then
+        git clone -q "$GIT_URL" "$home/workspace/repo" && /usr/local/bin/evolve-brief "$home/workspace/repo" || true
+    fi
+else
+    {
+        common
+        cat <<YAML
+agent:
+  max_turns: 15
+  disabled_toolsets: [terminal, file, web, search, x_search, browser, code_execution, delegation, memory, skills, session_search, cronjob, vision, video, image_gen, video_gen, tts, stt, todo, clarify, connections, computer_use, kanban, context_engine, discord, discord_admin, a2a]
+platform_toolsets:
+  api_server: [crm_data]
+mcp_servers:
+  crm_data:
+    url: "${CRM_DATA_URL:-http://crm-data:8765/mcp/}"
+    headers:
+      Authorization: "Bearer \${CRM_DATA_MCP_KEY}"
+    timeout: 30
+    tools:
+      resources: false
+      prompts: false
+YAML
+    } > "$home/config.yaml"
+    cp /usr/local/bin/evolve-analyst-soul "$home/SOUL.md"
+fi
+
+chown -R hermes:hermes "$home/.env" "$home/config.yaml" "$home/workspace" "$home/.gitconfig" "$home/SOUL.md" 2>/dev/null || true
+echo "[evolve] configured as $role"

@@ -1,0 +1,22 @@
+#!/bin/sh
+# Run the same lint and tests the pipeline runs. Usage: evolve-test [api|web]
+set -eu
+. /usr/local/bin/evolve-env
+cd "$REPO"
+what="${1:-all}"
+
+if [ "$what" = all ] || [ "$what" = api ]; then
+    echo "== API: applying migrations to the sandbox database"
+    (cd api && python -m app.migrate)
+    echo "== API: lint"
+    (cd api && ruff check . && ruff format --check .)
+    echo "== API: tests"
+    (cd api && pytest -q -p no:cacheprovider)
+fi
+if [ "$what" = all ] || [ "$what" = web ]; then
+    echo "== Web: type check"
+    (cd web && npm run --silent lint)
+    echo "== Web: tests"
+    (cd web && npm test --silent)
+fi
+echo "== All good."

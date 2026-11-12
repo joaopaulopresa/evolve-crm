@@ -1,0 +1,6 @@
+#!/bin/sh
+# Format and auto-fix the Python code the way the lint check expects.
+set -eu
+. /usr/local/bin/evolve-env
+cd "$REPO/api"
+ruff format . && ruff check --fix .

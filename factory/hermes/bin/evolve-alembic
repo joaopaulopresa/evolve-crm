@@ -1,0 +1,7 @@
+#!/bin/sh
+# Alembic against the sandbox database, for example:
+#   evolve-alembic revision --autogenerate -m "add lead source to contacts"
+set -eu
+. /usr/local/bin/evolve-env
+cd "$REPO/api"
+exec alembic "$@"

@@ -15,6 +15,7 @@ if [ ! -f "$env_file" ]; then
     {
         echo "POSTGRES_PASSWORD=$(openssl rand -hex 24)"
         echo "SECRET_KEY=$(openssl rand -hex 32)"
+        echo "CRM_READER_PASSWORD=$(openssl rand -hex 24)"
         echo "MINIO_ROOT_USER=evolve"
         echo "MINIO_ROOT_PASSWORD=$(openssl rand -hex 24)"
         echo "ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin123}"

@@ -1,9 +1,40 @@
-# The factory: everything that turns a change request into a running release. One per
-# installation, separate from the app stacks it deploys.
+# The factory: everything that turns a change request into a running release, and answers
+# questions about the data. One per installation, separate from the app stacks it deploys.
+# Start it with deploy/install.sh, which also generates the keys below.
 #
-#   git        bare repository (local delivery mode) with the hooks that guard main
-#   deployer   runs deploy/*.sh; the only container with the Docker socket
+#   git             bare repository (local delivery mode) with the hooks that guard main
+#   deployer        runs deploy/*.sh; the only container with the Docker socket
+#   hermes-builder  Hermes Agent that implements change requests in a git checkout
+#   sandbox-db      PostgreSQL with fictional data, for the builder's migrations and tests
+#   hermes-analyst  Hermes Agent that answers data questions; its only tools are crm-data's
+#   egress-proxy    the agents' only way out, limited to an allow-list of hosts
 name: evolve-factory
+
+x-hermes: &hermes
+  image: evolve-hermes:local
+  build:
+    context: .
+    dockerfile: factory/hermes/Dockerfile
+  restart: unless-stopped
+  depends_on: [egress-proxy]
+  healthcheck:
+    test: ["CMD", "curl", "-fsS", "-o", "/dev/null", "http://127.0.0.1:8642/health"]
+    interval: 5s
+    timeout: 3s
+    retries: 40
+    start_period: 20s
+
+x-hermes-env: &hermes-env
+  OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+  LLM_MODEL: ${LLM_MODEL:-deepseek/deepseek-v4.1-flash-1017}
+  LANGFUSE_PUBLIC_KEY: ${LANGFUSE_PUBLIC_KEY:-pk-lf-evolve-local}
+  LANGFUSE_SECRET_KEY: ${LANGFUSE_SECRET_KEY:-sk-lf-evolve-local}
+  LANGFUSE_BASE_URL: http://langfuse:3000
+  # The agent networks have no route to the internet. HTTPS goes through the allow-list proxy;
+  # the services below are reached directly.
+  HTTPS_PROXY: http://egress-proxy:8888
+  HTTP_PROXY: http://egress-proxy:8888
+  NO_PROXY: localhost,127.0.0.1,git,sandbox-db,langfuse,crm-data,crm-api
 
 services:
   git:
@@ -37,6 +68,13 @@ services:
       PREVIEW_PORT_BASE: ${PREVIEW_PORT_BASE:-8200}
       PUBLIC_HOST: ${PUBLIC_HOST:-localhost}
       SEED_DEMO_DATA: ${SEED_DEMO_DATA:-true}
+      # Handed to the production stack when it is deployed.
+      HERMES_BUILDER_KEY: ${HERMES_BUILDER_KEY:?}
+      HERMES_ANALYST_KEY: ${HERMES_ANALYST_KEY:?}
+      CRM_DATA_MCP_KEY: ${CRM_DATA_MCP_KEY:?}
+      CRM_DATA_CONTEXT_KEY: ${CRM_DATA_CONTEXT_KEY:?}
+      LANGFUSE_PUBLIC_URL: ${LANGFUSE_PUBLIC_URL:-http://localhost:3300}
+      ASK_ENABLED: ${ASK_ENABLED:-true}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - repo-git:/srv/git:ro
@@ -50,15 +88,71 @@ services:
       retries: 20
     restart: unless-stopped
 
+  egress-proxy:
+    build: ./factory/proxy
+    networks: [agent, analyst, egress]
+    restart: unless-stopped
+
+  sandbox-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: crm
+      POSTGRES_PASSWORD: crm
+      POSTGRES_DB: crm
+    # Throwaway by design: evolve-start recreates the database for every request.
+    tmpfs: [/var/lib/postgresql/data]
+    networks: [agent]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U crm -d crm"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+  hermes-builder:
+    <<: *hermes
+    environment:
+      <<: *hermes-env
+      HERMES_ROLE: builder
+      API_SERVER_KEY: ${HERMES_BUILDER_KEY:?}
+      GIT_URL: git://git:9418/repo.git
+      SANDBOX_DATABASE_URL: postgresql+psycopg://crm:crm@sandbox-db:5432/crm
+    volumes:
+      - hermes-builder:/opt/data
+    networks: [agent]
+
+  hermes-analyst:
+    <<: *hermes
+    environment:
+      <<: *hermes-env
+      HERMES_ROLE: analyst
+      API_SERVER_KEY: ${HERMES_ANALYST_KEY:?}
+      CRM_DATA_MCP_KEY: ${CRM_DATA_MCP_KEY:?}
+      CRM_DATA_URL: http://crm-data:8765/mcp/
+    volumes:
+      - hermes-analyst:/opt/data
+    networks: [analyst]
+
 networks:
-  # git, Hermes and the production API. No deployer here: the agent never talks to it.
+  # The builder's world: git, the sandbox database, Langfuse, the proxy, and the production
+  # API that calls it. No route to the internet, no deployer, no production database.
   agent:
     name: evolve-agent
-  # git hooks, the deployer and the production API.
+    internal: true
+  # The analyst's world: the crm-data server, Langfuse, the proxy and the production API.
+  analyst:
+    name: evolve-analyst
+    internal: true
+  # git hooks, the deployer, the production API and Prometheus.
   control:
     name: evolve-control
+  # Only the proxy is attached to this one.
+  egress:
+    name: evolve-egress
 
 volumes:
   repo-git:
   deployer-state:
   deployer-work:
+  hermes-builder:
+  hermes-analyst:

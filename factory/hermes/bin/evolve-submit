@@ -1,0 +1,27 @@
+#!/bin/sh
+# Finish a round of work: run the tests, commit everything and push the request's branch.
+# The pipeline then checks it and builds the preview. Refuses to push when tests fail.
+# Usage: evolve-submit "<commit message>"
+set -eu
+. /usr/local/bin/evolve-env
+message="${1:?usage: evolve-submit \"<commit message>\"}"
+cd "$REPO"
+branch="$(git rev-parse --abbrev-ref HEAD)"
+case "$branch" in
+    cr/*) ;;
+    *) echo "Not on a change-request branch (run evolve-start <id> first)."; exit 1 ;;
+esac
+
+evolve-test
+
+git add -A
+if git diff --cached --quiet; then
+    if [ "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)" ]; then
+        echo "Nothing to submit: there are no changes compared with main."; exit 1
+    fi
+else
+    git commit -q -m "$message"
+fi
+git push -q --force-with-lease origin "HEAD:refs/heads/$branch"
+echo "SUBMITTED $branch $(git rev-parse HEAD)"
+git --no-pager diff --stat origin/main HEAD | tail -15
