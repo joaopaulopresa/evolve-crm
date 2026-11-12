@@ -10,6 +10,7 @@ import os
 import queue
 import subprocess
 import threading
+import time
 from collections.abc import Callable
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -53,12 +54,16 @@ def crm(method: str, path: str, **kwargs) -> httpx.Response:
 
 
 def report(kind: str, fields: dict) -> None:
-    """Tell the CRM. It may be down (it is, during its own first deploy): that is not an error."""
+    """Tell the CRM. It restarts during its own deploy, so try a few times before giving up;
+    during the very first deploy it does not exist yet, and that is not an error."""
     log.info("event %s %s", kind, {k: v for k, v in fields.items() if k != "log"})
-    try:
-        crm("POST", "/api/internal/pipeline-events", json={"kind": kind, **fields})
-    except httpx.HTTPError as error:
-        log.warning("could not report %s to the CRM: %s", kind, error)
+    for attempt in range(4):
+        try:
+            crm("POST", "/api/internal/pipeline-events", json={"kind": kind, **fields})
+            return
+        except httpx.HTTPError as error:
+            log.warning("could not report %s to the CRM (attempt %s): %s", kind, attempt + 1, error)
+            time.sleep(5)
 
 
 def approved(change_request_id: int, sha: str) -> bool:
