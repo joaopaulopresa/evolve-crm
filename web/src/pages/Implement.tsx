@@ -217,7 +217,7 @@ function ReleasePanel({ refreshKey }: { refreshKey: number }) {
   const [message, setMessage] = useState<string | null>(null);
 
   async function rollback() {
-    if (!window.confirm("Roll production back to the previous release? Data is kept.")) return;
+    if (!window.confirm("Switch production to the other release? Data is kept.")) return;
     try {
       await api("/releases/rollback", { method: "POST" });
       setMessage("Rolling back. Production restarts in a moment.");
@@ -227,6 +227,9 @@ function ReleasePanel({ refreshKey }: { refreshKey: number }) {
   }
 
   const data = releases.data;
+  // After a rollback, the release to go to is the newer one: say "restore", not "roll back".
+  const lastGood = data?.history.filter((release) => release.ok).at(-1);
+  const undoing = lastGood?.kind === "rollback";
   return (
     <section className="panel release">
       <h2>Production</h2>
@@ -241,7 +244,8 @@ function ReleasePanel({ refreshKey }: { refreshKey: number }) {
             disabled={!data.rollback_target || data.busy}
             onClick={rollback}
           >
-            Roll back to {shortSha(data.rollback_target) || "previous"}
+            {undoing ? "Restore release" : "Roll back to"}{" "}
+            {shortSha(data.rollback_target) || "previous"}
           </button>
           {message && <p className="muted">{message}</p>}
         </>

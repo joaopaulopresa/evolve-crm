@@ -8,8 +8,19 @@ import type { Locator, Page } from "@playwright/test";
 
 export const MEDIA_DIR = path.resolve(import.meta.dirname, "../../docs/media");
 
+// Times are seconds since the recording started.
+type Span = { start: number; end: number; seconds: number };
+let recordingStarted = 0;
+let waits: Span[] = []; // stretches of waiting, played back in `seconds`
+let heroClips: Span[] = []; // moments that make up the short looping animation
+const now = () => (Date.now() - recordingStarted) / 1000;
+
 /** Adds the caption bar and a cursor dot to every page the recording visits. */
 export async function installOverlay(page: Page) {
+  recordingStarted = Date.now();
+  waits = [];
+  heroClips = [];
+  position = { x: 640, y: 360 };
   await page.addInitScript(() => {
     const setup = () => {
       if (document.getElementById("demo-caption")) return;
@@ -111,17 +122,66 @@ export async function screenshot(page: Page, name: string) {
   });
 }
 
-/** Closes the page and converts its recording to docs/media/<name>.mp4 (H.264). */
+/** Waits for something slow (the agent, a deploy). The video plays this stretch in `seconds`. */
+export async function fastForward(page: Page, text: string, wait: () => Promise<unknown>, seconds = 6) {
+  await caption(page, `${text} (sped up)`, 400);
+  const start = now();
+  await wait();
+  waits.push({ start, end: now(), seconds });
+}
+
+/** Marks what happens inside as part of the short hero animation, played in `seconds`. */
+export async function heroClip(seconds: number, action: () => Promise<unknown>) {
+  const start = now();
+  await action();
+  heroClips.push({ start, end: now(), seconds });
+}
+
+/** An ffmpeg filter that plays each span in its target time and joins them. */
+function retime(spans: Span[], tail: string): string {
+  const parts = spans.map(
+    ({ start, end, seconds }, index) =>
+      `[0:v]trim=start=${start.toFixed(2)}:end=${end.toFixed(2)},` +
+      `setpts=(PTS-STARTPTS)*${(seconds / Math.max(end - start, 0.1)).toFixed(4)}[p${index}]`,
+  );
+  const inputs = spans.map((_, index) => `[p${index}]`).join("");
+  return `${parts.join(";")};${inputs}concat=n=${spans.length}:v=1${tail}`;
+}
+
+/** Closes the page and converts its recording to docs/media/<name>.mp4 (H.264), with the
+ * waiting stretches sped up. With hero clips marked, also writes docs/media/hero.gif. */
 export async function saveVideo(page: Page, name: string) {
   mkdirSync(MEDIA_DIR, { recursive: true });
   const video = page.video();
+  const total = now();
   await page.context().close();
   const source = await video!.path();
   const target = path.join(MEDIA_DIR, `${name}.mp4`);
+
+  // The whole recording as spans: normal speed, except the waits.
+  const spans: Span[] = [];
+  let cursor = 0;
+  for (const wait of waits) {
+    if (wait.start > cursor) spans.push({ start: cursor, end: wait.start, seconds: wait.start - cursor });
+    spans.push({ ...wait, seconds: Math.min(wait.seconds, wait.end - wait.start) });
+    cursor = wait.end;
+  }
+  spans.push({ start: cursor, end: total, seconds: total - cursor });
+
   execFileSync("ffmpeg", [
     "-y", "-loglevel", "error", "-i", source,
+    "-filter_complex", retime(spans, "[out]"), "-map", "[out]", "-r", "25",
     "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "23", "-movflags", "+faststart", "-an",
     target,
   ]);
   console.log(`saved ${target}`);
+
+  if (heroClips.length > 0) {
+    const gif = path.join(MEDIA_DIR, "hero.gif");
+    const filter =
+      retime(heroClips, ",fps=12,scale=960:-1:flags=lanczos,split[a][b]") +
+      ";[a]palettegen=max_colors=128:stats_mode=diff[palette];[b][palette]paletteuse=dither=bayer:bayer_scale=4";
+    execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", source, "-filter_complex", filter, gif]);
+    console.log(`saved ${gif}`);
+  }
 }
