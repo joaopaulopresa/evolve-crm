@@ -252,6 +252,9 @@ def test_only_meaningful_steps_are_described():
     assert describe(Step("terminal", " evolve-test ")) == "Ran: evolve-test"
     assert describe(Step("write_file", "web/src/types.ts")) == "Edited web/src/types.ts"
     assert describe(Step("todo", "")) is None
+    assert (
+        describe(Step("approval", "rm -rf web")) == "Refused a command flagged as risky: rm -rf web"
+    )
 
 
 def test_features_tell_the_web_app_what_is_connected(client, admin, alice, setup, monkeypatch):

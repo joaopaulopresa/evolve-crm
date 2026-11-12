@@ -70,6 +70,8 @@ platform_toolsets:
 approvals:
   mode: manual
   unattended_mode: deny
+  # The CRM API refuses approval requests as they arrive; this is the fallback.
+  timeout: 15
   deny:
     - 'git push*--force*'
     - 'git push* -f*'

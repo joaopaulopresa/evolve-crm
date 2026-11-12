@@ -91,6 +91,19 @@ def conversation_for(user: User, conversation_id: str | None) -> str:
     return prefix + secrets.token_hex(6)
 
 
+def question_for(user: User, question: str) -> str:
+    """The question, with who is asking, so the answer is worded for what they can see."""
+    if user.role == "admin":
+        scope = "an admin, who sees every record"
+    else:
+        scope = (
+            "a sales user: the tools only return this person's own deals and activities "
+            "(companies and contacts are shared), so word totals and rankings as theirs, "
+            "not as the whole team's"
+        )
+    return f"[Asked by {user.name}, {scope}.]\n{question}"
+
+
 @router.post("", response_model=AskOut)
 def ask(
     payload: AskIn,
@@ -105,7 +118,7 @@ def ask(
         crm_data.begin(user)
         try:
             finished = Finished(False, "The analyst stopped without an answer.")
-            for item in analyst.run(payload.question, conversation_id):
+            for item in analyst.run(question_for(user, payload.question), conversation_id):
                 if isinstance(item, Finished):
                     finished = item
         finally:

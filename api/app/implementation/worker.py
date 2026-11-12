@@ -59,6 +59,8 @@ def describe(step: Step) -> str | None:
         return f"Read {preview}"
     if step.tool in ("write_file", "patch"):
         return f"Edited {preview}"
+    if step.tool == "approval":
+        return f"Refused a command flagged as risky: {preview}"
     if step.tool == "search_files":
         return f"Searched the code for {preview}"
     return None

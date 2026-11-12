@@ -56,6 +56,18 @@ class Hermes:
                 kind = event.get("event")
                 if kind == "tool.started":
                     yield Step(event.get("tool", ""), event.get("preview") or "")
+                elif kind == "approval.request":
+                    # Nobody watches the agent's terminal. A command Hermes considers risky
+                    # is refused at once instead of waiting for an answer that never comes.
+                    self.client.post(
+                        f"/v1/runs/{run_id}/approval",
+                        json={
+                            "request_id": event.get("prompt_id"),
+                            "execution_generation": event.get("execution_generation"),
+                            "choice": "deny",
+                        },
+                    )
+                    yield Step("approval", event.get("command") or "")
                 elif kind == "run.completed":
                     usage = event.get("usage") or {}
                     yield Finished(True, event.get("output") or "", usage.get("total_tokens", 0))

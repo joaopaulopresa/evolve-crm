@@ -33,7 +33,12 @@ COPY factory/hermes/00-evolve-setup /etc/cont-init.d/00-evolve-setup
 # The brief for the builder. Optional at build time so the image builds from a checkout
 # that does not have it yet.
 COPY AGENTS.m[d] /opt/evolve/
-RUN chmod +x /usr/local/bin/evolve-* /etc/cont-init.d/00-evolve-setup
+# System-wide git settings: the agent's terminal does not always run with the same HOME.
+RUN chmod +x /usr/local/bin/evolve-* /etc/cont-init.d/00-evolve-setup \
+    && git config --system user.name "Hermes" \
+    && git config --system user.email "hermes@evolve.local" \
+    && git config --system --add safe.directory '*' \
+    && git config --system advice.detachedHead false
 
 # If the setup script fails, stop: never start the agent with its stock configuration, which
 # enables every tool.

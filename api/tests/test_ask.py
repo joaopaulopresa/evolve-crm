@@ -58,7 +58,9 @@ def test_answer_comes_with_the_sql_that_produced_it(client, alice, ask):
     assert body["queries"][0]["sql"] == "SELECT count(*) AS deals FROM deals"
     assert body["queries"][0]["rows"] == [[30]]
     assert crm_data.calls == [("begin", alice.id, "user"), ("end",)], "identity set, then cleared"
-    assert analyst.asked[0][0] == "How many deals do I have?"
+    prompt = analyst.asked[0][0]
+    assert prompt.endswith("How many deals do I have?")
+    assert "Asked by Alice, a sales user" in prompt
 
 
 def test_follow_up_questions_continue_the_conversation(client, alice, ask):
