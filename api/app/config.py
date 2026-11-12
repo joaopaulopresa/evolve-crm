@@ -10,6 +10,12 @@ class Settings(BaseSettings):
     environment: str = "development"
     release: str = "dev"
 
+    secret_key: str = "change-me-in-production-to-a-long-random-value"
+    token_ttl_hours: int = 12
+    # Created on startup when the users table is empty, so a fresh install can log in.
+    admin_email: str = "admin@evolve.test"
+    admin_password: str = "admin123"
+
 
 @lru_cache
 def get_settings() -> Settings:
