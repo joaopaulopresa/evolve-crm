@@ -1,0 +1,46 @@
+import { NavLink, Outlet } from "react-router-dom";
+
+import { useAuth } from "../auth";
+import { initials } from "../format";
+
+// Add a page: create it in src/pages, add its route in App.tsx and its link here.
+const LINKS = [
+  { to: "/", label: "Dashboard" },
+  { to: "/pipeline", label: "Pipeline" },
+  { to: "/contacts", label: "Contacts" },
+  { to: "/companies", label: "Companies" },
+];
+
+export function Layout() {
+  const { user, logout } = useAuth();
+  return (
+    <div className="shell">
+      <aside className="rail">
+        <div className="brand">
+          <span className="brand-mark" aria-hidden="true" />
+          Evolve CRM
+        </div>
+        <nav aria-label="Main">
+          {LINKS.map((link) => (
+            <NavLink key={link.to} to={link.to} end={link.to === "/"}>
+              {link.label}
+            </NavLink>
+          ))}
+        </nav>
+        <div className="rail-user">
+          <span className="avatar">{initials(user!.name)}</span>
+          <div>
+            <strong>{user!.name}</strong>
+            <span>{user!.role === "admin" ? "Admin" : "Sales"}</span>
+          </div>
+          <button type="button" className="link-button" onClick={logout}>
+            Sign out
+          </button>
+        </div>
+      </aside>
+      <main className="content">
+        <Outlet />
+      </main>
+    </div>
+  );
+}
